@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbc420r0ny2k6"
+path="res://.godot/imported/209140__lukesharples__wood-impact1.wav-1c236b17b0ad276a3d78ee9df8074b03.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Impacts/209140__lukesharples__wood-impact1.wav"
+dest_files=["res://.godot/imported/209140__lukesharples__wood-impact1.wav-1c236b17b0ad276a3d78ee9df8074b03.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkp4uo68tn8bv"
+path="res://.godot/imported/209194__lukesharples__shoes3.wav-a93389312dabec9ada6e4ddd08bd7eab.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Footsteps/209194__lukesharples__shoes3.wav"
+dest_files=["res://.godot/imported/209194__lukesharples__shoes3.wav-a93389312dabec9ada6e4ddd08bd7eab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

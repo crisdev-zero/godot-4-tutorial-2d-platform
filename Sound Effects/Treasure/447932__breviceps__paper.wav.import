@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blitpbc7otwo3"
+path="res://.godot/imported/447932__breviceps__paper.wav-77b8b12e19c4f10e410f0635c736a5de.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Treasure/447932__breviceps__paper.wav"
+dest_files=["res://.godot/imported/447932__breviceps__paper.wav-77b8b12e19c4f10e410f0635c736a5de.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

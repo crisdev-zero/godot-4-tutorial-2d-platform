@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cv8ddnf5t8w30"
+path="res://.godot/imported/209166__lukesharples__eee.wav-9f951367fbd857d7a7e063044670083b.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Voices/209166__lukesharples__eee.wav"
+dest_files=["res://.godot/imported/209166__lukesharples__eee.wav-9f951367fbd857d7a7e063044670083b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

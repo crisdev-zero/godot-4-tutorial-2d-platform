@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dm0j1dq0hx48x"
+path="res://.godot/imported/573648__the_frisbee_of_peace__wooden-chest-lid-close.wav-cf98add66f27524444f483fae332f3a1.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Treasure/573648__the_frisbee_of_peace__wooden-chest-lid-close.wav"
+dest_files=["res://.godot/imported/573648__the_frisbee_of_peace__wooden-chest-lid-close.wav-cf98add66f27524444f483fae332f3a1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

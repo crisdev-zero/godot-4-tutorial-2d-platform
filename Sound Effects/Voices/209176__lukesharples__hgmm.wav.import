@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn1ax34pxbfpo"
+path="res://.godot/imported/209176__lukesharples__hgmm.wav-34fc38caf4db79e6ed70241f2f71f66a.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Voices/209176__lukesharples__hgmm.wav"
+dest_files=["res://.godot/imported/209176__lukesharples__hgmm.wav-34fc38caf4db79e6ed70241f2f71f66a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

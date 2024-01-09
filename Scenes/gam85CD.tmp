@@ -1,0 +1,170 @@
+[gd_scene load_steps=37 format=3 uid="uid://ucffp7m3wpq0"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_h4drt"]
+[ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
+[ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
+[ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
+[ext_resource type="PackedScene" uid="uid://qjf0ydfrrv14" path="res://Scenes/Levels/level_2-1.tscn" id="7_g523d"]
+[ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="8_rkwll"]
+[ext_resource type="Script" path="res://Scripts/counter.gd" id="8_uhlnd"]
+[ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="10_ktpwq"]
+[ext_resource type="Texture2D" uid="uid://doq172bfg4wli" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/28.png" id="11_iijem"]
+[ext_resource type="Texture2D" uid="uid://deurn6lsoe8fg" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/36.png" id="12_cidp1"]
+[ext_resource type="Texture2D" uid="uid://dd1pmtl8tpglq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/29.png" id="12_lhk07"]
+[ext_resource type="Texture2D" uid="uid://8wuh8tc2pex3" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/30.png" id="13_oj1d6"]
+[ext_resource type="Texture2D" uid="uid://br0ad7aeyxmrn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/31.png" id="14_4pl3d"]
+[ext_resource type="Texture2D" uid="uid://b2rovcd36mgmo" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/32.png" id="15_jvb0b"]
+[ext_resource type="Texture2D" uid="uid://di4afmrvygsv1" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/33.png" id="16_dpad6"]
+[ext_resource type="Texture2D" uid="uid://c7fntxadhg538" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/34.png" id="17_242w5"]
+[ext_resource type="Texture2D" uid="uid://qs5i6welwtvr" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/35.png" id="18_rw62n"]
+[ext_resource type="Script" path="res://Scripts/Treasure/coin.gd" id="20_vktme"]
+[ext_resource type="Texture2D" uid="uid://bm23m3xh263ay" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/01.png" id="21_kvmtt"]
+[ext_resource type="Texture2D" uid="uid://cgf2p6n60lqou" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/02.png" id="22_23n4h"]
+[ext_resource type="Texture2D" uid="uid://dgdpv84i82sft" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/03.png" id="23_h7g0e"]
+[ext_resource type="Texture2D" uid="uid://cw4crtnwe2d5j" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/04.png" id="24_iffl1"]
+[ext_resource type="Texture2D" uid="uid://cmy6nqtuy2r2o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/05.png" id="25_w01bs"]
+[ext_resource type="Texture2D" uid="uid://d4nib5jf767mw" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/06.png" id="26_74npq"]
+[ext_resource type="Texture2D" uid="uid://dgd4ngscbdxr3" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/07.png" id="27_87q8d"]
+[ext_resource type="Texture2D" uid="uid://4ikspg3nx7h4" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/08.png" id="28_xojxx"]
+[ext_resource type="Texture2D" uid="uid://42decc6ogp40" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/01.png" id="29_qn2ff"]
+[ext_resource type="Texture2D" uid="uid://da6jsrrwjn0x5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/02.png" id="30_ua6s5"]
+[ext_resource type="Texture2D" uid="uid://5xyoggo4yrlj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/03.png" id="31_mi4dc"]
+[ext_resource type="Texture2D" uid="uid://bbb38clwntqs6" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/04.png" id="32_1ckwo"]
+[ext_resource type="Texture2D" uid="uid://dbj7a0p6065n8" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Skull Effect/05.png" id="33_vsq32"]
+[ext_resource type="AudioStream" uid="uid://4l0q6wjl1n1y" path="res://Sound Effects/Treasure/341168__newagesoup__hud-open01.wav" id="34_my7il"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhhob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_kvmtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_23n4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_h7g0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_iffl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_w01bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_74npq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_87q8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_xojxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_qn2ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ua6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_mi4dc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_1ckwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vsq32")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fbyd"]
+radius = 8.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uggmm")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(64, -32)
+zoom = Vector2(3, 3)
+script = ExtResource("2_h4drt")
+_subject = NodePath("../Roger")
+_offset = Vector2(2, -1)
+_look_ahead_trans_type = 1
+_look_ahead_ease_type = 2
+_look_ahead_duration = 2.0
+_floor_height_trans_type = 1
+_floor_height_ease_type = 1
+
+[node name="Background" parent="Camera2D" instance=ExtResource("3_73rdr")]
+
+[node name="Roger" parent="." instance=ExtResource("4_gvawx")]
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("5_k65n0")
+
+[node name="Level" parent="." instance=ExtResource("6_bf3oj")]
+
+[node name="Level 2-1" parent="." instance=ExtResource("7_g523d")]
+position = Vector2(32, 2048)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinCounter" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 92.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+script = ExtResource("8_uhlnd")
+_digits = Array[Texture2D]([ExtResource("12_cidp1"), ExtResource("10_ktpwq"), ExtResource("11_iijem"), ExtResource("12_lhk07"), ExtResource("13_oj1d6"), ExtResource("14_4pl3d"), ExtResource("15_jvb0b"), ExtResource("16_dpad6"), ExtResource("17_242w5"), ExtResource("18_rw62n")])
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/CoinCounter"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("8_rkwll")
+expand_mode = 3
+
+[node name="Tens" type="TextureRect" parent="CanvasLayer/CoinCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("12_cidp1")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Ones" type="TextureRect" parent="CanvasLayer/CoinCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("12_cidp1")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Skull" type="Area2D" parent="."]
+position = Vector2(256, -32)
+script = ExtResource("20_vktme")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Skull"]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_xhhob")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skull"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_6fbyd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Skull"]
+stream = ExtResource("34_my7il")
+
+[connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]

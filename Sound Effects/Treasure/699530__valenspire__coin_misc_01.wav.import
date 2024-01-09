@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl4tngwq5hqlv"
+path="res://.godot/imported/699530__valenspire__coin_misc_01.wav-fd65e05eed5bb15158c70d538837327e.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Treasure/699530__valenspire__coin_misc_01.wav"
+dest_files=["res://.godot/imported/699530__valenspire__coin_misc_01.wav-fd65e05eed5bb15158c70d538837327e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

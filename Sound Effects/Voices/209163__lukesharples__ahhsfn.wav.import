@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bya3c882e0kic"
+path="res://.godot/imported/209163__lukesharples__ahhsfn.wav-84fcd6b3743ea269c1a8d180098178ad.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Voices/209163__lukesharples__ahhsfn.wav"
+dest_files=["res://.godot/imported/209163__lukesharples__ahhsfn.wav-84fcd6b3743ea269c1a8d180098178ad.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

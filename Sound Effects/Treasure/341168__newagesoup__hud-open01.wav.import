@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf67ndgvj43"
+path="res://.godot/imported/341168__newagesoup__hud-open01.wav-2c3d02682fd2a1fc1d0fd677f7f8d5fd.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Treasure/341168__newagesoup__hud-open01.wav"
+dest_files=["res://.godot/imported/341168__newagesoup__hud-open01.wav-2c3d02682fd2a1fc1d0fd677f7f8d5fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

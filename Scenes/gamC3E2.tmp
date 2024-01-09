@@ -1,0 +1,106 @@
+[gd_scene load_steps=19 format=3 uid="uid://ucffp7m3wpq0"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_h4drt"]
+[ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
+[ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
+[ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
+[ext_resource type="PackedScene" uid="uid://qjf0ydfrrv14" path="res://Scenes/Levels/level_2-1.tscn" id="7_g523d"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="8_viuri"]
+[ext_resource type="Texture2D" uid="uid://dysq8rst3km62" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/01.png" id="9_eeyo7"]
+[ext_resource type="Texture2D" uid="uid://baljkgak7bdce" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/02.png" id="10_4w2ow"]
+[ext_resource type="Texture2D" uid="uid://dg8x0tsy7iwlp" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/03.png" id="11_ynlfl"]
+[ext_resource type="Texture2D" uid="uid://cfgvjryvyam6x" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/04.png" id="12_fvi3w"]
+[ext_resource type="Texture2D" uid="uid://bchbg76tgt52v" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/01.png" id="13_f8rc8"]
+[ext_resource type="Texture2D" uid="uid://cw8tetbxgd6wq" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/02.png" id="14_08ut0"]
+[ext_resource type="Texture2D" uid="uid://b1v4e2d6015lr" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/03.png" id="15_m8jxa"]
+[ext_resource type="AudioStream" uid="uid://b8568c8jn7j2l" path="res://Sound Effects/Treasure/699496__valenspire__coin_drop_01.wav" id="16_aacoc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xql7b"]
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ottor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_eeyo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4w2ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ynlfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fvi3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_f8rc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_08ut0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_m8jxa")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uggmm")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(64, -32)
+zoom = Vector2(3, 3)
+script = ExtResource("2_h4drt")
+_subject = NodePath("../Roger")
+_offset = Vector2(2, -1)
+_look_ahead_trans_type = 1
+_look_ahead_ease_type = 2
+_look_ahead_duration = 2.0
+_floor_height_trans_type = 1
+_floor_height_ease_type = 1
+
+[node name="Background" parent="Camera2D" instance=ExtResource("3_73rdr")]
+
+[node name="Roger" parent="." instance=ExtResource("4_gvawx")]
+collision_layer = 2
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("5_k65n0")
+
+[node name="Level" parent="." instance=ExtResource("6_bf3oj")]
+
+[node name="Level 2-1" parent="." instance=ExtResource("7_g523d")]
+position = Vector2(0, 1456)
+
+[node name="Coin" type="RigidBody2D" parent="."]
+position = Vector2(160, -64)
+collision_layer = 16777216
+collision_mask = 3
+lock_rotation = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("8_viuri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+shape = SubResource("CircleShape2D_xql7b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+sprite_frames = SubResource("SpriteFrames_ottor")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Coin"]
+stream = ExtResource("16_aacoc")
+
+[connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]

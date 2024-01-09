@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c58vtiqao8iur"]
+
+[ext_resource type="Texture2D" uid="uid://cbqpbh3hx54bg" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/01.png" id="1_nbfd7"]
+[ext_resource type="Texture2D" uid="uid://dw5ciuib4414n" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/02.png" id="2_dxrtk"]
+[ext_resource type="Texture2D" uid="uid://es1s5lwrcof0" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/03.png" id="3_tr2n3"]
+[ext_resource type="Texture2D" uid="uid://bnof45fvtj3ms" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Green Diamond/04.png" id="4_7m158"]
+[ext_resource type="Texture2D" uid="uid://bchbg76tgt52v" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/01.png" id="5_yvr2a"]
+[ext_resource type="Texture2D" uid="uid://cw8tetbxgd6wq" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/02.png" id="6_hyhfk"]
+[ext_resource type="Texture2D" uid="uid://b1v4e2d6015lr" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/03.png" id="7_g3plj"]
+[ext_resource type="AudioStream" uid="uid://b8568c8jn7j2l" path="res://Sound Effects/Treasure/699496__valenspire__coin_drop_01.wav" id="8_37ntm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df464"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nbfd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dxrtk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tr2n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7m158")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yvr2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hyhfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g3plj")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hi51s"]
+radius = 6.0
+
+[node name="Emerald" type="RigidBody2D"]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_df464")
+autoplay = "default"
+frame_progress = 0.763921
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hi51s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_37ntm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
