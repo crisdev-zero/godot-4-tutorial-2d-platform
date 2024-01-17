@@ -52,8 +52,11 @@ jump={
 
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Water"
+2d_physics/layer_3="Hazard"
 2d_physics/layer_9="Player"
+2d_physics/layer_10="Player Hurt"
 2d_physics/layer_17="Enemy"
+2d_physics/layer_18="Enemy Hurt"
 2d_physics/layer_25="Treasure"
 
 [physics]

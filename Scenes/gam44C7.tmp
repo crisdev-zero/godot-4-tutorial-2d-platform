@@ -1,0 +1,170 @@
+[gd_scene load_steps=28 format=3 uid="uid://ucffp7m3wpq0"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
+[ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
+[ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
+[ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
+[ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
+[ext_resource type="Script" path="res://Scripts/UI/counter.gd" id="8_fsu0y"]
+[ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="8_rkwll"]
+[ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="10_ktpwq"]
+[ext_resource type="Texture2D" uid="uid://doq172bfg4wli" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/28.png" id="11_iijem"]
+[ext_resource type="Texture2D" uid="uid://deurn6lsoe8fg" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/36.png" id="12_cidp1"]
+[ext_resource type="Texture2D" uid="uid://dd1pmtl8tpglq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/29.png" id="12_lhk07"]
+[ext_resource type="Texture2D" uid="uid://8wuh8tc2pex3" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/30.png" id="13_oj1d6"]
+[ext_resource type="Texture2D" uid="uid://br0ad7aeyxmrn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/31.png" id="14_4pl3d"]
+[ext_resource type="Texture2D" uid="uid://b2rovcd36mgmo" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/32.png" id="15_jvb0b"]
+[ext_resource type="Texture2D" uid="uid://di4afmrvygsv1" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/33.png" id="16_dpad6"]
+[ext_resource type="Texture2D" uid="uid://c7fntxadhg538" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/34.png" id="17_242w5"]
+[ext_resource type="Texture2D" uid="uid://qs5i6welwtvr" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/35.png" id="18_rw62n"]
+[ext_resource type="Texture2D" uid="uid://b8ke1xmtafxb1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/00.png" id="20_737ds"]
+[ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="21_l7vdb"]
+[ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="22_s3lkh"]
+[ext_resource type="Script" path="res://Scripts/UI/gauge.gd" id="23_2xyb7"]
+[ext_resource type="AudioStream" uid="uid://duxg4oeoxgnv3" path="res://Music/677858__el_boss__game-success-fanfare-short.wav" id="23_lg1sm"]
+[ext_resource type="Texture2D" uid="uid://64t82a8pycxo" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/1.png" id="24_1oq5j"]
+[ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="25_wrqxe"]
+[ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="26_qpp4f"]
+[ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="27_mk4mw"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uggmm")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(64, -32)
+zoom = Vector2(3, 3)
+script = ExtResource("2_h4drt")
+_subject = NodePath("../Roger")
+_offset = Vector2(2, -1)
+_look_ahead_trans_type = 1
+_look_ahead_ease_type = 2
+_look_ahead_duration = 2.0
+_floor_height_trans_type = 1
+_floor_height_ease_type = 1
+
+[node name="Background" parent="Camera2D" instance=ExtResource("3_73rdr")]
+
+[node name="Roger" parent="." instance=ExtResource("4_gvawx")]
+
+[node name="Player" type="Node" parent="Roger"]
+script = ExtResource("5_k65n0")
+
+[node name="Level" parent="." instance=ExtResource("6_bf3oj")]
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="CoinCounter" type="HBoxContainer" parent="UserInterface"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 72.0
+scale = Vector2(2, 2)
+script = ExtResource("8_fsu0y")
+_digits = Array[Texture2D]([ExtResource("12_cidp1"), ExtResource("10_ktpwq"), ExtResource("11_iijem"), ExtResource("12_lhk07"), ExtResource("13_oj1d6"), ExtResource("14_4pl3d"), ExtResource("15_jvb0b"), ExtResource("16_dpad6"), ExtResource("17_242w5"), ExtResource("18_rw62n")])
+
+[node name="Icon" type="TextureRect" parent="UserInterface/CoinCounter"]
+layout_mode = 2
+texture = ExtResource("8_rkwll")
+expand_mode = 3
+
+[node name="Tens" type="TextureRect" parent="UserInterface/CoinCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("12_cidp1")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Ones" type="TextureRect" parent="UserInterface/CoinCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("12_cidp1")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="LivesCounter" type="HBoxContainer" parent="UserInterface"]
+layout_direction = 3
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 164.0
+offset_bottom = 72.0
+scale = Vector2(2, 2)
+script = ExtResource("8_fsu0y")
+_digits = Array[Texture2D]([ExtResource("12_cidp1"), ExtResource("10_ktpwq"), ExtResource("11_iijem"), ExtResource("12_lhk07"), ExtResource("13_oj1d6"), ExtResource("14_4pl3d"), ExtResource("15_jvb0b"), ExtResource("16_dpad6"), ExtResource("17_242w5"), ExtResource("18_rw62n")])
+
+[node name="Icon" type="TextureRect" parent="UserInterface/LivesCounter"]
+layout_mode = 2
+texture = ExtResource("20_737ds")
+expand_mode = 3
+
+[node name="Ones" type="TextureRect" parent="UserInterface/LivesCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("12_cidp1")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Tens" type="TextureRect" parent="UserInterface/LivesCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("12_cidp1")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="KeyIcon" type="TextureRect" parent="UserInterface"]
+visible = false
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 72.0
+offset_bottom = 136.0
+scale = Vector2(2, 2)
+texture = ExtResource("21_l7vdb")
+
+[node name="HealthGauge" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -40.0
+offset_right = 72.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(0, 40)
+script = ExtResource("23_2xyb7")
+
+[node name="Background" type="HBoxContainer" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("24_1oq5j")
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("25_wrqxe")
+
+[node name="TextureRect3" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("26_qpp4f")
+
+[node name="Fill" type="TextureRect" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 92.0
+offset_bottom = 20.0
+texture = ExtResource("27_mk4mw")
+expand_mode = 1
+
+[node name="Fade" parent="UserInterface" instance=ExtResource("22_s3lkh")]
+
+[node name="Fanfare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_lg1sm")
+
+[connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="health_changed" from="Roger" to="UserInterface/HealthGauge" method="set_value"]
+[connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]

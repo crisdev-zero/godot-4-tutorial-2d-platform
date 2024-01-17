@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://hsop5hneidl8"]
+[gd_scene load_steps=100 format=3 uid="uid://hsop5hneidl8"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_oi187"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_d5qgr"]
@@ -28,6 +28,130 @@
 [ext_resource type="Texture2D" uid="uid://bl58ny1ksq1kl" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="25_t2682"]
 [ext_resource type="Texture2D" uid="uid://baqv70fiwyaei" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="26_4ckgw"]
 [ext_resource type="Texture2D" uid="uid://csux4cw5vb8gw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="27_00fuq"]
+[ext_resource type="Texture2D" uid="uid://c8f2vf8odj7by" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 01.png" id="29_be0sj"]
+[ext_resource type="Texture2D" uid="uid://dtetccjh5gbkv" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 02.png" id="30_xv0k7"]
+[ext_resource type="Texture2D" uid="uid://c1k3lk6j1mrs0" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 03.png" id="31_yi01y"]
+[ext_resource type="Texture2D" uid="uid://k4tjtsaylc0u" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 04.png" id="32_rk11d"]
+[ext_resource type="Texture2D" uid="uid://0qnave4fw41c" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 01.png" id="33_shs37"]
+[ext_resource type="Texture2D" uid="uid://c0dsg4ao4rpqc" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 02.png" id="34_r5pin"]
+[ext_resource type="Texture2D" uid="uid://dkj8oyaww6jr7" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 03.png" id="35_00m5h"]
+[ext_resource type="Texture2D" uid="uid://drwcf4e0ajfrs" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 04.png" id="36_rx0tt"]
+[ext_resource type="Texture2D" uid="uid://ck2umexxtvl54" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/10-Dead Ground/Dead Ground 01.png" id="37_7ekp8"]
+[ext_resource type="Texture2D" uid="uid://b7krd7pvha2k" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/10-Dead Ground/Dead Ground 02.png" id="38_tpcs2"]
+[ext_resource type="Texture2D" uid="uid://bef6rdhhg2d2p" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/10-Dead Ground/Dead Ground 03.png" id="39_atcwc"]
+[ext_resource type="Texture2D" uid="uid://g27ipqtiucsi" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/10-Dead Ground/Dead Ground 04.png" id="40_0li8f"]
+[ext_resource type="Texture2D" uid="uid://dwx2yjopvl2bf" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 01.png" id="41_tnivn"]
+[ext_resource type="Texture2D" uid="uid://cisl45r6ulwm5" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 02.png" id="42_vdl66"]
+[ext_resource type="Texture2D" uid="uid://cx5vb6bu3yofl" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/06-Anticipation/Anticipation 03.png" id="43_7bp6k"]
+[ext_resource type="Texture2D" uid="uid://cur3k8fn88gje" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="44_4mgmy"]
+[ext_resource type="Texture2D" uid="uid://bykvb2b4bc5xd" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="45_cmjy3"]
+[ext_resource type="Texture2D" uid="uid://bdkic7yiqbc0c" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="46_hgvat"]
+[ext_resource type="Texture2D" uid="uid://cixjiiwnsnag4" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="47_yv7mu"]
+[ext_resource type="Texture2D" uid="uid://c4pun4olopm2r" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 01.png" id="48_ra7ab"]
+[ext_resource type="Texture2D" uid="uid://0e6uuwcfbm28" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 02.png" id="49_asp7r"]
+[ext_resource type="Texture2D" uid="uid://b5wd40hn2d2k2" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/11-Attack Effect/Attack Effect 03.png" id="50_2ueto"]
+
+[sub_resource type="Animation" id="Animation_dfu0f"]
+resource_name = "anticipation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("41_tnivn"), ExtResource("42_vdl66"), ExtResource("43_7bp6k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:_wants_to_attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_utyim"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_4mgmy"), ExtResource("45_cmjy3"), ExtResource("46_hgvat"), ExtResource("47_yv7mu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HitBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HitBox/AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ab1u7"]
+resource_name = "dead_ground"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("37_7ekp8"), ExtResource("38_tpcs2"), ExtResource("39_atcwc"), ExtResource("40_0li8f")]
+}
+
+[sub_resource type="Animation" id="Animation_quddp"]
+resource_name = "dead_hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("33_shs37"), ExtResource("34_r5pin"), ExtResource("35_00m5h"), ExtResource("36_rx0tt")]
+}
 
 [sub_resource type="Animation" id="Animation_asfii"]
 resource_name = "fall"
@@ -89,6 +213,34 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_kjhev"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("29_be0sj"), ExtResource("30_xv0k7"), ExtResource("31_yi01y"), ExtResource("32_rk11d")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:_is_hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ubroc"]
 resource_name = "idle"
@@ -186,8 +338,13 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
+"anticipation": SubResource("Animation_dfu0f"),
+"attack": SubResource("Animation_utyim"),
+"dead_ground": SubResource("Animation_ab1u7"),
+"dead_hit": SubResource("Animation_quddp"),
 "fall": SubResource("Animation_asfii"),
 "ground": SubResource("Animation_w7ei2"),
+"hit": SubResource("Animation_kjhev"),
 "idle": SubResource("Animation_ubroc"),
 "jump": SubResource("Animation_u2lx2"),
 "run": SubResource("Animation_7lm3y")
@@ -263,31 +420,120 @@ states/jump/position = Vector2(360, -35)
 transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_mkbce"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_ixaxq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_tfxwj"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_j484a"), "ground", "Locomotion", SubResource("AnimationNodeStateMachineTransition_2c2y3"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_4vwxt")]
 graph_offset = Vector2(-228, -147)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mm7y0"]
+animation = &"anticipation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_askph"]
+animation = &"attack"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_syb1e"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8joru"]
+advance_mode = 2
+advance_expression = "_wants_to_attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_coeny"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vll3e"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_47huy"]
 states/Movement/node = SubResource("AnimationNodeStateMachine_4wbcq")
 states/Movement/position = Vector2(551, 100)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e")]
-graph_offset = Vector2(-232, -116)
+states/anticipation/node = SubResource("AnimationNodeAnimation_mm7y0")
+states/anticipation/position = Vector2(423, -66)
+states/attack/node = SubResource("AnimationNodeAnimation_askph")
+states/attack/position = Vector2(685, -66)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "anticipation", SubResource("AnimationNodeStateMachineTransition_8joru"), "anticipation", "attack", SubResource("AnimationNodeStateMachineTransition_coeny"), "attack", "Movement", SubResource("AnimationNodeStateMachineTransition_vll3e")]
+graph_offset = Vector2(-258, -214)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6yftx"]
+animation = &"dead_ground"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_msr0x"]
+animation = &"dead_hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_51bug"]
+animation = &"hit"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7r17"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xfd4v"]
+advance_mode = 2
+advance_expression = "_is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mniq6"]
+advance_mode = 2
+advance_expression = "not _is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x4atu"]
+advance_mode = 2
+advance_expression = "_is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh0x5"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krvo2"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ns13"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1anhm"]
 states/Attack/node = SubResource("AnimationNodeStateMachine_47huy")
 states/Attack/position = Vector2(542, 100)
-transitions = ["Start", "Attack", SubResource("AnimationNodeStateMachineTransition_a7r17")]
-graph_offset = Vector2(-202, -51)
+states/dead_ground/node = SubResource("AnimationNodeAnimation_6yftx")
+states/dead_ground/position = Vector2(766, 245)
+states/dead_hit/node = SubResource("AnimationNodeAnimation_msr0x")
+states/dead_hit/position = Vector2(542, 245)
+states/hit/node = SubResource("AnimationNodeAnimation_51bug")
+states/hit/position = Vector2(542, -42)
+transitions = ["Start", "Attack", SubResource("AnimationNodeStateMachineTransition_a7r17"), "Attack", "hit", SubResource("AnimationNodeStateMachineTransition_xfd4v"), "hit", "Attack", SubResource("AnimationNodeStateMachineTransition_mniq6"), "Attack", "dead_hit", SubResource("AnimationNodeStateMachineTransition_x4atu"), "dead_hit", "Attack", SubResource("AnimationNodeStateMachineTransition_wh0x5"), "dead_hit", "dead_ground", SubResource("AnimationNodeStateMachineTransition_krvo2"), "dead_ground", "Attack", SubResource("AnimationNodeStateMachineTransition_4ns13")]
+graph_offset = Vector2(-229, -140)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwb76"]
 radius = 9.0
 height = 24.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnht6"]
+radius = 9.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtotc"]
+radius = 7.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2840"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_ra7ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_asp7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_2ueto")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Crabby" type="CharacterBody2D"]
 collision_layer = 65536
-collision_mask = 65793
+collision_mask = 65799
 script = ExtResource("1_oi187")
 _jump_height = 1.5
 _air_control = 0.25
@@ -321,3 +567,39 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qwb76")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qnht6")
+debug_color = Color(0, 0.639216, 0.356863, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 262144
+collision_mask = 512
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-25, -8)
+shape = SubResource("CircleShape2D_jtotc")
+debug_color = Color(0.996078, 0, 0.184314, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(29, -8)
+shape = SubResource("CircleShape2D_jtotc")
+debug_color = Color(0.996078, 0, 0.184314, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HitBox"]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_m2840")
+frame = 3
+frame_progress = 1.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

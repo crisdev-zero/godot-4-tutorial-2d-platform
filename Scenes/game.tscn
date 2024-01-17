@@ -1,12 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=63 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
-[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_h4drt"]
+[ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
+[ext_resource type="AudioStream" uid="uid://oaxs1wlhtcvx" path="res://Music/400664__dominictreis__scene-ending-music.mp3" id="3_evook"]
 [ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
+[ext_resource type="AudioStream" uid="uid://c7skc3hfh3rl5" path="res://Music/488963__dominictreis__sad-or-scary-scene-change-music.mp3" id="4_nachf"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
 [ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
-[ext_resource type="PackedScene" uid="uid://qjf0ydfrrv14" path="res://Scenes/Levels/level_2-1.tscn" id="7_g523d"]
 [ext_resource type="Script" path="res://Scripts/UI/counter.gd" id="8_fsu0y"]
 [ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="8_rkwll"]
 [ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="10_ktpwq"]
@@ -22,10 +23,107 @@
 [ext_resource type="Texture2D" uid="uid://b8ke1xmtafxb1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/00.png" id="20_737ds"]
 [ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="21_l7vdb"]
 [ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="22_s3lkh"]
+[ext_resource type="Script" path="res://Scripts/UI/gauge.gd" id="23_2xyb7"]
 [ext_resource type="AudioStream" uid="uid://duxg4oeoxgnv3" path="res://Music/677858__el_boss__game-success-fanfare-short.wav" id="23_lg1sm"]
+[ext_resource type="Texture2D" uid="uid://64t82a8pycxo" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/1.png" id="24_1oq5j"]
+[ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="25_wrqxe"]
+[ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="26_qpp4f"]
+[ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="27_mk4mw"]
+[ext_resource type="Texture2D" uid="uid://ba5ngc5r6k63x" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/1.png" id="29_4k2b0"]
+[ext_resource type="Texture2D" uid="uid://d1ejogte22vai" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Yellow Button/1.png" id="30_37pc7"]
+[ext_resource type="Texture2D" uid="uid://bdtc5dftomk2c" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/9.png" id="31_fw5mm"]
+[ext_resource type="Texture2D" uid="uid://r3qxjfxskict" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="32_xkqrq"]
+[ext_resource type="Texture2D" uid="uid://dkit36j3e4fgq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/3.png" id="33_kcpay"]
+[ext_resource type="Texture2D" uid="uid://bec7hei3pqdqt" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/13.png" id="34_bhpkg"]
+[ext_resource type="Texture2D" uid="uid://pf4cpnck86hx" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/7.png" id="35_5n57j"]
+[ext_resource type="Texture2D" uid="uid://c3j88b3f4wqcj" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/2.png" id="36_wsi48"]
+[ext_resource type="Texture2D" uid="uid://cgkhqjctpjop3" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/7.png" id="37_10apj"]
+[ext_resource type="Texture2D" uid="uid://b6xlok0pbf0nk" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/1.png" id="38_q1l6r"]
+[ext_resource type="Texture2D" uid="uid://ctishsqlwonm2" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/13.png" id="39_ol1fk"]
+[ext_resource type="Texture2D" uid="uid://b4w3m6jb2lecm" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/5.png" id="40_2ely4"]
+[ext_resource type="Texture2D" uid="uid://b1onxodmyw6m7" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/15.png" id="41_nan20"]
+[ext_resource type="Texture2D" uid="uid://ng6afb4pdfpc" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/22.png" id="42_53lmp"]
+[ext_resource type="Texture2D" uid="uid://c0t6ox44t36ce" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/18.png" id="43_6hvxc"]
+[ext_resource type="Texture2D" uid="uid://bv11mcn24vav" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="44_q3c3h"]
+[ext_resource type="Texture2D" uid="uid://buuv5kxquybbu" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/20.png" id="45_ly4gr"]
+[ext_resource type="Texture2D" uid="uid://cb2tqpnytwqsr" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/25.png" id="46_lxlb3"]
+[ext_resource type="Texture2D" uid="uid://cciu8u0xs2vio" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="47_f1g08"]
+[ext_resource type="Texture2D" uid="uid://peeamw60ka1n" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/12.png" id="48_7vkqg"]
+[ext_resource type="Texture2D" uid="uid://c364y5gqmispn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/19.png" id="49_fbhuw"]
+[ext_resource type="Texture2D" uid="uid://c04v4rtet5377" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/3.png" id="50_h1vrw"]
+[ext_resource type="Texture2D" uid="uid://ybtw5vwyfk8b" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="51_7jfva"]
+[ext_resource type="Texture2D" uid="uid://bhv5ij6itm6gg" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/24.png" id="52_lq7po"]
+[ext_resource type="Texture2D" uid="uid://bls03yjmgkpu2" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/9.png" id="53_xcuay"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc6g8"]
+texture = ExtResource("29_4k2b0")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc8ie"]
+texture = ExtResource("30_37pc7")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gis1"]
+texture = ExtResource("30_37pc7")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyu8b"]
+texture = ExtResource("29_4k2b0")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8s5wl"]
+texture = ExtResource("30_37pc7")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4d5c4"]
+texture = ExtResource("31_fw5mm")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qokrj"]
+texture = ExtResource("32_xkqrq")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_trhg7"]
+Button/styles/disabled = SubResource("StyleBoxTexture_kc6g8")
+Button/styles/focus = SubResource("StyleBoxTexture_dc8ie")
+Button/styles/hover = SubResource("StyleBoxTexture_3gis1")
+Button/styles/normal = SubResource("StyleBoxTexture_dyu8b")
+Button/styles/pressed = SubResource("StyleBoxTexture_8s5wl")
+Panel/styles/panel = SubResource("StyleBoxTexture_4d5c4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_qokrj")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uggmm")
+_victory = ExtResource("23_lg1sm")
+_death = ExtResource("3_evook")
+_gameover = ExtResource("4_nachf")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(64, -32)
@@ -47,9 +145,6 @@ _floor_height_ease_type = 1
 script = ExtResource("5_k65n0")
 
 [node name="Level" parent="." instance=ExtResource("6_bf3oj")]
-
-[node name="Level 2-1" parent="." instance=ExtResource("7_g523d")]
-position = Vector2(32, 2048)
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
@@ -119,10 +214,309 @@ offset_bottom = 136.0
 scale = Vector2(2, 2)
 texture = ExtResource("21_l7vdb")
 
+[node name="HealthGauge" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -40.0
+offset_right = 72.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(0, 40)
+script = ExtResource("23_2xyb7")
+
+[node name="Background" type="HBoxContainer" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("24_1oq5j")
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("25_wrqxe")
+
+[node name="TextureRect3" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("26_qpp4f")
+
+[node name="Fill" type="TextureRect" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 92.0
+offset_bottom = 20.0
+texture = ExtResource("27_mk4mw")
+expand_mode = 1
+
+[node name="GameOverMenu" type="Control" parent="UserInterface"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme = SubResource("Theme_trhg7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -64.0
+offset_right = 49.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Banner" type="Control" parent="UserInterface/GameOverMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -20.0
+offset_right = -60.0
+offset_bottom = 20.0
+texture = ExtResource("33_kcpay")
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+texture = ExtResource("34_bhpkg")
+
+[node name="TextureRect3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("35_5n57j")
+
+[node name="TextureRect4" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -26.0
+offset_right = 60.0
+offset_bottom = 14.0
+texture = ExtResource("34_bhpkg")
+
+[node name="TextureRect5" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = -26.0
+offset_right = 100.0
+offset_bottom = 14.0
+texture = ExtResource("36_wsi48")
+
+[node name="GAME" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 2
+offset_left = -50.0
+offset_top = -4.0
+offset_right = -24.0
+offset_bottom = 2.0
+theme_override_constants/separation = 2
+
+[node name="G" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
+layout_mode = 2
+texture = ExtResource("37_10apj")
+
+[node name="A" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
+layout_mode = 2
+texture = ExtResource("38_q1l6r")
+
+[node name="M" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
+layout_mode = 2
+texture = ExtResource("39_ol1fk")
+
+[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="OVER" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
+layout_mode = 2
+offset_left = 25.0
+offset_top = -10.0
+offset_right = 51.0
+offset_bottom = -4.0
+theme_override_constants/separation = 2
+
+[node name="O" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
+layout_mode = 2
+texture = ExtResource("41_nan20")
+
+[node name="V" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
+layout_mode = 2
+texture = ExtResource("42_53lmp")
+
+[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="R" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="Wood" type="PanelContainer" parent="UserInterface/GameOverMenu/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Paper" type="Panel" parent="UserInterface/GameOverMenu/VBoxContainer/Wood"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Retry Button" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Retry" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button"]
+layout_mode = 2
+icon = ExtResource("44_q3c3h")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="R" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Label"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
+[node name="R2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Label"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="Y" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Label"]
+layout_mode = 2
+texture = ExtResource("46_lxlb3")
+
+[node name="Level Select Button" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Level Select" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button"]
+layout_mode = 2
+icon = ExtResource("47_f1g08")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="L" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="V" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("42_53lmp")
+
+[node name="E2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="L2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="space" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+
+[node name="S" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("49_fbhuw")
+
+[node name="E3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="L3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="E4" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="C" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("50_h1vrw")
+
+[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
+[node name="Exit Button" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Exit" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button"]
+layout_mode = 2
+icon = ExtResource("51_7jfva")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="X" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("52_lq7po")
+
+[node name="I" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("53_xcuay")
+
+[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
 [node name="Fade" parent="UserInterface" instance=ExtResource("22_s3lkh")]
 
 [node name="Fanfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_lg1sm")
 
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="died" from="Roger" to="." method="_on_player_died"]
+[connection signal="health_changed" from="Roger" to="UserInterface/HealthGauge" method="set_value"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
+[connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Level Select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Exit" to="." method="_on_exit_pressed"]

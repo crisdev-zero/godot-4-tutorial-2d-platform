@@ -29,10 +29,24 @@ var _is_in_water : bool
 var _is_below_surface : bool
 
 @export_category("Combat")
+@export_range(1, 100) var _max_health : int = 5
+@export_range(0, 5) var _invincible_duration : float = 0
+@export_range(0, 5) var _attack_damage : int = 1
 @export var _is_hit : bool
+@export var _is_dead : bool
+@export var _wants_to_attack : bool
+@onready var _current_health : int = _max_health
+@onready var _hurt_box : Area2D = $HurtBox
+@onready var _hit_box : Area2D = $HitBox
+var _invincible_time : Timer
+
+var _collision_layer : int = collision_layer
+var _collision_mask : int = collision_mask
 
 signal changed_direction(is_facing_left : bool)
 signal landed(floor_height : float)
+signal health_changed(percentage : float)
+signal died()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -46,17 +60,35 @@ func _ready():
 	_jump_height *= Global.ppt
 	_jump_velocity = sqrt(_jump_height * gravity * 2) * -1
 	face_left() if _is_facing_left else face_right()
+	if _invincible_duration != 0:
+		_invincible_time = $HurtBox/Invincible
+	_hit_box.monitoring = false
 
 #region Public Methods
 
+func attack():
+	_wants_to_attack = true
+
 func take_damage(amount : int, direction : Vector2):
-	print(direction)
-	_is_hit = true
+	_current_health = max(_current_health - amount, 0)
+	health_changed.emit(float(_current_health) / _max_health)
 	velocity = direction * Global.ppt * 5
-	#$Area2D.set_deferred("monitorable", false)
-	$Invincible.start()
-	await $Invincible.timeout
-	#$Area2D.monitorable = true
+	if _current_health == 0:
+		_die()
+	else:
+		_is_hit = true
+		if _invincible_duration != 0:
+			become_invincible(_invincible_duration)
+
+func recover(amount : int):
+	_current_health = min(_current_health + amount, _max_health)
+	health_changed.emit(float(_current_health) / _max_health)
+
+func become_invincible(duration : float):
+	_hurt_box.set_deferred("monitorable", false)
+	_invincible_time.start(duration)
+	await _invincible_time.timeout
+	_hurt_box.monitorable = true
 
 func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
 	_is_bound = true
@@ -68,19 +100,29 @@ func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
 	_min.y += sprite_size.y
 
 func face_left():
+	if _is_dead:
+		return
 	_is_facing_left = true
 	_sprite.flip_h = not _sprites_face_left
+	_hit_box.scale.x = 1 if _sprites_face_left else -1
 	changed_direction.emit(_is_facing_left)
 
 func face_right():
+	if _is_dead:
+		return
 	_is_facing_left = false
 	_sprite.flip_h =  _sprites_face_left
+	_hit_box.scale.x = -1 if _sprites_face_left else 1
 	changed_direction.emit(_is_facing_left)
 
 func run(direction : float):
+	if _is_dead:
+		return
 	_direction = direction
 
 func jump():
+	if _is_dead:
+		return
 	if _is_in_water:
 		if _is_below_surface:
 			velocity.y = _jump_velocity * _drag
@@ -92,6 +134,8 @@ func jump():
 		_spawn_dust(_jump_dust)
 
 func stop_jump():
+	if _is_dead:
+		return
 	if velocity.y < 0 && not _is_in_water:
 		velocity.y = 0
 
@@ -108,6 +152,15 @@ func exit_water():
 
 func dive():
 	_is_below_surface = true
+
+func revive():
+	_is_dead = false
+	_current_health = _max_health
+	_hurt_box.monitorable = true
+	collision_layer = _collision_layer
+	collision_mask = _collision_mask
+	landed.emit(global_position.y)
+	health_changed.emit(float(_current_health) / _max_health)
 
 #endregion
 
@@ -166,3 +219,14 @@ func _spawn_dust(dust : PackedScene):
 	_dust.position = position
 	_dust.flip_h = _sprite.flip_h
 	get_parent().add_child(_dust)
+
+func _die():
+	_is_dead = true
+	died.emit()
+	_hurt_box.set_deferred("monitorable", false)
+	collision_layer = 0
+	collision_mask = 1
+	_direction = 0
+
+func _on_hit_box_area_entered(area : Area2D):
+	area.get_parent().take_damage(_attack_damage, (area.global_position - global_position).normalized())

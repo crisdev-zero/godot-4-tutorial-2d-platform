@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dncegcgo3kycq"
+path="res://.godot/imported/209076__lukesharples__blade-slice7.wav-5559c0d96e9deef08b3537ebc9710548.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Sword/Slices/209076__lukesharples__blade-slice7.wav"
+dest_files=["res://.godot/imported/209076__lukesharples__blade-slice7.wav-5559c0d96e9deef08b3537ebc9710548.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

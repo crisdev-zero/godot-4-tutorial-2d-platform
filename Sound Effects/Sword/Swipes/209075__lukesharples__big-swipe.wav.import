@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b88f2d3qgvnsf"
+path="res://.godot/imported/209075__lukesharples__big-swipe.wav-decbab962884a8e6c49120be52446faa.sample"
+
+[deps]
+
+source_file="res://Sound Effects/Sword/Swipes/209075__lukesharples__big-swipe.wav"
+dest_files=["res://.godot/imported/209075__lukesharples__big-swipe.wav-decbab962884a8e6c49120be52446faa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

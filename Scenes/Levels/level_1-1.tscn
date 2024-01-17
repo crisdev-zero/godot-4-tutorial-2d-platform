@@ -1,10 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=40 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_u3n8c"]
+[ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
 [ext_resource type="Texture2D" uid="uid://diyhn241mjyly" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_affg1"]
 [ext_resource type="Texture2D" uid="uid://cdjs7hvh0372" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="3_7vbkn"]
-[ext_resource type="Script" path="res://Scripts/water.gd" id="3_sb24s"]
+[ext_resource type="Script" path="res://Scripts/Environment/water.gd" id="3_sb24s"]
 [ext_resource type="Texture2D" uid="uid://mnbiqen63rt3" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_1tkbr"]
 [ext_resource type="PackedScene" uid="uid://dhsfj4exww2f5" path="res://Scenes/Dust/splash.tscn" id="4_hvc0i"]
 [ext_resource type="Texture2D" uid="uid://b4t4yqdih0sib" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="5_6v1g3"]
@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://0cd7a5pn3q21" path="res://Scenes/Treasure/chest.tscn" id="26_3184q"]
 [ext_resource type="PackedScene" uid="uid://bkx657bilshhb" path="res://Scenes/Treasure/key.tscn" id="27_7ggwo"]
 [ext_resource type="PackedScene" uid="uid://c6wgb4mmy83po" path="res://Scenes/Treasure/small_map_4.tscn" id="29_agmmn"]
+[ext_resource type="PackedScene" uid="uid://b8favqpa5ioca" path="res://Scenes/Decorations/spikes.tscn" id="29_kqtw7"]
+[ext_resource type="PackedScene" uid="uid://nvlg3saoqr4g" path="res://Scenes/Treasure/red_potion.tscn" id="30_lny7o"]
+[ext_resource type="PackedScene" uid="uid://ckba5qy6ibk3x" path="res://Scenes/checkpoint.tscn" id="30_yvwi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la0v7"]
 size = Vector2(3392, 640)
@@ -1961,22 +1964,43 @@ position = Vector2(2400, -320)
 [node name="Back Palm Tree Regular3" parent="Decorations" instance=ExtResource("19_re7cq")]
 position = Vector2(2560, -320)
 
+[node name="Spikes" parent="Decorations" instance=ExtResource("29_kqtw7")]
+position = Vector2(1264, 0)
+
+[node name="Spikes2" parent="Decorations" instance=ExtResource("29_kqtw7")]
+position = Vector2(1232, 0)
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Crabby" parent="Enemies" instance=ExtResource("12_fnbb8")]
-position = Vector2(1632, 0)
+position = Vector2(256, 0)
+_is_facing_left = false
+
+[node name="Timer" type="Timer" parent="Enemies/Crabby"]
+wait_time = 2.0
+autostart = true
 
 [node name="Pink Star" parent="Enemies" instance=ExtResource("13_0kvrt")]
-position = Vector2(2720, -224)
+position = Vector2(160, -32)
+_is_facing_left = false
+
+[node name="Timer" type="Timer" parent="Enemies/Pink Star"]
+wait_time = 2.0
+autostart = true
 
 [node name="Fierce Tooth" parent="Enemies" instance=ExtResource("14_0njq5")]
-position = Vector2(1088, -128)
+position = Vector2(96, 0)
 _jump_height = 1.5
+_is_facing_left = false
+
+[node name="Timer" type="Timer" parent="Enemies/Fierce Tooth"]
+wait_time = 2.0
+autostart = true
 
 [node name="Treasure" type="Node2D" parent="."]
 
 [node name="Silver Coin" parent="Treasure" instance=ExtResource("24_rvnrt")]
-position = Vector2(160, -64)
+position = Vector2(448, -64)
 
 [node name="Silver Coin2" parent="Treasure" instance=ExtResource("24_rvnrt")]
 position = Vector2(528, -128)
@@ -2010,9 +2034,6 @@ position = Vector2(1376, -32)
 
 [node name="Silver Coin12" parent="Treasure" instance=ExtResource("24_rvnrt")]
 position = Vector2(1376, 0)
-
-[node name="Silver Coin13" parent="Treasure" instance=ExtResource("24_rvnrt")]
-position = Vector2(1376, -192)
 
 [node name="Silver Coin14" parent="Treasure" instance=ExtResource("24_rvnrt")]
 position = Vector2(1808, -128)
@@ -2077,8 +2098,22 @@ _total_value = 19
 [node name="Key" parent="Treasure" instance=ExtResource("27_7ggwo")]
 position = Vector2(2224, -192)
 
-[node name="Small Map 4" parent="Treasure" instance=ExtResource("29_agmmn")]
+[node name="Red Potion" parent="Treasure" instance=ExtResource("30_lny7o")]
+position = Vector2(0, -64)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Start" type="Node2D" parent="Checkpoints"]
+position = Vector2(64, 0)
+
+[node name="Middle" parent="Checkpoints" instance=ExtResource("30_yvwi4")]
+position = Vector2(1376, -160)
+
+[node name="End" parent="Checkpoints" instance=ExtResource("29_agmmn")]
 position = Vector2(2944, -64)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
+[connection signal="timeout" from="Enemies/Crabby/Timer" to="Enemies/Crabby" method="attack"]
+[connection signal="timeout" from="Enemies/Pink Star/Timer" to="Enemies/Pink Star" method="attack"]
+[connection signal="timeout" from="Enemies/Fierce Tooth/Timer" to="Enemies/Fierce Tooth" method="attack"]
