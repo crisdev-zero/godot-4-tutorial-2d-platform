@@ -1,7 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://hsop5hneidl8"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_oi187"]
-[ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_d5qgr"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/enemy.gd" id="1_eljy2"]
 [ext_resource type="Texture2D" uid="uid://b7keixcw7ppvu" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/04-Fall/Fall 01.png" id="4_khy33"]
 [ext_resource type="Texture2D" uid="uid://b1ya38mkjd3tc" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 01.png" id="5_ds7dw"]
 [ext_resource type="Texture2D" uid="uid://r8b1krclylmg" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 02.png" id="6_bx8nw"]
@@ -24,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dg55dta7sxucv" path="res://Scenes/Dust/run_dust.tscn" id="23_vgica"]
 [ext_resource type="Texture2D" uid="uid://c3nbpqwvs51xl" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 02.png" id="23_wg4uk"]
 [ext_resource type="Texture2D" uid="uid://bcdk5th0u4feq" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 03.png" id="24_odovk"]
-[ext_resource type="AudioStream" uid="uid://utmb8wr1gyod" path="res://Sound Effects/Footsteps/209196__lukesharples__shoes1.wav" id="24_wk0l3"]
 [ext_resource type="Texture2D" uid="uid://bl58ny1ksq1kl" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="25_t2682"]
 [ext_resource type="Texture2D" uid="uid://baqv70fiwyaei" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="26_4ckgw"]
 [ext_resource type="Texture2D" uid="uid://csux4cw5vb8gw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="27_00fuq"]
@@ -119,6 +117,18 @@ tracks/2/keys = {
 "args": [&"", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:_is_attacking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ab1u7"]
@@ -320,21 +330,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 18.0763,
-"start_offset": 0.3,
-"stream": ExtResource("24_wk0l3")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
@@ -505,8 +500,8 @@ radius = 9.0
 height = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnht6"]
-radius = 9.0
-height = 24.0
+radius = 12.0
+height = 38.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jtotc"]
 radius = 7.0
@@ -531,13 +526,23 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18lk8"]
+radius = 8.0
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcs20"]
+radius = 8.0
+height = 128.0
+
 [node name="Crabby" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 65799
-script = ExtResource("1_oi187")
+script = ExtResource("1_eljy2")
+_speed = 4.0
+_acceleration = 8.0
+_deceleration = 16.0
 _jump_height = 1.5
 _air_control = 0.25
-_jump_dust = ExtResource("2_d5qgr")
 _is_facing_left = true
 _sprites_face_left = true
 _density = 0.25
@@ -574,7 +579,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -10)
+position = Vector2(0, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qnht6")
 debug_color = Color(0, 0.639216, 0.356863, 0.419608)
@@ -582,7 +587,6 @@ debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 262144
 collision_mask = 512
-monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -601,5 +605,35 @@ sprite_frames = SubResource("SpriteFrames_m2840")
 frame = 3
 frame_progress = 1.0
 
+[node name="Target" type="Area2D" parent="HitBox"]
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox/Target"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_18lk8")
+debug_color = Color(0.658824, 0.517647, 0, 0.419608)
+
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 256
+monitorable = false
+
+[node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fcs20")
+debug_color = Color(0.521569, 0.541176, 0.541176, 0.419608)
+
+[node name="LineOfSight" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -21)
+target_position = Vector2(-25, 13)
+collision_mask = 256
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="HitBox/Target" to="." method="_on_target_area_entered"]
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]

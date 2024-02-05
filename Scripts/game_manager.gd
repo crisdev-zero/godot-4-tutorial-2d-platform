@@ -6,22 +6,27 @@ extends Node2D
 @onready var _camera : Camera2D = $Camera2D
 @onready var _player_character : CharacterBody2D = $Roger
 @onready var _player : Node = $Roger/Player
-@onready var _level : Area2D = $Level
 @onready var _coin_counter : Control = $UserInterface/CoinCounter
 @onready var _lives_counter : Control = $UserInterface/LivesCounter
 @onready var _key_icon : Control = $UserInterface/KeyIcon
 @onready var _game_over_menu : Control = $UserInterface/GameOverMenu
 @onready var _fade : ColorRect = $UserInterface/Fade
 @onready var _fanfare : AudioStreamPlayer = $Fanfare
+var _level : Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_fade.visible = true
-	_init_boundaries()
-	_init_ui()
+	_load_level()
 	_spawn_player()
 	await _fade.fade_to_clear()
 	_player.set_enabled(true)
+
+func _load_level():
+	_level = load("res://Scenes/Levels/level_" + str(File.data.world) + "-" + str(File.data.level) + ".tscn").instantiate()
+	add_child(_level)
+	_init_boundaries()
+	_init_ui()
 
 func _init_boundaries():
 	# get the level boundaries from the level
@@ -35,6 +40,7 @@ func _init_ui():
 	#initialize the UI
 	_coin_counter.set_value(File.data.coins)
 	_lives_counter.set_value(File.data.lives)
+	_key_icon.visible = File.data.has_key
 	_game_over_menu.visible = false
 
 func _spawn_player():
@@ -97,8 +103,7 @@ func _on_retry_pressed():
 	await _fade.fade_to_black()
 	File.data.retry()
 	_level.queue_free()
-	_level = load("res://Scenes/Levels/level_" + str(File.data.world) + "-" + str(File.data.level) + ".tscn").instantiate()
-	add_child(_level)
+	_load_level()
 	_spawn_player()
 	_player.set_enabled(false)
 	_player_character.revive()

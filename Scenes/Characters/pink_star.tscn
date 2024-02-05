@@ -1,7 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://dhhotgrsu8ak5"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_c0eu2"]
-[ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_gudj4"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/enemy.gd" id="1_3ln0y"]
 [ext_resource type="Texture2D" uid="uid://d33c8qnpirfnj" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 01.png" id="3_5np3r"]
 [ext_resource type="Texture2D" uid="uid://bw8ye73fd7y2q" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="3_a5bbu"]
 [ext_resource type="Texture2D" uid="uid://beq23fo3mp2w0" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/04-Fall/Fall 01.png" id="4_2m5e7"]
@@ -25,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://b05ayvfcqmcg0" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 03.png" id="22_4sbvd"]
 [ext_resource type="PackedScene" uid="uid://dg55dta7sxucv" path="res://Scenes/Dust/run_dust.tscn" id="23_52bed"]
 [ext_resource type="Texture2D" uid="uid://b5e4d0747qgip" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="23_ble1l"]
-[ext_resource type="AudioStream" uid="uid://utmb8wr1gyod" path="res://Sound Effects/Footsteps/209196__lukesharples__shoes1.wav" id="24_oketd"]
 [ext_resource type="Texture2D" uid="uid://uyl0w1bqbo4a" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="24_r8aa7"]
 [ext_resource type="Texture2D" uid="uid://chyhstrk0rsre" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="25_y73qj"]
 [ext_resource type="Texture2D" uid="uid://bqk1gsnqa4rcr" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/08-Hit/Hit 01.png" id="29_pg4cr"]
@@ -119,6 +117,18 @@ tracks/2/keys = {
 "args": [&"", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:_is_attacking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_8vfsq"]
@@ -320,21 +330,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 18.0763,
-"start_offset": 0.3,
-"stream": ExtResource("24_oketd")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
@@ -504,7 +499,7 @@ graph_offset = Vector2(-285, -132)
 radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mj8ag"]
-radius = 11.0
+radius = 13.0384
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4upwo"]
 radius = 13.0
@@ -532,16 +527,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwvp7"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fitfj"]
+radius = 15.0
+
 [node name="Pink Star" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 65799
-script = ExtResource("1_c0eu2")
+script = ExtResource("1_3ln0y")
 _speed = 2.0
 _acceleration = 4.0
 _deceleration = 8.0
 _jump_height = 3.5
 _air_control = 1.0
-_jump_dust = ExtResource("2_gudj4")
 _is_facing_left = true
 _sprites_face_left = true
 _density = 0.1
@@ -549,7 +549,7 @@ _drag = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
-texture = ExtResource("4_2m5e7")
+texture = ExtResource("41_vmni7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -577,14 +577,13 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -12)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_mj8ag")
 debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 262144
 collision_mask = 512
-monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -598,5 +597,28 @@ sprite_frames = SubResource("SpriteFrames_gcvsd")
 autoplay = "default"
 frame = 4
 frame_progress = 1.0
+
+[node name="Target" type="Area2D" parent="HitBox"]
+collision_layer = 524288
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox/Target"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_wwvp7")
+debug_color = Color(0.654902, 0.517647, 0, 0.419608)
+
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 256
+monitorable = false
+
+[node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_fitfj")
+debug_color = Color(0.552941, 0.533333, 0.509804, 0.419608)
+
+[node name="RayCast2D" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -12)
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

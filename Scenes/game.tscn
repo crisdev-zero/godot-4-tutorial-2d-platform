@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=62 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
@@ -6,8 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://oaxs1wlhtcvx" path="res://Music/400664__dominictreis__scene-ending-music.mp3" id="3_evook"]
 [ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
 [ext_resource type="AudioStream" uid="uid://c7skc3hfh3rl5" path="res://Music/488963__dominictreis__sad-or-scary-scene-change-music.mp3" id="4_nachf"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
-[ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
+[ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="5_k65n0"]
 [ext_resource type="Script" path="res://Scripts/UI/counter.gd" id="8_fsu0y"]
 [ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="8_rkwll"]
 [ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="10_ktpwq"]
@@ -126,7 +125,6 @@ _death = ExtResource("3_evook")
 _gameover = ExtResource("4_nachf")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
-position = Vector2(64, -32)
 zoom = Vector2(3, 3)
 script = ExtResource("2_h4drt")
 _subject = NodePath("../Roger")
@@ -143,8 +141,6 @@ _floor_height_ease_type = 1
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("5_k65n0")
-
-[node name="Level" parent="." instance=ExtResource("6_bf3oj")]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
@@ -220,37 +216,42 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 32.0
-offset_top = -40.0
-offset_right = 72.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = -32.0
 grow_vertical = 0
 scale = Vector2(4, 4)
-pivot_offset = Vector2(0, 40)
+pivot_offset = Vector2(0, 32)
 script = ExtResource("23_2xyb7")
 
 [node name="Background" type="HBoxContainer" parent="UserInterface/HealthGauge"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 96.0
+offset_bottom = 32.0
 theme_override_constants/separation = 0
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
 layout_mode = 2
 texture = ExtResource("24_1oq5j")
+stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
 layout_mode = 2
 texture = ExtResource("25_wrqxe")
+stretch_mode = 4
 
 [node name="TextureRect3" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
 layout_mode = 2
 texture = ExtResource("26_qpp4f")
+stretch_mode = 4
 
 [node name="Fill" type="TextureRect" parent="UserInterface/HealthGauge"]
 layout_mode = 0
 offset_left = 17.0
-offset_top = 18.0
+offset_top = 13.75
 offset_right = 92.0
-offset_bottom = 20.0
+offset_bottom = 15.75
 texture = ExtResource("27_mk4mw")
 expand_mode = 1
 

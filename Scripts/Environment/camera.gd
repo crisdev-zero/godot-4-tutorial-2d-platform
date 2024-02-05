@@ -16,6 +16,8 @@ var _max : Vector2
 @onready var _floor_height : float = _subject.position.y
 var _look_ahead_tween : Tween
 var _floor_height_tween : Tween
+var _pan : Tween
+var _is_following_subject : bool = true
 
 func _ready():
 	_offset *= Global.ppt
@@ -28,7 +30,25 @@ func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
 	_min += half_zoomed_size
 	_max -= half_zoomed_size
 
+func pan_to_marker(marker : Marker2D, duration : float = 1):
+	_is_following_subject = false
+	if _pan && _pan.is_running():
+		_pan.kill()
+	_pan = create_tween()
+	_pan.tween_property(self, "position", marker.global_position, duration)
+
+func follow_subject():
+	_is_following_subject = true
+	if _pan && _pan.is_running():
+		_pan.kill()
+	_look_ahead_distance = position.x - _subject.global_position.x
+	_floor_height = position.y - _offset.y
+	_subject.changed_direction.emit(_subject.is_facing_left())
+	_subject.landed.emit(_subject.global_position.y)
+
 func _process(_delta : float):
+	if not _is_following_subject:
+		return
 	position.x = _subject.position.x + _look_ahead_distance
 	position.y = _floor_height + _offset.y
 	if _is_bound:

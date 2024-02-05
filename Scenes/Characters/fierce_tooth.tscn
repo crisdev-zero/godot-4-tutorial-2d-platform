@@ -1,7 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://ssnsh5cyjxob"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_knfs8"]
-[ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_1i3v7"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/enemy.gd" id="1_7x1ib"]
 [ext_resource type="Texture2D" uid="uid://bdyfdmddgx1lw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="3_e755t"]
 [ext_resource type="Texture2D" uid="uid://do6wpqtei3nhq" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 08.png" id="3_eajwb"]
 [ext_resource type="Texture2D" uid="uid://ctldm2n4i5vdn" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/04-Fall/Fall 01.png" id="4_7jt34"]
@@ -24,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://ba1job3h1a0ee" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 02.png" id="22_i7r68"]
 [ext_resource type="PackedScene" uid="uid://dg55dta7sxucv" path="res://Scenes/Dust/run_dust.tscn" id="23_gplnq"]
 [ext_resource type="Texture2D" uid="uid://b6f4biquk8k8m" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 03.png" id="23_tn0is"]
-[ext_resource type="AudioStream" uid="uid://utmb8wr1gyod" path="res://Sound Effects/Footsteps/209196__lukesharples__shoes1.wav" id="24_irkqb"]
 [ext_resource type="Texture2D" uid="uid://dvprvigh4ypd4" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="24_rv3cb"]
 [ext_resource type="Texture2D" uid="uid://bd4pt4hrlrr00" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="25_5yieo"]
 [ext_resource type="Texture2D" uid="uid://mnn5x4g31fgg" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 01.png" id="28_f2qhl"]
@@ -119,6 +117,18 @@ tracks/2/keys = {
 "args": [&"", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:_is_attacking")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5hxi2"]
@@ -320,21 +330,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 18.0763,
-"start_offset": 0.3,
-"stream": ExtResource("24_irkqb")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
@@ -449,7 +444,7 @@ states/anticipation/position = Vector2(417, -50)
 states/attack/node = SubResource("AnimationNodeAnimation_y5bnt")
 states/attack/position = Vector2(700, -50)
 transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "anticipation", SubResource("AnimationNodeStateMachineTransition_71yhr"), "anticipation", "attack", SubResource("AnimationNodeStateMachineTransition_e2udn"), "attack", "Movement", SubResource("AnimationNodeStateMachineTransition_l1l5k")]
-graph_offset = Vector2(-182, -189)
+graph_offset = Vector2(-143, -136)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mwtk"]
 animation = &"dead_ground"
@@ -532,17 +527,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r0hhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_il22q"]
+radius = 96.0
+
 [node name="Fierce Tooth" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 65799
-script = ExtResource("1_knfs8")
+script = ExtResource("1_7x1ib")
 _speed = 2.5
 _acceleration = 5.0
-_deceleration = 2.5
-_jump_dust = ExtResource("2_1i3v7")
+_deceleration = 10.0
 _is_facing_left = true
 _sprites_face_left = true
 _drag = -0.25
+_is_attacking = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -13)
@@ -581,7 +581,6 @@ debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 262144
 collision_mask = 512
-monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -596,4 +595,33 @@ sprite_frames = SubResource("SpriteFrames_4m6hi")
 frame = 3
 frame_progress = 1.0
 
+[node name="Target" type="Area2D" parent="HitBox"]
+collision_layer = 1048576
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox/Target"]
+position = Vector2(-8, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r0hhr")
+debug_color = Color(0.647059, 0.521569, 0, 0.419608)
+
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 256
+monitorable = false
+
+[node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
+position = Vector2(-64, -16)
+shape = SubResource("CircleShape2D_il22q")
+debug_color = Color(0.529412, 0.537255, 0.541176, 0.419608)
+
+[node name="LineOfSight" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -16)
+target_position = Vector2(-64, 0)
+collision_mask = 257
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="HitBox/Target" to="." method="_on_target_area_entered"]
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]

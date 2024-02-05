@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bt1fux2nytupr"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/projectile.gd" id="1_ta7kp"]
+[ext_resource type="Texture2D" uid="uid://dev8lj0yx8clp" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/1.png" id="2_0s4l6"]
+[ext_resource type="Texture2D" uid="uid://okbi5tvkroys" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="3_l3amh"]
+[ext_resource type="Texture2D" uid="uid://yflo35ei77b1" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/2.png" id="4_6e0bv"]
+[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="4_j578d"]
+[ext_resource type="Texture2D" uid="uid://dxhdb6hnhkbfr" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/3.png" id="5_2lg88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6q6d"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8l6qm"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7qkt"]
+radius = 2.23607
+
+[node name="Wood Spike" type="Area2D"]
+collision_layer = 262144
+collision_mask = 513
+script = ExtResource("1_ta7kp")
+_destroyed = ExtResource("2_0s4l6")
+_flip_with_direction = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_l3amh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s6q6d")
+debug_color = Color(1, 0.0117647, 0.0235294, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Debris" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("4_j578d")
+
+[node name="Left" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(-2, 0)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Left"]
+texture = ExtResource("4_6e0bv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Left"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_8l6qm")
+
+[node name="Right" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(2, 0)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Right"]
+texture = ExtResource("5_2lg88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Right"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_m7qkt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_break"]

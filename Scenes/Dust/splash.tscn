@@ -30,7 +30,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Water Particles" type="AnimatedSprite2D"]
+[node name="Splash" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_53av0")
 frame = 4
 frame_progress = 1.0

@@ -1,0 +1,380 @@
+[gd_scene load_steps=46 format=3 uid="uid://da7xq2lc5noo3"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_t6lr4"]
+[ext_resource type="PackedScene" uid="uid://cfp415srkmv3g" path="res://Scenes/Projectiles/cannonball.tscn" id="2_vt6og"]
+[ext_resource type="Texture2D" uid="uid://gmgvh7q750gb" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="3_4cp3n"]
+[ext_resource type="Texture2D" uid="uid://dplb3py37lrhs" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="3_eaqai"]
+[ext_resource type="Texture2D" uid="uid://dxbcmj4pjaurm" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/1.png" id="4_pqvxf"]
+[ext_resource type="Texture2D" uid="uid://77ynghb10005" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="5_2a0t3"]
+[ext_resource type="Texture2D" uid="uid://cmp42h4a1jml4" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="6_uvh1a"]
+[ext_resource type="Texture2D" uid="uid://bxeyq0q1jv7uj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="7_tgjk6"]
+[ext_resource type="Texture2D" uid="uid://cwtqnjpoqfi7u" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="8_ibcii"]
+[ext_resource type="Texture2D" uid="uid://c7ch4bmhyvhh" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="9_pjc64"]
+[ext_resource type="Texture2D" uid="uid://bep54fdrmm104" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/1.png" id="10_hl51n"]
+[ext_resource type="Texture2D" uid="uid://18d6hsc4ydlf" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/2.png" id="11_vsgxm"]
+[ext_resource type="Texture2D" uid="uid://cflrvj0hn642d" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/3.png" id="12_ecgtl"]
+[ext_resource type="Texture2D" uid="uid://4touwu80018n" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/4.png" id="13_t5a80"]
+[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="15_nvpq5"]
+[ext_resource type="Texture2D" uid="uid://wqjb5laiml8q" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/2.png" id="17_v6b0v"]
+[ext_resource type="Texture2D" uid="uid://cpub7hyduuqgj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/3.png" id="18_7pgju"]
+[ext_resource type="Texture2D" uid="uid://chvcjltu6028t" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/4.png" id="19_t4fes"]
+
+[sub_resource type="Animation" id="Animation_t6d1r"]
+resource_name = "destroyed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_pqvxf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Debris")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"scatter"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_emgal"]
+resource_name = "fire"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_2a0t3"), ExtResource("6_uvh1a"), ExtResource("7_tgjk6"), ExtResource("8_ibcii"), ExtResource("9_pjc64"), ExtResource("3_4cp3n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:_wants_to_fire")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_projectile"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_s4xqq"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_hl51n"), ExtResource("11_vsgxm"), ExtResource("12_ecgtl"), ExtResource("13_t5a80")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:_is_hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_imdul"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_eaqai")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p51wq"]
+_data = {
+"destroyed": SubResource("Animation_t6d1r"),
+"fire": SubResource("Animation_emgal"),
+"hit": SubResource("Animation_s4xqq"),
+"idle": SubResource("Animation_imdul")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qbv3"]
+animation = &"fire"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qkyrx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_12jka"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3x4o"]
+advance_mode = 2
+advance_expression = "_wants_to_fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j07jt"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "not _wants_to_fire"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lucal"]
+states/fire/node = SubResource("AnimationNodeAnimation_5qbv3")
+states/fire/position = Vector2(531, -35)
+states/idle/node = SubResource("AnimationNodeAnimation_qkyrx")
+states/idle/position = Vector2(531, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_12jka"), "idle", "fire", SubResource("AnimationNodeStateMachineTransition_x3x4o"), "fire", "idle", SubResource("AnimationNodeStateMachineTransition_j07jt")]
+graph_offset = Vector2(-209, -78)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tm487"]
+animation = &"destroyed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ila2v"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ng7yq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pqbka"]
+advance_mode = 2
+advance_expression = "_is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kerdo"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "not _is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tcetn"]
+advance_mode = 2
+advance_expression = "_is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r1qte"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5w8rf"]
+states/Attack/node = SubResource("AnimationNodeStateMachine_lucal")
+states/Attack/position = Vector2(531, 100)
+states/destroyed/node = SubResource("AnimationNodeAnimation_tm487")
+states/destroyed/position = Vector2(531, 240)
+states/hit/node = SubResource("AnimationNodeAnimation_ila2v")
+states/hit/position = Vector2(531, -38)
+transitions = ["Start", "Attack", SubResource("AnimationNodeStateMachineTransition_ng7yq"), "Attack", "hit", SubResource("AnimationNodeStateMachineTransition_pqbka"), "hit", "Attack", SubResource("AnimationNodeStateMachineTransition_kerdo"), "Attack", "destroyed", SubResource("AnimationNodeStateMachineTransition_tcetn"), "destroyed", "Attack", SubResource("AnimationNodeStateMachineTransition_r1qte")]
+graph_offset = Vector2(-107, -68)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cr7nh"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02i6v"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kl8n1"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4ecg"]
+radius = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8xx3"]
+height = 40.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxlyg"]
+size = Vector2(11, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3q7i"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg7f1"]
+size = Vector2(12, 12.5)
+
+[node name="Cannon" type="CharacterBody2D"]
+collision_layer = 65536
+script = ExtResource("1_t6lr4")
+_projectile = ExtResource("2_vt6og")
+_p_damage = 2
+_speed = 0.0
+_acceleration = 0.0
+_jump_height = 0.0
+_air_control = 0.0
+_is_facing_left = true
+_sprites_face_left = true
+_density = 1.0
+_drag = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("3_eaqai")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_p51wq")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_p51wq")
+}
+tree_root = SubResource("AnimationNodeStateMachine_5w8rf")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cr7nh")
+
+[node name="HurtBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_02i6v")
+debug_color = Color(0, 0.647059, 0.196078, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -15)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_kl8n1")
+debug_color = Color(1, 0.00784314, 0.054902, 0.419608)
+
+[node name="Target" type="Area2D" parent="HitBox"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox/Target"]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_d4ecg")
+debug_color = Color(0.654902, 0.517647, 0, 0.419608)
+
+[node name="Vision" type="Area2D" parent="."]
+visible = false
+monitorable = false
+
+[node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
+position = Vector2(0, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p8xx3")
+debug_color = Color(0.537255, 0.537255, 0.537255, 0.419608)
+
+[node name="LineOfSight" type="RayCast2D" parent="Vision"]
+position = Vector2(0, -8)
+target_position = Vector2(-64, 0)
+
+[node name="ProjectileOrigin" type="Node2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="Debris" type="Node2D" parent="."]
+script = ExtResource("15_nvpq5")
+
+[node name="Back Leg" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(0, -7)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Back Leg"]
+texture = ExtResource("19_t4fes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Back Leg"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_nxlyg")
+
+[node name="Body" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(0, -14)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Body"]
+texture = ExtResource("17_v6b0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Body"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m3q7i")
+
+[node name="Front Leg" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(2, -7)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Front Leg"]
+texture = ExtResource("18_7pgju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Front Leg"]
+shape = SubResource("RectangleShape2D_pg7f1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="fire"]

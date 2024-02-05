@@ -1,0 +1,84 @@
+[gd_scene load_steps=17 format=3 uid="uid://d1780vii33oyu"]
+
+[ext_resource type="Script" path="res://Scripts/sword.gd" id="1_ejqs7"]
+[ext_resource type="Texture2D" uid="uid://ch2525vq6kxvw" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="1_vhgbh"]
+[ext_resource type="Texture2D" uid="uid://b84e3icjrm0cu" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 02.png" id="2_ly73a"]
+[ext_resource type="Texture2D" uid="uid://bqajue37l6tqk" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 03.png" id="3_6hs8f"]
+[ext_resource type="Texture2D" uid="uid://3q6yhy067gwu" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 04.png" id="4_gfwxp"]
+[ext_resource type="Texture2D" uid="uid://11oehmsoasp3" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 05.png" id="5_37s5q"]
+[ext_resource type="Texture2D" uid="uid://d1ae412etq4oy" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 06.png" id="6_j6c7m"]
+[ext_resource type="Texture2D" uid="uid://dnfqauahd4aua" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 07.png" id="7_d6bo8"]
+[ext_resource type="Texture2D" uid="uid://dboyiyj8j8mli" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 08.png" id="8_daml5"]
+[ext_resource type="AudioStream" uid="uid://db67ftqlhursc" path="res://Sound Effects/Sword/209102__lukesharples__unshealth.wav" id="9_yfmlt"]
+
+[sub_resource type="Animation" id="Animation_a7sy4"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_vhgbh"), ExtResource("2_ly73a"), ExtResource("3_6hs8f"), ExtResource("4_gfwxp"), ExtResource("5_37s5q"), ExtResource("6_j6c7m"), ExtResource("7_d6bo8"), ExtResource("8_daml5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38mne"]
+_data = {
+"idle": SubResource("Animation_a7sy4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlwir"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_86hhk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cf3ww"]
+states/idle/node = SubResource("AnimationNodeAnimation_jlwir")
+states/idle/position = Vector2(546, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_86hhk")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcb0r"]
+radius = 4.0
+height = 20.0
+
+[node name="Sword" type="RigidBody2D"]
+collision_layer = 33554432
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_ejqs7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_37s5q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_38mne")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_38mne")
+}
+tree_root = SubResource("AnimationNodeStateMachine_cf3ww")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qcb0r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_yfmlt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
