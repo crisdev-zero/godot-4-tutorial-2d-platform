@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=54 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
@@ -28,10 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="25_wrqxe"]
 [ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="26_qpp4f"]
 [ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="27_mk4mw"]
-[ext_resource type="Texture2D" uid="uid://ba5ngc5r6k63x" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/1.png" id="29_4k2b0"]
-[ext_resource type="Texture2D" uid="uid://d1ejogte22vai" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Yellow Button/1.png" id="30_37pc7"]
-[ext_resource type="Texture2D" uid="uid://bdtc5dftomk2c" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/9.png" id="31_fw5mm"]
-[ext_resource type="Texture2D" uid="uid://r3qxjfxskict" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="32_xkqrq"]
+[ext_resource type="Theme" uid="uid://daved0sc5by1p" path="res://wood_and_paper.tres" id="28_l24qh"]
 [ext_resource type="Texture2D" uid="uid://dkit36j3e4fgq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/3.png" id="33_kcpay"]
 [ext_resource type="Texture2D" uid="uid://bec7hei3pqdqt" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/13.png" id="34_bhpkg"]
 [ext_resource type="Texture2D" uid="uid://pf4cpnck86hx" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/7.png" id="35_5n57j"]
@@ -52,79 +49,20 @@
 [ext_resource type="Texture2D" uid="uid://c04v4rtet5377" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/3.png" id="50_h1vrw"]
 [ext_resource type="Texture2D" uid="uid://ybtw5vwyfk8b" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="51_7jfva"]
 [ext_resource type="Texture2D" uid="uid://bhv5ij6itm6gg" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/24.png" id="52_lq7po"]
+[ext_resource type="Texture2D" uid="uid://dx4huwjrgykfn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/4.png" id="53_1fpmy"]
 [ext_resource type="Texture2D" uid="uid://bls03yjmgkpu2" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/9.png" id="53_xcuay"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc6g8"]
-texture = ExtResource("29_4k2b0")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc8ie"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gis1"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyu8b"]
-texture = ExtResource("29_4k2b0")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8s5wl"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4d5c4"]
-texture = ExtResource("31_fw5mm")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qokrj"]
-texture = ExtResource("32_xkqrq")
-texture_margin_left = 16.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 14.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="Theme" id="Theme_trhg7"]
-Button/styles/disabled = SubResource("StyleBoxTexture_kc6g8")
-Button/styles/focus = SubResource("StyleBoxTexture_dc8ie")
-Button/styles/hover = SubResource("StyleBoxTexture_3gis1")
-Button/styles/normal = SubResource("StyleBoxTexture_dyu8b")
-Button/styles/pressed = SubResource("StyleBoxTexture_8s5wl")
-Panel/styles/panel = SubResource("StyleBoxTexture_4d5c4")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_qokrj")
+[ext_resource type="Texture2D" uid="uid://ohchksec22yn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/16.png" id="54_068hg"]
+[ext_resource type="Texture2D" uid="uid://uam2xs8mlup0" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/21.png" id="55_c34lw"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_uggmm")
 _victory = ExtResource("23_lg1sm")
 _death = ExtResource("3_evook")
 _gameover = ExtResource("4_nachf")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+process_mode = 1
 zoom = Vector2(3, 3)
 script = ExtResource("2_h4drt")
 _subject = NodePath("../Roger")
@@ -138,11 +76,13 @@ _floor_height_ease_type = 1
 [node name="Background" parent="Camera2D" instance=ExtResource("3_73rdr")]
 
 [node name="Roger" parent="." instance=ExtResource("4_gvawx")]
+process_mode = 1
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("5_k65n0")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="CoinCounter" type="HBoxContainer" parent="UserInterface"]
 offset_left = 32.0
@@ -266,7 +206,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-theme = SubResource("Theme_trhg7")
+theme = ExtResource("28_l24qh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu"]
 layout_mode = 1
@@ -379,7 +319,7 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
 [node name="Paper" type="Panel" parent="UserInterface/GameOverMenu/VBoxContainer/Wood"]
-custom_minimum_size = Vector2(120, 100)
+custom_minimum_size = Vector2(104, 80)
 layout_mode = 2
 size_flags_horizontal = 8
 
@@ -509,6 +449,269 @@ texture = ExtResource("53_xcuay")
 layout_mode = 2
 texture = ExtResource("45_ly4gr")
 
+[node name="PauseMenu" type="Control" parent="UserInterface"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme = ExtResource("28_l24qh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -64.0
+offset_right = 49.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Banner" type="Control" parent="UserInterface/PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -19.5
+offset_right = -22.0
+offset_bottom = 20.5
+texture = ExtResource("33_kcpay")
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -19.5
+offset_right = 18.0
+offset_bottom = 20.5
+texture = ExtResource("34_bhpkg")
+
+[node name="TextureRect3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -19.5
+offset_right = 58.0
+offset_bottom = 20.5
+texture = ExtResource("53_1fpmy")
+
+[node name="PAUSE" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
+layout_mode = 2
+offset_left = -17.25
+offset_top = -3.5
+offset_right = 15.75
+offset_bottom = 2.5
+theme_override_constants/separation = 2
+
+[node name="P" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
+layout_mode = 2
+texture = ExtResource("54_068hg")
+
+[node name="A" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
+layout_mode = 2
+texture = ExtResource("38_q1l6r")
+
+[node name="U" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
+layout_mode = 2
+texture = ExtResource("55_c34lw")
+
+[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
+layout_mode = 2
+texture = ExtResource("49_fbhuw")
+
+[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="Wood" type="PanelContainer" parent="UserInterface/PauseMenu/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Paper" type="Panel" parent="UserInterface/PauseMenu/VBoxContainer/Wood"]
+custom_minimum_size = Vector2(104, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Resume Button" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Resume" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button"]
+layout_mode = 2
+icon = ExtResource("44_q3c3h")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="R" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("49_fbhuw")
+
+[node name="U" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("55_c34lw")
+
+[node name="M" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("39_ol1fk")
+
+[node name="E2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="Restart Button" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Restart" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button"]
+layout_mode = 2
+icon = ExtResource("44_q3c3h")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="R" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("49_fbhuw")
+
+[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
+[node name="A" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("38_q1l6r")
+
+[node name="R2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("43_6hvxc")
+
+[node name="T2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
+[node name="Level Select Button" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Level Select" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button"]
+layout_mode = 2
+icon = ExtResource("47_f1g08")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="L" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="V" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("42_53lmp")
+
+[node name="E2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="L2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="space" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+
+[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("49_fbhuw")
+
+[node name="E3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="L3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("48_7vkqg")
+
+[node name="E4" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="C" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("50_h1vrw")
+
+[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
+[node name="Exit Button" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Exit" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button"]
+layout_mode = 2
+icon = ExtResource("51_7jfva")
+
+[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("40_2ely4")
+
+[node name="X" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("52_lq7po")
+
+[node name="I" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("53_xcuay")
+
+[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Label"]
+layout_mode = 2
+texture = ExtResource("45_ly4gr")
+
 [node name="Fade" parent="UserInterface" instance=ExtResource("22_s3lkh")]
 
 [node name="Fanfare" type="AudioStreamPlayer" parent="."]
@@ -518,6 +721,10 @@ stream = ExtResource("23_lg1sm")
 [connection signal="died" from="Roger" to="." method="_on_player_died"]
 [connection signal="health_changed" from="Roger" to="UserInterface/HealthGauge" method="set_value"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
-[connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Retry Button/Retry" to="." method="_restart" binds= [true]]
 [connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Level Select" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Resume Button/Resume" to="." method="_pause" binds= [false]]
+[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Restart Button/Restart" to="." method="_restart"]
+[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Level Select Button/Level Select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/Exit Button/Exit" to="." method="_on_exit_pressed"]

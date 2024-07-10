@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://bd4wrjwmycpo7"]
+[gd_scene load_steps=37 format=3 uid="uid://bd4wrjwmycpo7"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_uqkfw"]
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_6jpln"]
+[ext_resource type="AudioStream" uid="uid://026x55uwat6j" path="res://Music/320978__littlerobotsoundfactory__loop_the_seven_seas_00.wav" id="2_e30mt"]
 [ext_resource type="Texture2D" uid="uid://cdjs7hvh0372" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="3_7658h"]
 [ext_resource type="Texture2D" uid="uid://mnbiqen63rt3" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_ewash"]
 [ext_resource type="Texture2D" uid="uid://diyhn241mjyly" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="5_trvqk"]
@@ -20,6 +21,7 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/totem_pole.gd" id="20_0jg5b"]
 [ext_resource type="Script" path="res://Scripts/UI/gauge.gd" id="21_fmp6v"]
 [ext_resource type="Texture2D" uid="uid://wnd5ctt6kqb2" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/2.png" id="22_ejw3x"]
+[ext_resource type="AudioStream" uid="uid://ivlee8duiqdp" path="res://Music/321030__littlerobotsoundfactory__loop_jungle_war_drums_00.wav" id="22_xpacw"]
 [ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="23_qq2fi"]
 [ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="24_ir3op"]
 [ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="25_1kbit"]
@@ -1589,6 +1591,7 @@ size = Vector2(384, 160)
 
 [node name="Level" type="Area2D"]
 script = ExtResource("1_uqkfw")
+music = ExtResource("2_e30mt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1504, -232)
@@ -1912,6 +1915,7 @@ collision_layer = 0
 collision_mask = 256
 monitorable = false
 script = ExtResource("20_0jg5b")
+_boss_music = ExtResource("22_xpacw")
 _bosses = [NodePath("../Enemies/Totem Pole/Blue Totem"), NodePath("../Enemies/Totem Pole/Green Totem"), NodePath("../Enemies/Totem Pole/Red Totem")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss Encounter"]

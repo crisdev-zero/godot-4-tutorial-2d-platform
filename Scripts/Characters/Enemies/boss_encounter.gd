@@ -1,5 +1,7 @@
 class_name BossEncounter extends Area2D
 
+@export var _boss_music : AudioStream
+var _level_music : AudioStream
 @export var _bosses : Array[Enemy]
 @onready var _camera : Camera2D = $/root/Game/Camera2D
 @onready var _camera_marker : Marker2D = $CameraMarker
@@ -33,10 +35,13 @@ func _phase_check(_percentage : float):
 	pass
 
 func _start_encounter():
+	_level_music = Music.stream
+	Music.start_track(_boss_music)
 	_camera.pan_to_marker(_camera_marker)
 	_health_gauge.visible = true
 
 func _end_encounter():
+	Music.start_track(_level_music)
 	_camera.follow_subject()
 	_health_gauge.visible = false
 

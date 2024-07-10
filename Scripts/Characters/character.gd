@@ -149,7 +149,8 @@ func stop_jump():
 	if _is_dead || _is_attacking:
 		return
 	if velocity.y < 0 && not _is_in_water:
-		velocity.y = 0
+		#velocity.y = 0
+		velocity.y /= 2
 
 func enter_water(water_surface_height : float):
 	_water_surface_height = water_surface_height

@@ -1687,7 +1687,7 @@ _is_attacking = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
-texture = ExtResource("17_cf7gp")
+texture = ExtResource("14_h4jrl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -1696,9 +1696,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_1au2v")
-}
 tree_root = SubResource("AnimationNodeStateMachine_1anhm")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")

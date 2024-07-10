@@ -1,0 +1,463 @@
+[gd_scene load_steps=67 format=3 uid="uid://gklr02nhe26d"]
+
+[ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="1_gq3yx"]
+[ext_resource type="Script" path="res://Scripts/level_select_manager.gd" id="1_j1uck"]
+[ext_resource type="TileSet" uid="uid://fbwod5lr5j03" path="res://tile_set.tres" id="2_2b4gt"]
+[ext_resource type="AudioStream" uid="uid://cogfh7owhw3jr" path="res://Music/321018__littlerobotsoundfactory__loop_pirates_ahoy_00.wav" id="2_5olwm"]
+[ext_resource type="Texture2D" uid="uid://cxq4cxkymt7t7" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 01.png" id="3_4nwu0"]
+[ext_resource type="Texture2D" uid="uid://d3wpx6gwgoihw" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 02.png" id="4_a8hkn"]
+[ext_resource type="Texture2D" uid="uid://c1huxvqqguajk" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 03.png" id="5_mtv4t"]
+[ext_resource type="Texture2D" uid="uid://dg4gumyhrrlol" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 04.png" id="6_gkow1"]
+[ext_resource type="Texture2D" uid="uid://6jy7cbs2tykr" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 05.png" id="7_wl78s"]
+[ext_resource type="Texture2D" uid="uid://calck80crmmu6" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 06.png" id="8_o505w"]
+[ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="9_e20g5"]
+[ext_resource type="Texture2D" uid="uid://crkod66a2s83n" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="10_ukmh4"]
+[ext_resource type="Texture2D" uid="uid://cromjdigihfw8" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="11_hwcnf"]
+[ext_resource type="Texture2D" uid="uid://dc16cexyhkg53" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="12_n0nf7"]
+[ext_resource type="Texture2D" uid="uid://ds6wobuo7qvs" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="13_g3wqa"]
+[ext_resource type="Theme" uid="uid://daved0sc5by1p" path="res://wood_and_paper.tres" id="15_56jis"]
+[ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="15_wi84p"]
+[ext_resource type="Texture2D" uid="uid://v5i7ngxrke8x" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" id="16_nv8fg"]
+[ext_resource type="Texture2D" uid="uid://dlns6v60ajh51" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/13.png" id="16_r8utg"]
+[ext_resource type="Texture2D" uid="uid://dybi215rjruks" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/02.png" id="17_qtwb7"]
+[ext_resource type="Texture2D" uid="uid://bdrmf77wlb6pl" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/1.png" id="17_tja5c"]
+[ext_resource type="Texture2D" uid="uid://b3qxbqkpr86gn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/16.png" id="18_2qjvw"]
+[ext_resource type="Texture2D" uid="uid://laq4bq2q6jh8" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/03.png" id="18_ks3lk"]
+[ext_resource type="Texture2D" uid="uid://b34mgj712p7f5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/04.png" id="19_ecleh"]
+[ext_resource type="Texture2D" uid="uid://vj7wcp2eh6p3" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/19.png" id="19_wpaq3"]
+[ext_resource type="Texture2D" uid="uid://cyo8b7cvpec5q" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/05.png" id="20_b0t3p"]
+[ext_resource type="Texture2D" uid="uid://cu0b4klyyckfm" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/06.png" id="21_03ggf"]
+[ext_resource type="Texture2D" uid="uid://bwx7tjphjym7g" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/07.png" id="22_h31ua"]
+[ext_resource type="Texture2D" uid="uid://5ysjnsfnxh6p" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 1/08.png" id="23_jiegl"]
+[ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="24_5hb6w"]
+[ext_resource type="Texture2D" uid="uid://dtvw8245iu56p" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/37.png" id="25_nqf11"]
+[ext_resource type="Texture2D" uid="uid://doq172bfg4wli" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/28.png" id="26_0p2xp"]
+[ext_resource type="Texture2D" uid="uid://dd1pmtl8tpglq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/29.png" id="27_8gu2h"]
+[ext_resource type="Texture2D" uid="uid://8wuh8tc2pex3" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/30.png" id="28_6bsts"]
+[ext_resource type="Texture2D" uid="uid://baeuyjmndnhw0" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/01.png" id="31_7kn6n"]
+[ext_resource type="Texture2D" uid="uid://bgbpvoosrh6g1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/02.png" id="32_xqvjl"]
+[ext_resource type="Texture2D" uid="uid://c44gakt0gdhe5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/03.png" id="33_3jq5s"]
+[ext_resource type="Texture2D" uid="uid://dahwpp062v28y" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/04.png" id="34_72e48"]
+[ext_resource type="Texture2D" uid="uid://bm7d8ipkb1sx" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/05.png" id="35_1npl5"]
+[ext_resource type="Texture2D" uid="uid://c1ehk647vi4pa" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/06.png" id="36_xslaj"]
+[ext_resource type="Texture2D" uid="uid://de534i6n3bly" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/07.png" id="37_onad3"]
+[ext_resource type="Texture2D" uid="uid://b2n2501ucxmev" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/08.png" id="38_tuaun"]
+[ext_resource type="Texture2D" uid="uid://cngykggtnlhyh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/01.png" id="40_loee7"]
+[ext_resource type="Texture2D" uid="uid://ta14cu8olj50" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/02.png" id="41_43iyw"]
+[ext_resource type="Texture2D" uid="uid://ckooxktvetchv" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/03.png" id="42_nufwl"]
+[ext_resource type="Texture2D" uid="uid://baes728mtrtsk" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/04.png" id="43_n3d0c"]
+[ext_resource type="Texture2D" uid="uid://e4ms481m3mtp" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/05.png" id="44_wovkh"]
+[ext_resource type="Texture2D" uid="uid://c0vb5t405hm3l" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/06.png" id="45_lbb70"]
+[ext_resource type="Texture2D" uid="uid://xk8ux71o73j5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/07.png" id="46_f326r"]
+[ext_resource type="Texture2D" uid="uid://s1isvwp70sux" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/08.png" id="47_jy5mk"]
+[ext_resource type="Texture2D" uid="uid://c8l6wpcxntail" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/01.png" id="49_gg1j7"]
+[ext_resource type="Texture2D" uid="uid://cx4ahn6l6alb6" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/02.png" id="50_y7h5q"]
+[ext_resource type="Texture2D" uid="uid://bn1e5irjusquc" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/03.png" id="51_wad2y"]
+[ext_resource type="Texture2D" uid="uid://cbq16e8aqhenx" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/04.png" id="52_yhu8g"]
+[ext_resource type="Texture2D" uid="uid://bthfwtnhtmdgr" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/05.png" id="53_0ol83"]
+[ext_resource type="Texture2D" uid="uid://c041ewjagqqie" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/06.png" id="54_spc0n"]
+[ext_resource type="Texture2D" uid="uid://bpra3lxwbjog6" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/07.png" id="55_d6jv4"]
+[ext_resource type="Texture2D" uid="uid://jfs0mbw8x70v" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 4/08.png" id="56_7g45e"]
+[ext_resource type="Texture2D" uid="uid://coh38rpul80ho" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="57_rwxeg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxfk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_e20g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ukmh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hwcnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_n0nf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_g3wqa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_136c0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4nwu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8hkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mtv4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gkow1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wl78s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o505w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5bt2"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_65hnw"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("16_nv8fg")
+frame_1/texture = ExtResource("17_qtwb7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("18_ks3lk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("19_ecleh")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("20_b0t3p")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("21_03ggf")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("22_h31ua")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("23_jiegl")
+frame_7/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_bkbb8"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("31_7kn6n")
+frame_1/texture = ExtResource("32_xqvjl")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("33_3jq5s")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("34_72e48")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("35_1npl5")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("36_xslaj")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("37_onad3")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("38_tuaun")
+frame_7/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_34a1u"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("40_loee7")
+frame_1/texture = ExtResource("41_43iyw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("42_nufwl")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("43_n3d0c")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("44_wovkh")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("45_lbb70")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("46_f326r")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("47_jy5mk")
+frame_7/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_oskwi"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("49_gg1j7")
+frame_1/texture = ExtResource("50_y7h5q")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("51_wad2y")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("52_yhu8g")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("53_0ol83")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("54_spc0n")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("55_d6jv4")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("56_7g45e")
+frame_7/duration = 1.0
+
+[node name="Level Select" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_j1uck")
+_music = ExtResource("2_5olwm")
+
+[node name="Background" parent="." instance=ExtResource("1_gq3yx")]
+position = Vector2(213, 110)
+
+[node name="Roger" type="AnimatedSprite2D" parent="."]
+position = Vector2(83.6667, 116.333)
+sprite_frames = SubResource("SpriteFrames_xxfk7")
+autoplay = "default"
+frame_progress = 0.309368
+
+[node name="Helm" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, 112)
+sprite_frames = SubResource("SpriteFrames_136c0")
+autoplay = "default"
+frame_progress = 0.0404451
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_2b4gt")
+format = 2
+layer_0/tile_data = PackedInt32Array(458765, 196609, 5, 458764, 131073, 5, 458763, 131073, 5, 458762, 131073, 5, 458761, 131073, 5, 458760, 131073, 5, 458759, 131073, 5, 458758, 131073, 5, 458757, 131073, 5, 458756, 131073, 5, 458755, 851969, 5, 458754, 131073, 5, 458753, 131073, 5, 458752, 131073, 5, 524287, 65537, 5, 327679, 65537, 5, 262144, 131073, 5, 262145, 131073, 5, 262146, 131073, 5, 262147, 1114113, 4, 327683, 327681, 2, 393219, 327681, 2, 327682, 196609, 7, 327681, 131073, 7, 327680, 131073, 7, 393215, 65537, 7, 458751, 65537, 9, 393216, 131073, 9, 393217, 131073, 9, 393218, 196609, 9)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.667
+anchor_top = 0.5
+anchor_right = 0.667
+anchor_bottom = 0.5
+offset_left = -53.76
+offset_top = -96.0
+offset_right = 52.24
+offset_bottom = 84.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(53, 93)
+theme = ExtResource("15_56jis")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/Title"]
+layout_mode = 2
+texture = ExtResource("16_r8utg")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/Title"]
+layout_mode = 2
+texture = ExtResource("17_tja5c")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/Title"]
+layout_mode = 2
+texture = ExtResource("18_2qjvw")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/Title"]
+layout_mode = 2
+texture = ExtResource("19_wpaq3")
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Level 1-1" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j5bt2")
+icon = SubResource("AnimatedTexture_65hnw")
+flat = true
+icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -3.0
+offset_right = 11.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("24_5hb6w")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("25_nqf11")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("24_5hb6w")
+stretch_mode = 5
+
+[node name="Level 1-2" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j5bt2")
+icon = SubResource("AnimatedTexture_bkbb8")
+flat = true
+icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -3.0
+offset_right = 11.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("24_5hb6w")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("25_nqf11")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("26_0p2xp")
+stretch_mode = 5
+
+[node name="Level 1-3" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j5bt2")
+icon = SubResource("AnimatedTexture_34a1u")
+flat = true
+icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -3.0
+offset_right = 11.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("24_5hb6w")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("25_nqf11")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("27_8gu2h")
+stretch_mode = 5
+
+[node name="Level 1-4" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j5bt2")
+icon = SubResource("AnimatedTexture_oskwi")
+flat = true
+icon_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+
+[node name="Label" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -3.0
+offset_right = 11.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("24_5hb6w")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("25_nqf11")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4/Panel/Label"]
+layout_mode = 2
+texture = ExtResource("28_6bsts")
+stretch_mode = 5
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_top = 18.0
+offset_right = -61.0
+offset_bottom = 38.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+theme = ExtResource("15_56jis")
+icon = ExtResource("57_rwxeg")
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("15_wi84p")]
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-1/Button" to="." method="_on_level_selected" binds= [1, 1]]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-2/Button" to="." method="_on_level_selected" binds= [1, 2]]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-3/Button" to="." method="_on_level_selected" binds= [1, 3]]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/GridContainer/Level 1-4/Button" to="." method="_on_level_selected" binds= [1, 4]]
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

@@ -10,6 +10,7 @@ extends Node2D
 @onready var _lives_counter : Control = $UserInterface/LivesCounter
 @onready var _key_icon : Control = $UserInterface/KeyIcon
 @onready var _game_over_menu : Control = $UserInterface/GameOverMenu
+@onready var _pause_menu : Control = $UserInterface/PauseMenu
 @onready var _fade : ColorRect = $UserInterface/Fade
 @onready var _fanfare : AudioStreamPlayer = $Fanfare
 var _level : Area2D
@@ -27,6 +28,8 @@ func _load_level():
 	add_child(_level)
 	_init_boundaries()
 	_init_ui()
+	_pause(false)
+	Music.start_track(_level.music)
 
 func _init_boundaries():
 	# get the level boundaries from the level
@@ -47,13 +50,23 @@ func _spawn_player():
 	_player_character.global_position = _level.get_checkpoint_position(File.data.checkpoint)
 	_player_character.velocity = Vector2.ZERO
 
+func _input(event : InputEvent):
+	if event.is_action_pressed("pause"):
+		_pause(!get_tree().paused)
+
+func _pause(should_be_paused : bool):
+	get_tree().paused = should_be_paused
+	_pause_menu.visible = should_be_paused
+
 func collect_map():
 	_player.set_enabled(false)
+	File.data.set_progress_marker(Data.Progress.COMPLETED)
+	File.data.set_progress_marker(Data.Progress.UNLOCKED, _level.world_unlocked, _level.level_unlocked)
 	_fanfare.stream = _victory
 	_fanfare.play()
 	await _fanfare.finished
 	await _fade.fade_to_black()
-	# load level selection scene
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 func collect_coin(value : int):
 	File.data.coins += value
@@ -98,10 +111,10 @@ func _game_over():
 	_fanfare.play()
 	_game_over_menu.visible = true
 
-func _on_retry_pressed():
+func _restart(game_over : bool = false):
 	_game_over_menu.visible = false
 	await _fade.fade_to_black()
-	File.data.retry()
+	File.data.reset(game_over)
 	_level.queue_free()
 	_load_level()
 	_spawn_player()
@@ -113,11 +126,9 @@ func _on_retry_pressed():
 func _on_level_select_pressed():
 	_game_over_menu.visible = false
 	await _fade.fade_to_black()
-	File.data.retry()
-	print("Return to level selection menu")
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 func _on_exit_pressed():
 	_game_over_menu.visible = false
 	await _fade.fade_to_black()
-	get_tree().quit()
-	# or return to title screen
+	get_tree().change_scene_to_file("res://Scenes/title.tscn")

@@ -1,0 +1,71 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://daved0sc5by1p"]
+
+[ext_resource type="Texture2D" uid="uid://ba5ngc5r6k63x" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/1.png" id="1_lqqv2"]
+[ext_resource type="Texture2D" uid="uid://d1ejogte22vai" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Yellow Button/1.png" id="2_uec4o"]
+[ext_resource type="Texture2D" uid="uid://bdtc5dftomk2c" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/9.png" id="3_7fsxn"]
+[ext_resource type="Texture2D" uid="uid://r3qxjfxskict" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="4_n5rjh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc6g8"]
+texture = ExtResource("1_lqqv2")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc8ie"]
+texture = ExtResource("2_uec4o")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gis1"]
+texture = ExtResource("2_uec4o")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyu8b"]
+texture = ExtResource("1_lqqv2")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8s5wl"]
+texture = ExtResource("2_uec4o")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4d5c4"]
+texture = ExtResource("3_7fsxn")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(12, 12, 104, 104)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qokrj"]
+texture = ExtResource("4_n5rjh")
+texture_margin_left = 16.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_kc6g8")
+Button/styles/focus = SubResource("StyleBoxTexture_dc8ie")
+Button/styles/hover = SubResource("StyleBoxTexture_3gis1")
+Button/styles/normal = SubResource("StyleBoxTexture_dyu8b")
+Button/styles/pressed = SubResource("StyleBoxTexture_8s5wl")
+Panel/styles/panel = SubResource("StyleBoxTexture_4d5c4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_qokrj")

@@ -17,6 +17,11 @@ func _ready():
 		_total_value -= 1
 		_booty.push_back(_silver_coin.instantiate())
 
+func already_opened():
+	_booty.clear()
+	_is_locked = false
+	_is_open = true
+
 func plunder():
 	for item in _booty:
 		item.global_position = global_position + Vector2.UP * Global.ppt
@@ -25,6 +30,7 @@ func plunder():
 		item.apply_impulse(Vector2.UP * Global.ppt * _rng.randf_range(5, 10) + Vector2.RIGHT * Global.ppt * _rng.randf_range(-1, 1))
 		get_parent().add_child(item)
 	_booty.clear()
+	File.data.set_progress_marker(Data.Progress.CHEST_OPENED)
 
 func throw_padlock():
 	var padlock : RigidBody2D = _padlock.instantiate()
