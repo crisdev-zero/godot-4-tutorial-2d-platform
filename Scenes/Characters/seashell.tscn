@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b8rabd0nvmapu"]
+[gd_scene load_steps=46 format=3 uid="uid://b8rabd0nvmapu"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_0jd4d"]
 [ext_resource type="Texture2D" uid="uid://bfbdv5sloiocq" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Idle/1.png" id="1_i6dkl"]
@@ -103,6 +103,18 @@ tracks/2/keys = {
 "method": &"_spawn_projectile"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_s4xqq"]
 resource_name = "hit"
@@ -131,6 +143,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_imdul"]
 resource_name = "idle"
@@ -147,9 +171,37 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_i6dkl")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xmcob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p51wq"]
 _data = {
+"RESET": SubResource("Animation_xmcob"),
 "destroyed": SubResource("Animation_t6d1r"),
 "fire": SubResource("Animation_emgal"),
 "hit": SubResource("Animation_s4xqq"),
@@ -257,9 +309,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_p51wq")
-}
 tree_root = SubResource("AnimationNodeStateMachine_5w8rf")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")

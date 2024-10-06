@@ -5,6 +5,7 @@ class_name Hero extends Character
 @warning_ignore("unused_private_class_variable")
 @onready var _cooldown : Timer = $HitBox/Cooldown
 var _sword : RigidBody2D
+@export var _bonus_damage : int
 
 func attack():
 	_wants_to_attack = true
@@ -37,9 +38,10 @@ func _die():
 		drop_sword()
 	super._die()
 	
-func _on_hit_box_area_entered(area : Area2D):
+func _on_hit_box_area_entered(area : Area2D, _ignore : int = 0):
 	if _is_dead || not _is_attacking:
 		return
 	if not is_on_floor() && area.global_position.y > global_position.y:
 		velocity.y = _jump_velocity / 2
-	super._on_hit_box_area_entered(area)
+	super._on_hit_box_area_entered(area, _bonus_damage)
+	_bonus_damage = 0

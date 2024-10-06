@@ -245,6 +245,6 @@ func _die():
 	collision_mask = 1
 	_direction = 0
 
-func _on_hit_box_area_entered(area : Area2D):
+func _on_hit_box_area_entered(area : Area2D, bonus_damage : int = 0):
 	if not _is_dead && _is_attacking:
-		area.get_parent().take_damage(_attack_damage, (area.global_position - global_position).normalized())
+		area.get_parent().take_damage(_attack_damage + bonus_damage, (area.global_position - global_position).normalized())
