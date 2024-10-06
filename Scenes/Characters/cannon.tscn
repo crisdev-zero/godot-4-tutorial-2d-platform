@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://da7xq2lc5noo3"]
+[gd_scene load_steps=47 format=3 uid="uid://da7xq2lc5noo3"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_t6lr4"]
 [ext_resource type="PackedScene" uid="uid://cfp415srkmv3g" path="res://Scenes/Projectiles/cannonball.tscn" id="2_vt6og"]
@@ -41,10 +41,10 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -147,8 +147,24 @@ tracks/0/keys = {
 "values": [ExtResource("3_eaqai")]
 }
 
+[sub_resource type="Animation" id="Animation_4yxpf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p51wq"]
 _data = {
+"RESET": SubResource("Animation_4yxpf"),
 "destroyed": SubResource("Animation_t6d1r"),
 "fire": SubResource("Animation_emgal"),
 "hit": SubResource("Animation_s4xqq"),
@@ -266,9 +282,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_p51wq")
-}
 tree_root = SubResource("AnimationNodeStateMachine_5w8rf")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")

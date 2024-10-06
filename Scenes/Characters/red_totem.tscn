@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bya0lnb7t0c47"]
+[gd_scene load_steps=44 format=3 uid="uid://bya0lnb7t0c47"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_5fynq"]
 [ext_resource type="Texture2D" uid="uid://bl06bdrq1hssa" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Idle 2/1.png" id="1_yxaot"]
@@ -41,10 +41,10 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -147,8 +147,24 @@ tracks/0/keys = {
 "values": [ExtResource("1_yxaot")]
 }
 
+[sub_resource type="Animation" id="Animation_08dwg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v5qxf"]
 _data = {
+"RESET": SubResource("Animation_08dwg"),
 "destroyed": SubResource("Animation_crs3f"),
 "fire": SubResource("Animation_hk7i3"),
 "hit": SubResource("Animation_smx5d"),
@@ -259,9 +275,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_v5qxf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_bvmtl")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")

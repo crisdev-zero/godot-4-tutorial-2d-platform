@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://pg6bva6kli7x"]
+[gd_scene load_steps=43 format=3 uid="uid://pg6bva6kli7x"]
 
 [ext_resource type="Texture2D" uid="uid://bmq8h8kcacry3" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 1/Idle 1/1.png" id="1_1ivf0"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_fwvak"]
@@ -41,10 +41,10 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -147,8 +147,24 @@ tracks/0/keys = {
 "values": [ExtResource("1_1ivf0")]
 }
 
+[sub_resource type="Animation" id="Animation_q37d4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0l21l"]
 _data = {
+"RESET": SubResource("Animation_q37d4"),
 "destroyed": SubResource("Animation_f2lje"),
 "fire": SubResource("Animation_76ml3"),
 "hit": SubResource("Animation_5vjgl"),
@@ -258,9 +274,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_0l21l")
-}
 tree_root = SubResource("AnimationNodeStateMachine_fw73w")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
