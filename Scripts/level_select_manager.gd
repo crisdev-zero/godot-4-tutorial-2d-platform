@@ -19,6 +19,7 @@ func _ready():
 func _on_level_selected(world : int, level : int):
 	File.data.world = world
 	File.data.level = level
+	File.data.checkpoint = 0
 	await _fade.fade_to_black()
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
