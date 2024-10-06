@@ -19,7 +19,7 @@ enum Progress
 
 func _init():
 	world = 1
-	level = 3
+	level = 1
 	coins = 0
 	lives = 3
 	checkpoint = 0
