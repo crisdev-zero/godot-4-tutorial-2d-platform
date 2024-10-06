@@ -1196,6 +1196,7 @@ b = Vector2(-312, -376)
 
 [node name="Level" type="Area2D"]
 script = ExtResource("1_a1icv")
+level_unlocked = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(240, -560)
@@ -1604,7 +1605,7 @@ _jump_height = 1.5
 [node name="Start" type="Node2D" parent="Checkpoints"]
 
 [node name="End" parent="Checkpoints" instance=ExtResource("25_v8kut")]
-position = Vector2(240, 0)
+position = Vector2(464, -96)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

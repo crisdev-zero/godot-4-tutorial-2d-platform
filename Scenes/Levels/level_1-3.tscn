@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://uu1soqaoj1j1" path="res://Sound Effects/Impacts/406087__yin_yang_jake007__water-splash.wav" id="13_0xtl2"]
 [ext_resource type="PackedScene" uid="uid://pg6bva6kli7x" path="res://Scenes/Characters/blue_totem.tscn" id="17_urhw2"]
 [ext_resource type="PackedScene" uid="uid://mdhy6yikhuiy" path="res://Scenes/Characters/green_totem.tscn" id="18_4pr15"]
-[ext_resource type="PackedScene" uid="uid://oi32gpks5g1k" path="res://Scenes/Treasure/small_map_1.tscn" id="18_w4hbg"]
+[ext_resource type="PackedScene" uid="uid://c6wgb4mmy83po" path="res://Scenes/Treasure/small_map_4.tscn" id="19_lg3fr"]
 [ext_resource type="PackedScene" uid="uid://bya0lnb7t0c47" path="res://Scenes/Characters/red_totem.tscn" id="19_qsjvy"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/totem_pole.gd" id="20_0jg5b"]
 [ext_resource type="Script" path="res://Scripts/UI/gauge.gd" id="21_fmp6v"]
@@ -1585,8 +1585,7 @@ position = Vector2(0, -22)
 [node name="Middle" parent="Checkpoints" instance=ExtResource("32_uj7jr")]
 position = Vector2(288, -192)
 
-[node name="End" parent="Checkpoints" instance=ExtResource("18_w4hbg")]
-visible = false
+[node name="End" parent="Checkpoints" instance=ExtResource("19_lg3fr")]
 position = Vector2(736, -288)
 
 [node name="Sword" parent="." instance=ExtResource("34_j5rfg")]
