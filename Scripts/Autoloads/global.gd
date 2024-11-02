@@ -1,3 +1,3 @@
 extends Node
 
-var ppt : int = 32
+var ppt: int = 32

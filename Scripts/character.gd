@@ -1,43 +1,44 @@
 class_name Character extends CharacterBody2D
 
-var _is_bound : bool
-var _min : Vector2
-var _max : Vector2
+var _is_bound: bool
+var _min: Vector2
+var _max: Vector2
 
 @export_category("Locomotion")
-@export var _speed : float = 8
-@export var _acceleration : float = 16
-@export var _deceleration : float = 32
+@export var _speed: float = 8
+@export var _acceleration: float = 16
+@export var _deceleration: float = 32
 
 @export_category("Jump")
-@export var _jump_height : float = 2.5
-@export var _air_control : float = 0.5
-@export var _jump_dust : PackedScene
-var _jump_velocity : float
-var _was_on_floor : bool
+@export var _jump_height: float = 2.5
+@export var _air_control: float = 0.5
+@export var _jump_dust: PackedScene
+var _jump_velocity: float
+var _was_on_floor: bool
 
 @export_category("Sprite")
-@export var _is_facing_left : bool
-@export var _sprites_face_left : bool
-@onready var _sprite : Sprite2D = $Sprite2D
+@export var _is_facing_left: bool
+@export var _sprites_face_left: bool
+@onready var _sprite: Sprite2D = $Sprite2D
 
 @export_category("Swim")
-@export var _density : float = -0.1
-@export var _drag : float = 0.5
-var _water_surface_height : float
-var _is_in_water : bool
-var _is_below_surface : bool
+@export var _density: float = -0.1
+@export var _drag: float = 0.5
+var _water_surface_height: float
+var _is_in_water: bool
+var _is_below_surface: bool
 
 @export_category("Combat")
-@export var _is_hit : bool
+@export var _is_hit: bool
 
-signal changed_direction(is_facing_left : bool)
-signal landed(floor_height : float)
+signal changed_direction(is_facing_left: bool)
+signal landed(floor_height: float)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var _direction : float
+var _direction: float
+
 
 func _ready():
 	_speed *= Global.ppt
@@ -47,9 +48,11 @@ func _ready():
 	_jump_velocity = sqrt(_jump_height * gravity * 2) * -1
 	face_left() if _is_facing_left else face_right()
 
+
 #region Public Methods
 
-func take_damage(amount : int, direction : Vector2):
+
+func take_damage(amount: int, direction: Vector2):
 	print(direction)
 	_is_hit = true
 	velocity = direction * Global.ppt * 5
@@ -58,27 +61,32 @@ func take_damage(amount : int, direction : Vector2):
 	await $Invincible.timeout
 	#$Area2D.monitorable = true
 
-func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
+
+func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 	_is_bound = true
 	_min = min_boundary
 	_max = max_boundary
-	var sprite_size : Vector2 = _sprite.get_rect().size
+	var sprite_size: Vector2 = _sprite.get_rect().size
 	_min.x += sprite_size.x / 2
 	_max.x -= sprite_size.x / 2
 	_min.y += sprite_size.y
+
 
 func face_left():
 	_is_facing_left = true
 	_sprite.flip_h = not _sprites_face_left
 	changed_direction.emit(_is_facing_left)
 
+
 func face_right():
 	_is_facing_left = false
-	_sprite.flip_h =  _sprites_face_left
+	_sprite.flip_h = _sprites_face_left
 	changed_direction.emit(_is_facing_left)
 
-func run(direction : float):
+
+func run(direction: float):
 	_direction = direction
+
 
 func jump():
 	if _is_in_water:
@@ -91,11 +99,13 @@ func jump():
 		velocity.y = _jump_velocity
 		_spawn_dust(_jump_dust)
 
+
 func stop_jump():
 	if velocity.y < 0 && not _is_in_water:
 		velocity.y = 0
 
-func enter_water(water_surface_height : float):
+
+func enter_water(water_surface_height: float):
 	_water_surface_height = water_surface_height
 	_is_in_water = true
 	_is_below_surface = false
@@ -103,15 +113,19 @@ func enter_water(water_surface_height : float):
 	if velocity.y > 0:
 		velocity.y *= _drag
 
+
 func exit_water():
 	_is_in_water = false
+
 
 func dive():
 	_is_below_surface = true
 
+
 #endregion
 
-func _physics_process(delta : float):
+
+func _physics_process(delta: float):
 	if not _is_facing_left && sign(_direction) == -1:
 		face_left()
 	elif _is_facing_left && sign(_direction) == 1:
@@ -130,7 +144,8 @@ func _physics_process(delta : float):
 		position.x = clamp(position.x, _min.x, _max.x)
 		position.y = clamp(position.y, _min.y, _max.y)
 
-func _ground_physics(delta : float):
+
+func _ground_physics(delta: float):
 	# decelerate to zero
 	if _direction == 0:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * delta)
@@ -141,12 +156,16 @@ func _ground_physics(delta : float):
 	else:
 		velocity.x = move_toward(velocity.x, _direction * _speed, _deceleration * delta)
 
-func _air_physics(delta : float):
+
+func _air_physics(delta: float):
 	velocity.y += gravity * delta
 	if _direction:
-		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _air_control * delta)
+		velocity.x = move_toward(
+			velocity.x, _direction * _speed, _acceleration * _air_control * delta
+		)
 
-func _water_physics(delta : float):
+
+func _water_physics(delta: float):
 	if _direction == 0:
 		velocity.x = move_toward(velocity.x, 0, _deceleration * _drag * delta)
 	else:
@@ -156,12 +175,16 @@ func _water_physics(delta : float):
 	elif position.y - float(Global.ppt) / 4 > _water_surface_height:
 		velocity.y = move_toward(velocity.y, gravity * _density * _drag, gravity * _drag * delta)
 	else:
-		velocity.y = move_toward(velocity.y, gravity * _density * _drag * -1, gravity * _drag * delta)
+		velocity.y = move_toward(
+			velocity.y, gravity * _density * _drag * -1, gravity * _drag * delta
+		)
+
 
 func _land():
 	landed.emit(position.y)
 
-func _spawn_dust(dust : PackedScene):
+
+func _spawn_dust(dust: PackedScene):
 	var _dust = dust.instantiate()
 	_dust.position = position
 	_dust.flip_h = _sprite.flip_h

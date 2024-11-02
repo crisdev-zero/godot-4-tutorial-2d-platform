@@ -1,12 +1,14 @@
 class_name Treasure extends CollisionObject2D
 
-@onready var _sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var _sfx : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 func _collect():
 	pass
 
-func _on_body_entered(body : Node):
+
+func _on_body_entered(body: Node):
 	_sfx.play()
 	if not body is Character:
 		return
