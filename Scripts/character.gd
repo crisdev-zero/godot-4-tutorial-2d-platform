@@ -28,9 +28,6 @@ var _water_surface_height: float
 var _is_in_water: bool
 var _is_below_surface: bool
 
-@export_category("Combat")
-@export var _is_hit: bool
-
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
 
@@ -40,6 +37,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: float
 
 
+#region Built-in methods
 func _ready():
 	_speed *= Global.ppt
 	_acceleration *= Global.ppt
@@ -49,19 +47,30 @@ func _ready():
 	face_left() if _is_facing_left else face_right()
 
 
+func _physics_process(delta: float):
+	if not _is_facing_left && sign(_direction) == -1:
+		face_left()
+	elif _is_facing_left && sign(_direction) == 1:
+		face_right()
+	if _is_in_water:
+		_water_physics(delta)
+	elif is_on_floor():
+		_ground_physics(delta)
+	else:
+		_air_physics(delta)
+	_was_on_floor = is_on_floor()
+	move_and_slide()
+	if not _was_on_floor && is_on_floor():
+		_land()
+	if _is_bound:
+		position.x = clamp(position.x, _min.x, _max.x)
+		position.y = clamp(position.y, _min.y, _max.y)
+
+
+#endregion Built-in methods
+
+
 #region Public Methods
-
-
-func take_damage(amount: int, direction: Vector2):
-	print(direction)
-	_is_hit = true
-	velocity = direction * Global.ppt * 5
-	#$Area2D.set_deferred("monitorable", false)
-	$Invincible.start()
-	await $Invincible.timeout
-	#$Area2D.monitorable = true
-
-
 func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 	_is_bound = true
 	_min = min_boundary
@@ -125,26 +134,7 @@ func dive():
 #endregion
 
 
-func _physics_process(delta: float):
-	if not _is_facing_left && sign(_direction) == -1:
-		face_left()
-	elif _is_facing_left && sign(_direction) == 1:
-		face_right()
-	if _is_in_water:
-		_water_physics(delta)
-	elif is_on_floor():
-		_ground_physics(delta)
-	else:
-		_air_physics(delta)
-	_was_on_floor = is_on_floor()
-	move_and_slide()
-	if not _was_on_floor && is_on_floor():
-		_land()
-	if _is_bound:
-		position.x = clamp(position.x, _min.x, _max.x)
-		position.y = clamp(position.y, _min.y, _max.y)
-
-
+#region Private methods
 func _ground_physics(delta: float):
 	# decelerate to zero
 	if _direction == 0:
@@ -160,9 +150,7 @@ func _ground_physics(delta: float):
 func _air_physics(delta: float):
 	velocity.y += gravity * delta
 	if _direction:
-		velocity.x = move_toward(
-			velocity.x, _direction * _speed, _acceleration * _air_control * delta
-		)
+		velocity.x = move_toward(velocity.x, _direction * _speed, _acceleration * _air_control * delta)
 
 
 func _water_physics(delta: float):
@@ -175,9 +163,7 @@ func _water_physics(delta: float):
 	elif position.y - float(Global.ppt) / 4 > _water_surface_height:
 		velocity.y = move_toward(velocity.y, gravity * _density * _drag, gravity * _drag * delta)
 	else:
-		velocity.y = move_toward(
-			velocity.y, gravity * _density * _drag * -1, gravity * _drag * delta
-		)
+		velocity.y = move_toward(velocity.y, gravity * _density * _drag * -1, gravity * _drag * delta)
 
 
 func _land():
@@ -189,3 +175,5 @@ func _spawn_dust(dust: PackedScene):
 	_dust.position = position
 	_dust.flip_h = _sprite.flip_h
 	get_parent().add_child(_dust)
+
+#endregion
