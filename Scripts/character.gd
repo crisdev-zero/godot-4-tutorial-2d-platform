@@ -44,7 +44,11 @@ func _ready():
 	_deceleration *= Global.ppt
 	_jump_height *= Global.ppt
 	_jump_velocity = sqrt(_jump_height * gravity * 2) * -1
-	face_left() if _is_facing_left else face_right()
+
+	if _is_facing_left:
+		face_left()
+	else:
+		face_right()
 
 
 func _physics_process(delta: float):

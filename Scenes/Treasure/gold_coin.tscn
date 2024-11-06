@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwh5ersawqw5k"]
+
+[ext_resource type="Script" path="res://Scripts/Treasure/coin.gd" id="1_qa8iv"]
+[ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_k03sh"]
+[ext_resource type="Texture2D" uid="uid://cua578dj4uuap" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_wh481"]
+[ext_resource type="Texture2D" uid="uid://b6iisjruxo6ot" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_vtj2s"]
+[ext_resource type="Texture2D" uid="uid://bp1rg63skl7w2" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_7kb3l"]
+[ext_resource type="Texture2D" uid="uid://bchbg76tgt52v" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/01.png" id="6_518qu"]
+[ext_resource type="Texture2D" uid="uid://cw8tetbxgd6wq" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/02.png" id="7_cybl8"]
+[ext_resource type="Texture2D" uid="uid://b1v4e2d6015lr" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/03.png" id="8_dkqnd"]
+[ext_resource type="AudioStream" uid="uid://b8568c8jn7j2l" path="res://Sound Effects/Treasure/699496__valenspire__coin_drop_01.wav" id="9_cld5h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_por0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k03sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wh481")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vtj2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7kb3l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_518qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cybl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dkqnd")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljnji"]
+radius = 5.09902
+
+[node name="GoldCoin" type="RigidBody2D"]
+position = Vector2(0, -1)
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qa8iv")
+_value = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_por0k")
+autoplay = "default"
+frame = 3
+frame_progress = 0.524613
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ljnji")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_cld5h")

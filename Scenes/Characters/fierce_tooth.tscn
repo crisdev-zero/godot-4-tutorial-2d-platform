@@ -307,9 +307,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_1au2v")
-}
 tree_root = SubResource("AnimationNodeStateMachine_1anhm")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")

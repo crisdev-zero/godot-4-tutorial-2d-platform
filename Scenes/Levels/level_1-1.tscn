@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=35 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_u3n8c"]
@@ -22,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://cow74terq62vw" path="res://Scenes/Decorations/back_palm_tree_left.tscn" id="17_pdcgh"]
 [ext_resource type="PackedScene" uid="uid://du136iawfda4o" path="res://Scenes/Decorations/back_palm_tree_right.tscn" id="18_ibmxx"]
 [ext_resource type="PackedScene" uid="uid://uqb2y4i3y4gp" path="res://Scenes/Decorations/back_palm_tree_regular.tscn" id="19_re7cq"]
+[ext_resource type="PackedScene" uid="uid://cfal4pifbb770" path="res://Scenes/Treasure/silver_coin.tscn" id="23_nch8k"]
+[ext_resource type="PackedScene" uid="uid://bwh5ersawqw5k" path="res://Scenes/Treasure/gold_coin.tscn" id="24_3ntbn"]
+[ext_resource type="PackedScene" uid="uid://ba8m3ys15haoo" path="res://Scenes/Treasure/golden_skull.tscn" id="25_qtpit"]
+[ext_resource type="PackedScene" uid="uid://dtwlwtylwdyio" path="res://Scenes/Treasure/chest.tscn" id="26_nalps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la0v7"]
 size = Vector2(3392, 640)
@@ -1650,6 +1654,21 @@ position = Vector2(2720, -224)
 [node name="Fierce Tooth" parent="Enemies" instance=ExtResource("14_0njq5")]
 position = Vector2(1088, -128)
 _jump_height = 1.5
+
+[node name="Treasure" type="Node2D" parent="."]
+
+[node name="SilverCoin" parent="Treasure" instance=ExtResource("23_nch8k")]
+position = Vector2(108, -63)
+
+[node name="GoldCoin" parent="Treasure" instance=ExtResource("24_3ntbn")]
+position = Vector2(375, -95)
+
+[node name="GoldenSkull" parent="Treasure" instance=ExtResource("25_qtpit")]
+position = Vector2(44, -46)
+
+[node name="Chest" parent="Treasure" instance=ExtResource("26_nalps")]
+position = Vector2(276, 1)
+_total_value = 99
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
