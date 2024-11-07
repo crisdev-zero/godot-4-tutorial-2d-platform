@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cpwkfxnf85d60" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/01.png" id="10_udyyu"]
 [ext_resource type="Texture2D" uid="uid://f3aqt6mdecuh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/02.png" id="11_qf1vg"]
 [ext_resource type="Texture2D" uid="uid://08lt63u2qj3o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/03.png" id="12_cdere"]
-[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/01.png" id="13_ut48f"]
-[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/02.png" id="14_e183v"]
-[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/03.png" id="15_vs1my"]
+[ext_resource type="Texture2D" uid="uid://bykli5na3oy52" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/Out/01.png" id="13_lwcdj"]
+[ext_resource type="Texture2D" uid="uid://b0efgpgajiljd" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/Out/02.png" id="14_rm65e"]
+[ext_resource type="Texture2D" uid="uid://c0kqtwuotjmsn" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/Out/03.png" id="15_cccas"]
 [ext_resource type="AudioStream" uid="uid://blitpbc7otwo3" path="res://Sound Effects/Treasure/447932__breviceps__paper.wav" id="16_ffrl2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8erj"]
@@ -59,13 +59,13 @@ animations = [{
 "texture": ExtResource("12_cdere")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ut48f")
+"texture": ExtResource("13_lwcdj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_e183v")
+"texture": ExtResource("14_rm65e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_vs1my")
+"texture": ExtResource("15_cccas")
 }],
 "loop": false,
 "name": &"effect",
@@ -82,8 +82,10 @@ script = ExtResource("1_min8o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l8erj")
+animation = &"effect"
 autoplay = "default"
-frame_progress = 0.934929
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.76, 0.72)
