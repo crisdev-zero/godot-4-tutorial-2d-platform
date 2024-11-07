@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qhrairn8jad5" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 03.png" id="3_1u23p"]
 [ext_resource type="Texture2D" uid="uid://cm7a8lsvqrg3q" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 04.png" id="4_aqhqn"]
 [ext_resource type="Texture2D" uid="uid://b5p7qnte5lxv8" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Dust Particles/Run 05.png" id="5_aebgy"]
-[ext_resource type="Script" path="res://Scripts/dust.gd" id="6_fpybw"]
+[ext_resource type="Script" path="res://Scripts/Environment/dust.gd" id="6_fpybw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_53av0"]
 animations = [{

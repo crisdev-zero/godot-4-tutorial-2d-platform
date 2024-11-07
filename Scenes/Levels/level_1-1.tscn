@@ -1,10 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=38 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_u3n8c"]
+[ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
 [ext_resource type="Texture2D" uid="uid://diyhn241mjyly" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_affg1"]
 [ext_resource type="Texture2D" uid="uid://cdjs7hvh0372" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="3_7vbkn"]
-[ext_resource type="Script" path="res://Scripts/water.gd" id="3_sb24s"]
+[ext_resource type="Script" path="res://Scripts/Environment/water.gd" id="3_sb24s"]
 [ext_resource type="Texture2D" uid="uid://mnbiqen63rt3" path="res://Treasure Hunters/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Platforms (32x32).png" id="4_1tkbr"]
 [ext_resource type="PackedScene" uid="uid://dhsfj4exww2f5" path="res://Scenes/Dust/splash.tscn" id="4_hvc0i"]
 [ext_resource type="Texture2D" uid="uid://b4t4yqdih0sib" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="5_6v1g3"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dtwlwtylwdyio" path="res://Scenes/Treasure/chest.tscn" id="26_nalps"]
 [ext_resource type="PackedScene" uid="uid://bfgipibbtspb0" path="res://Scenes/Treasure/key.tscn" id="27_axs1b"]
 [ext_resource type="PackedScene" uid="uid://6nwl46a26lk3" path="res://Scenes/Treasure/small_map_2.tscn" id="28_lo0tl"]
+[ext_resource type="PackedScene" uid="uid://bw4sldaswnmiw" path="res://Scenes/Hazards/spikes.tscn" id="29_x1aem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la0v7"]
 size = Vector2(3392, 640)
@@ -1677,7 +1678,10 @@ _total_value = 99
 position = Vector2(220, -78)
 
 [node name="SmallMap2" parent="Treasure" instance=ExtResource("28_lo0tl")]
-position = Vector2(82, -15)
+position = Vector2(158, -45)
+
+[node name="Spikes" parent="." instance=ExtResource("29_x1aem")]
+position = Vector2(46, 0)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

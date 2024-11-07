@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
-[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_h4drt"]
+[ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
 [ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
