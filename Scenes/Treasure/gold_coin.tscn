@@ -62,8 +62,8 @@ _value = 10
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_por0k")
 autoplay = "default"
-frame = 3
-frame_progress = 0.524613
+frame = 1
+frame_progress = 0.222182
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ljnji")

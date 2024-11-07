@@ -1,0 +1,93 @@
+[gd_scene load_steps=19 format=3 uid="uid://6nwl46a26lk3"]
+
+[ext_resource type="Script" path="res://Scripts/Treasure/small_map.gd" id="1_min8o"]
+[ext_resource type="Texture2D" uid="uid://baeuyjmndnhw0" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/01.png" id="2_n7lpm"]
+[ext_resource type="Texture2D" uid="uid://bgbpvoosrh6g1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/02.png" id="3_x8q4b"]
+[ext_resource type="Texture2D" uid="uid://c44gakt0gdhe5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/03.png" id="4_o62xd"]
+[ext_resource type="Texture2D" uid="uid://dahwpp062v28y" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/04.png" id="5_spxn2"]
+[ext_resource type="Texture2D" uid="uid://bm7d8ipkb1sx" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/05.png" id="6_2jgyc"]
+[ext_resource type="Texture2D" uid="uid://c1ehk647vi4pa" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/06.png" id="7_d6ygg"]
+[ext_resource type="Texture2D" uid="uid://de534i6n3bly" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/07.png" id="8_qfxip"]
+[ext_resource type="Texture2D" uid="uid://b2n2501ucxmev" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 2/08.png" id="9_rsfy8"]
+[ext_resource type="Texture2D" uid="uid://cpwkfxnf85d60" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/01.png" id="10_udyyu"]
+[ext_resource type="Texture2D" uid="uid://f3aqt6mdecuh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/02.png" id="11_qf1vg"]
+[ext_resource type="Texture2D" uid="uid://08lt63u2qj3o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/03.png" id="12_cdere"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/01.png" id="13_ut48f"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/02.png" id="14_e183v"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/03.png" id="15_vs1my"]
+[ext_resource type="AudioStream" uid="uid://blitpbc7otwo3" path="res://Sound Effects/Treasure/447932__breviceps__paper.wav" id="16_ffrl2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8erj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n7lpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x8q4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o62xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_spxn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2jgyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d6ygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qfxip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rsfy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_udyyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qf1vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cdere")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ut48f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_e183v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vs1my")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df5qk"]
+size = Vector2(19.4737, 19.4444)
+
+[node name="SmallMap2" type="Area2D"]
+collision_layer = 16777216
+collision_mask = 257
+script = ExtResource("1_min8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8erj")
+autoplay = "default"
+frame_progress = 0.934929
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.76, 0.72)
+shape = SubResource("RectangleShape2D_df5qk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ffrl2")

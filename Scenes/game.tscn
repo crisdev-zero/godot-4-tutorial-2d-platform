@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=24 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_h4drt"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://c7fntxadhg538" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/34.png" id="18_s78is"]
 [ext_resource type="Texture2D" uid="uid://qs5i6welwtvr" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/35.png" id="19_278xn"]
 [ext_resource type="Texture2D" uid="uid://b8ke1xmtafxb1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/00.png" id="21_dj0jq"]
+[ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="22_jjqul"]
 [ext_resource type="AudioStream" uid="uid://duxg4oeoxgnv3" path="res://Music/677858__el_boss__game-success-fanfare-short.wav" id="23_lg1sm"]
+[ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="23_tcai5"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uggmm")
@@ -110,6 +112,17 @@ layout_mode = 2
 texture = ExtResource("10_s1uof")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="KeyIcon" type="TextureRect" parent="UserInterface"]
+visible = false
+offset_left = 34.0
+offset_top = 92.0
+offset_right = 74.0
+offset_bottom = 132.0
+scale = Vector2(2, 2)
+texture = ExtResource("22_jjqul")
+
+[node name="Fade" parent="UserInterface" instance=ExtResource("23_tcai5")]
 
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]

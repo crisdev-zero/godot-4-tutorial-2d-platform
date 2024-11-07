@@ -1,9 +1,11 @@
 extends Area2D
 
 @export var _is_open: bool
+@export var _is_locked: bool
 @export_range(0, 99) var _total_value: int = 1
 @export var _silver_coin: PackedScene
 @export var _gold_coin: PackedScene
+@export var _padlock: PackedScene
 
 @onready var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -34,6 +36,22 @@ func plunder():
 	_booty.clear()
 
 
+func throw_padlock():
+	var padlock: RigidBody2D = _padlock.instantiate()
+	padlock.global_position = global_position + Vector2(-4, -7)
+
+	# apply impulse force
+	padlock.apply_impulse(Vector2.UP * Global.ppt + Vector2.RIGHT * Global.ppt * _rng.randf_range(-1, 1))
+	get_parent().add_child(padlock)
+	
+
 func _on_body_entered(body: Node2D) -> void:
-	if body is Character:
+	if not body is Character:
+		return
+
+	if _is_locked && File.data.has_key:
+		_is_locked = false
+		$/root/Game.use_key()
+	
+	if not _is_locked:
 		_is_open = true

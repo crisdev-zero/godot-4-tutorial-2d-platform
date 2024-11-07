@@ -2,8 +2,19 @@ extends Node
 
 @onready var _character = get_parent()
 
+var _is_enabled: bool
 
+
+# Public methods
+func set_enabled(is_enabled: bool):
+	_is_enabled = is_enabled
+
+
+# Private methods
 func _input(event: InputEvent):
+	if not _is_enabled:
+		return
+
 	if event.is_action_pressed("jump"):
 		_character.jump()
 	if event.is_action_released("jump"):
@@ -12,4 +23,7 @@ func _input(event: InputEvent):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
+	if not _is_enabled:
+		return
+
 	_character.run(Input.get_axis("run_left", "run_right"))

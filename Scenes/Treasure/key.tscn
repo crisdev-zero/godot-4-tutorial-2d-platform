@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://bfgipibbtspb0"]
+
+[ext_resource type="Script" path="res://Scripts/Treasure/key.gd" id="1_hvout"]
+[ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_i7lfv"]
+[ext_resource type="Texture2D" uid="uid://dgwitxsgc8q5a" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="3_p11xf"]
+[ext_resource type="Texture2D" uid="uid://bf1m6dedoy603" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="4_u8ogu"]
+[ext_resource type="Texture2D" uid="uid://dqy8c2q10y3q7" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="5_8y4yd"]
+[ext_resource type="Texture2D" uid="uid://dq5lbk61keqoc" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="6_w4uam"]
+[ext_resource type="Texture2D" uid="uid://4pxxkshh3jkr" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="7_60mtu"]
+[ext_resource type="Texture2D" uid="uid://qidnnpgy3r4v" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="8_3x5q0"]
+[ext_resource type="Texture2D" uid="uid://dgxne3c083k3l" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="9_uej5s"]
+[ext_resource type="Texture2D" uid="uid://hcv1lmt4c4r" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="10_tou5k"]
+[ext_resource type="Texture2D" uid="uid://c5hhxqcvlmdcj" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="11_puqki"]
+[ext_resource type="Texture2D" uid="uid://daxga3fml2i42" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="12_bn461"]
+[ext_resource type="Texture2D" uid="uid://dl8igihrdk05h" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="13_ld8v4"]
+[ext_resource type="AudioStream" uid="uid://dl4tngwq5hqlv" path="res://Sound Effects/Treasure/699530__valenspire__coin_misc_01.wav" id="14_w228c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_por0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i7lfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p11xf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u8ogu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8y4yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4uam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60mtu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3x5q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uej5s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_tou5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_puqki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bn461")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ld8v4")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljnji"]
+radius = 5.09902
+
+[node name="Key" type="RigidBody2D"]
+position = Vector2(0, -1)
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_hvout")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_por0k")
+autoplay = "default"
+frame = 4
+frame_progress = 0.40356
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ljnji")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_w228c")

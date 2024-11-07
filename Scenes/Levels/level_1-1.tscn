@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=37 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_u3n8c"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://bwh5ersawqw5k" path="res://Scenes/Treasure/gold_coin.tscn" id="24_3ntbn"]
 [ext_resource type="PackedScene" uid="uid://ba8m3ys15haoo" path="res://Scenes/Treasure/golden_skull.tscn" id="25_qtpit"]
 [ext_resource type="PackedScene" uid="uid://dtwlwtylwdyio" path="res://Scenes/Treasure/chest.tscn" id="26_nalps"]
+[ext_resource type="PackedScene" uid="uid://bfgipibbtspb0" path="res://Scenes/Treasure/key.tscn" id="27_axs1b"]
+[ext_resource type="PackedScene" uid="uid://6nwl46a26lk3" path="res://Scenes/Treasure/small_map_2.tscn" id="28_lo0tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la0v7"]
 size = Vector2(3392, 640)
@@ -1668,7 +1670,14 @@ position = Vector2(44, -46)
 
 [node name="Chest" parent="Treasure" instance=ExtResource("26_nalps")]
 position = Vector2(276, 1)
+_is_locked = true
 _total_value = 99
+
+[node name="Key" parent="Treasure" instance=ExtResource("27_axs1b")]
+position = Vector2(220, -78)
+
+[node name="SmallMap2" parent="Treasure" instance=ExtResource("28_lo0tl")]
+position = Vector2(82, -15)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

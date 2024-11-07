@@ -1,0 +1,93 @@
+[gd_scene load_steps=19 format=3 uid="uid://cyrxkhsnxhxf7"]
+
+[ext_resource type="Script" path="res://Scripts/Treasure/small_map.gd" id="1_jf7gj"]
+[ext_resource type="Texture2D" uid="uid://cngykggtnlhyh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/01.png" id="2_qnbk3"]
+[ext_resource type="Texture2D" uid="uid://ta14cu8olj50" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/02.png" id="3_07nbd"]
+[ext_resource type="Texture2D" uid="uid://ckooxktvetchv" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/03.png" id="4_pm47p"]
+[ext_resource type="Texture2D" uid="uid://baes728mtrtsk" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/04.png" id="5_ty1bp"]
+[ext_resource type="Texture2D" uid="uid://e4ms481m3mtp" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/05.png" id="6_ophpb"]
+[ext_resource type="Texture2D" uid="uid://c0vb5t405hm3l" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/06.png" id="7_ije23"]
+[ext_resource type="Texture2D" uid="uid://xk8ux71o73j5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/07.png" id="8_h4fhq"]
+[ext_resource type="Texture2D" uid="uid://s1isvwp70sux" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/08.png" id="9_525ov"]
+[ext_resource type="Texture2D" uid="uid://cpwkfxnf85d60" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/01.png" id="10_6oi2n"]
+[ext_resource type="Texture2D" uid="uid://f3aqt6mdecuh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/02.png" id="11_2136q"]
+[ext_resource type="Texture2D" uid="uid://08lt63u2qj3o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Map Effect/In/03.png" id="12_wyowg"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/01.png" id="13_qbajt"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/02.png" id="14_7f8qy"]
+[ext_resource type="Texture2D" path="res://Sound Effects/Treasure/03.png" id="15_fdwxw"]
+[ext_resource type="AudioStream" uid="uid://blitpbc7otwo3" path="res://Sound Effects/Treasure/447932__breviceps__paper.wav" id="16_w75xl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8erj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qnbk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_07nbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pm47p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ty1bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ophpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ije23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h4fhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_525ov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6oi2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2136q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wyowg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qbajt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7f8qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fdwxw")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df5qk"]
+size = Vector2(19.4737, 19.4444)
+
+[node name="SmallMap3" type="Area2D"]
+collision_layer = 16777216
+collision_mask = 257
+script = ExtResource("1_jf7gj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8erj")
+autoplay = "default"
+frame_progress = 0.620935
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.76, 0.72)
+shape = SubResource("RectangleShape2D_df5qk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_w75xl")
