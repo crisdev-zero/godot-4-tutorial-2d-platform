@@ -28,8 +28,14 @@ var _water_surface_height: float
 var _is_in_water: bool
 var _is_below_surface: bool
 
+@export_category("Combat")
 @export_range(1, 100) var _max_health: int = 5
+@export_range(0, 5) var _invincible_duration: float = 0
 @onready var _current_health: int = _max_health
+# Export _is_hit and call from the animation doesn't work from 4.3 onwards
+var _is_hit: bool
+@onready var _hurt_box: Area2D = $HurtBox
+var _invincible_timer: Timer
 
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
@@ -52,6 +58,9 @@ func _ready():
 		face_left()
 	else:
 		face_right()
+
+	if _invincible_duration > 0:
+		_invincible_timer = $HurtBox/Invincible
 
 
 func _physics_process(delta: float):
@@ -138,10 +147,28 @@ func dive():
 	_is_below_surface = true
 
 
-func take_damage(amount: int):
+func take_damage(amount: int, direction: Vector2):
 	_current_health -= amount
 	print(_current_health)
-	# brief invincibility
+	_is_hit = true
+	velocity = direction * Global.ppt * 5
+
+	if _invincible_duration > 0:
+		await become_invincible(_invincible_duration)
+
+
+func become_invincible(duration: float):
+	# Wont work because Godot wont let disable the collision shape before the animation is completed
+	#_hurt_box.monitorable = false
+	_hurt_box.set_deferred("monitorable", false)
+	_invincible_timer.start(duration)
+	await _invincible_timer.timeout
+	_hurt_box.monitorable = true
+
+
+func set_hit(is_hit: bool):
+	_is_hit = is_hit
+
 
 #endregion
 

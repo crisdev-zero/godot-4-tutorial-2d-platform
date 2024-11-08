@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b3a0x6goc1rbj"]
+[gd_scene load_steps=63 format=3 uid="uid://b3a0x6goc1rbj"]
 
 [ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_6q04p"]
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_qjtj3"]
@@ -23,6 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://r4pcimi80t74" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="17_cf7gp"]
 [ext_resource type="Texture2D" uid="uid://7ihxve1ahnvc" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="18_btxgo"]
 [ext_resource type="PackedScene" uid="uid://dg55dta7sxucv" path="res://Scenes/Dust/run_dust.tscn" id="21_ct0du"]
+[ext_resource type="Texture2D" uid="uid://dvqtpw5kii1oi" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="25_4qykx"]
+[ext_resource type="Texture2D" uid="uid://m50hjodteyna" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" id="26_40bg7"]
+[ext_resource type="Texture2D" uid="uid://butopovi8mh1v" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="27_qyaou"]
+[ext_resource type="Texture2D" uid="uid://nfxl5x8x1ldt" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="28_x8nc8"]
+[ext_resource type="AudioStream" uid="uid://btbc50y3rybk4" path="res://Sound Effects/Voices/209174__lukesharples__nrr.wav" id="29_1dd2q"]
 [ext_resource type="AudioStream" uid="uid://utmb8wr1gyod" path="res://Sound Effects/Footsteps/209196__lukesharples__shoes1.wav" id="31_u8la2"]
 
 [sub_resource type="Animation" id="Animation_asfii"]
@@ -85,6 +90,52 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_0ovjk"]
+resource_name = "hit"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("25_4qykx"), ExtResource("26_40bg7"), ExtResource("27_qyaou"), ExtResource("28_x8nc8")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("29_1dd2q")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_hit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ubroc"]
 resource_name = "idle"
@@ -184,6 +235,7 @@ tracks/2/use_blend = true
 _data = {
 "fall": SubResource("Animation_asfii"),
 "ground": SubResource("Animation_w7ei2"),
+"hit": SubResource("Animation_0ovjk"),
 "idle": SubResource("Animation_ubroc"),
 "jump": SubResource("Animation_u2lx2"),
 "run": SubResource("Animation_7lm3y")
@@ -259,16 +311,29 @@ states/ground/position = Vector2(708, -35)
 states/jump/node = SubResource("AnimationNodeAnimation_hax3j")
 states/jump/position = Vector2(360, -35)
 transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_mkbce"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_ixaxq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_tfxwj"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_j484a"), "ground", "Locomotion", SubResource("AnimationNodeStateMachineTransition_2c2y3"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_4vwxt")]
-graph_offset = Vector2(-230, -213)
+graph_offset = Vector2(-258, -135)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iff5f"]
+animation = &"hit"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_syb1e"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utb2f"]
+advance_mode = 2
+advance_expression = "_is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rtjc8"]
+advance_mode = 2
+advance_expression = "not _is_hit"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_47huy"]
 states/Movement/node = SubResource("AnimationNodeStateMachine_4wbcq")
 states/Movement/position = Vector2(551, 100)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e")]
-graph_offset = Vector2(-161, -170)
+states/hit/node = SubResource("AnimationNodeAnimation_iff5f")
+states/hit/position = Vector2(550.333, -16.3333)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "hit", SubResource("AnimationNodeStateMachineTransition_utb2f"), "hit", "Movement", SubResource("AnimationNodeStateMachineTransition_rtjc8")]
+graph_offset = Vector2(-183, -79)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7r17"]
 advance_mode = 2
@@ -279,7 +344,7 @@ advance_mode = 2
 "states/Without Sword/node" = SubResource("AnimationNodeStateMachine_47huy")
 "states/Without Sword/position" = Vector2(443, 100)
 transitions = ["Start", "Without Sword", SubResource("AnimationNodeStateMachineTransition_a7r17")]
-graph_offset = Vector2(-192, -100)
+graph_offset = Vector2(-188, -23)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwb76"]
 radius = 8.0
@@ -297,6 +362,7 @@ _speed = 5.0
 _acceleration = 10.0
 _deceleration = 20.0
 _jump_dust = ExtResource("2_fo5ok")
+_invincible_duration = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
@@ -322,8 +388,12 @@ shape = SubResource("CapsuleShape2D_qwb76")
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 512
 collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_gtxg5")
 debug_color = Color(3.36915e-07, 0.642353, 0.319181, 0.42)
+
+[node name="Invincible" type="Timer" parent="HurtBox"]
+one_shot = true

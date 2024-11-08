@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ssnsh5cyjxob"]
+[gd_scene load_steps=56 format=3 uid="uid://ssnsh5cyjxob"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_knfs8"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_1i3v7"]
@@ -284,6 +284,10 @@ graph_offset = Vector2(-192, -100)
 radius = 9.0
 height = 22.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c56gj"]
+radius = 9.0
+height = 22.0
+
 [node name="Fierce Tooth" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 65793
@@ -316,3 +320,13 @@ position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_qwb76")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_c56gj")
+debug_color = Color(0.39235, 0.609022, 0.121115, 0.42)
