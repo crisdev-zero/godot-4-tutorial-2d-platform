@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmh4wxq0pd7i7"]
+
+[ext_resource type="Script" path="res://Scripts/Treasure/red_potion.gd" id="1_hpos5"]
+[ext_resource type="Texture2D" uid="uid://bge4grul6xf4o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="2_uwd7s"]
+[ext_resource type="Texture2D" uid="uid://b3wvygeftuies" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="3_pcccb"]
+[ext_resource type="Texture2D" uid="uid://dutlah76j0dr2" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/03.png" id="4_w88nk"]
+[ext_resource type="Texture2D" uid="uid://b8scefes1hygc" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/04.png" id="5_x172u"]
+[ext_resource type="Texture2D" uid="uid://ceswowo7xsogd" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/05.png" id="6_pwj56"]
+[ext_resource type="Texture2D" uid="uid://djedb3vllfex5" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/06.png" id="7_xw2kp"]
+[ext_resource type="Texture2D" uid="uid://c40qnk8bosxjr" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/07.png" id="8_odpb2"]
+[ext_resource type="Texture2D" uid="uid://cunobk7xay0t3" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Potion Effect/01.png" id="9_t0elx"]
+[ext_resource type="Texture2D" uid="uid://b3aj08u10ufg1" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Potion Effect/02.png" id="10_68dxx"]
+[ext_resource type="Texture2D" uid="uid://c8rfbfq4tjo1q" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Potion Effect/03.png" id="11_ntbi0"]
+[ext_resource type="Texture2D" uid="uid://bmb6k28qp1s2r" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Potion Effect/04.png" id="12_h2hqc"]
+[ext_resource type="AudioStream" uid="uid://b37s2bhji8sna" path="res://Sound Effects/Treasure/712051__myliejoemoss1996__my-gulp-recording.wav" id="13_inm6s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_por0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uwd7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pcccb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w88nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x172u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pwj56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xw2kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_odpb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_t0elx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_68dxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ntbi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_h2hqc")
+}],
+"loop": false,
+"name": &"effect",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_inxls"]
+radius = 5.0
+height = 16.0
+
+[node name="RedPotion" type="RigidBody2D"]
+position = Vector2(0, -1)
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_hpos5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_por0k")
+autoplay = "default"
+frame = 4
+frame_progress = 0.0276394
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_inxls")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_inm6s")

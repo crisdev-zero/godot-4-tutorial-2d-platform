@@ -39,6 +39,7 @@ var _invincible_timer: Timer
 
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
+signal health_changed(percentage: float)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -149,7 +150,9 @@ func dive():
 
 func take_damage(amount: int, direction: Vector2):
 	_current_health -= amount
-	print(_current_health)
+
+	health_changed.emit(float(_current_health) / _max_health)
+
 	_is_hit = true
 	velocity = direction * Global.ppt * 5
 
@@ -168,6 +171,12 @@ func become_invincible(duration: float):
 
 func set_hit(is_hit: bool):
 	_is_hit = is_hit
+
+
+func recover(amount: int):
+	_current_health = min(_current_health + amount, _max_health)
+
+	health_changed.emit(float(_current_health) / _max_health)
 
 
 #endregion

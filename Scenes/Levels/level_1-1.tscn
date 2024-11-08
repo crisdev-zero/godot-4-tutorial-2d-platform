@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=39 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bfgipibbtspb0" path="res://Scenes/Treasure/key.tscn" id="27_axs1b"]
 [ext_resource type="PackedScene" uid="uid://6nwl46a26lk3" path="res://Scenes/Treasure/small_map_2.tscn" id="28_lo0tl"]
 [ext_resource type="PackedScene" uid="uid://bw4sldaswnmiw" path="res://Scenes/Hazards/spikes.tscn" id="29_x1aem"]
+[ext_resource type="PackedScene" uid="uid://dmh4wxq0pd7i7" path="res://Scenes/Treasure/red_potion.tscn" id="30_q2m4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la0v7"]
 size = Vector2(3392, 640)
@@ -1682,6 +1683,9 @@ position = Vector2(158, -45)
 
 [node name="Spikes" parent="." instance=ExtResource("29_x1aem")]
 position = Vector2(46, 0)
+
+[node name="RedPotion" parent="." instance=ExtResource("30_q2m4t")]
+position = Vector2(92, -23)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

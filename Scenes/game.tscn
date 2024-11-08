@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=29 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
@@ -23,6 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="22_jjqul"]
 [ext_resource type="AudioStream" uid="uid://duxg4oeoxgnv3" path="res://Music/677858__el_boss__game-success-fanfare-short.wav" id="23_lg1sm"]
 [ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="23_tcai5"]
+[ext_resource type="Texture2D" uid="uid://64t82a8pycxo" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/1.png" id="24_4buj8"]
+[ext_resource type="Script" path="res://Scripts/UI/gauge.gd" id="24_157ks"]
+[ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="25_0yr8w"]
+[ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="26_815ev"]
+[ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="27_c7bia"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uggmm")
@@ -122,7 +127,48 @@ offset_bottom = 132.0
 scale = Vector2(2, 2)
 texture = ExtResource("22_jjqul")
 
+[node name="HealthGauge" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -40.0
+offset_right = 72.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(0, 40)
+script = ExtResource("24_157ks")
+
+[node name="Background" type="HBoxContainer" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("24_4buj8")
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("25_0yr8w")
+
+[node name="TextureRect3" type="TextureRect" parent="UserInterface/HealthGauge/Background"]
+layout_mode = 2
+texture = ExtResource("26_815ev")
+
+[node name="Fill" type="TextureRect" parent="UserInterface/HealthGauge"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 92.0
+offset_bottom = 20.0
+texture = ExtResource("27_c7bia")
+expand_mode = 1
+
 [node name="Fade" parent="UserInterface" instance=ExtResource("23_tcai5")]
 
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="health_changed" from="Roger" to="UserInterface/HealthGauge" method="_on_character_health_changed"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]
