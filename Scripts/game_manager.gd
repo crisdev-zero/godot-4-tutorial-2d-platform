@@ -3,7 +3,7 @@ extends Node2D
 @onready var _camera: Camera2D = $Camera2D
 @onready var _player_character: CharacterBody2D = $Roger
 @onready var _player: Node = $Roger/Player
-@onready var _level: Area2D = $Level
+@onready var _level: Level = $Level
 @onready var _coin_counter: CoinCounter = $UserInterface/CoinCounter
 @onready var _lives_counter: Control = $UserInterface/LivesCounter
 @onready var _key_icon: Control = $UserInterface/KeyIcon
@@ -16,6 +16,7 @@ func _ready():
 	_fade.visible = true
 	_init_boundaries()
 	_init_ui()
+	_spawn_player()
 	await _fade.fade_to_clear()
 	_player.set_enabled(true)
 
@@ -68,3 +69,7 @@ func _init_ui():
 	# Initialize the UI
 	_coin_counter.set_value(File.data.coins)
 	_lives_counter.set_value(File.data.lives)
+
+
+func _spawn_player():
+	_player_character.global_position = _level.get_checkpoint_position(File.data.checkpoint)
