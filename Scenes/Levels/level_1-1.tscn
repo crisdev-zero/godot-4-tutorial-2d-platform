@@ -1669,7 +1669,7 @@ position = Vector2(108, -63)
 position = Vector2(375, -95)
 
 [node name="GoldenSkull" parent="Treasure" instance=ExtResource("25_qtpit")]
-position = Vector2(44, -46)
+position = Vector2(462, -96)
 
 [node name="Chest" parent="Treasure" instance=ExtResource("26_nalps")]
 position = Vector2(276, 1)
@@ -1684,6 +1684,9 @@ position = Vector2(3008, -16)
 
 [node name="Spikes" parent="." instance=ExtResource("29_x1aem")]
 position = Vector2(46, 0)
+
+[node name="Spikes2" parent="." instance=ExtResource("29_x1aem")]
+position = Vector2(1583, 0)
 
 [node name="RedPotion" parent="." instance=ExtResource("30_q2m4t")]
 position = Vector2(92, -23)

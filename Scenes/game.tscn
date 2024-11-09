@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=30 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
+[ext_resource type="AudioStream" uid="uid://evcbnvwh4lhc" path="res://Music/400664__dominictreis__scene-ending-music.mp3" id="3_3nh6y"]
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="3_73rdr"]
 [ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
+[ext_resource type="AudioStream" uid="uid://c73df7nq7damk" path="res://Music/488963__dominictreis__sad-or-scary-scene-change-music.mp3" id="4_jhtv4"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
 [ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
 [ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="9_2q2ve"]
@@ -30,6 +32,9 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uggmm")
+_victory = ExtResource("23_lg1sm")
+_death = ExtResource("3_3nh6y")
+_gameover = ExtResource("4_jhtv4")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(64, -32)
@@ -166,5 +171,6 @@ expand_mode = 1
 [node name="Fade" parent="UserInterface" instance=ExtResource("23_tcai5")]
 
 [connection signal="changed_direction" from="Roger" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="died" from="Roger" to="." method="_on_player_died"]
 [connection signal="health_changed" from="Roger" to="UserInterface/HealthGauge" method="_on_character_health_changed"]
 [connection signal="landed" from="Roger" to="Camera2D" method="_on_subject_landed"]

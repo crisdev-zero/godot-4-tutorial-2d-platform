@@ -25,4 +25,4 @@ collision_mask = 131584
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
-polygon = PackedVector2Array(-15, -7, -5, -16, 12, -15, 13, -7)
+polygon = PackedVector2Array(-16, -7, -15, -11, -5, -16, 12, -15, 14, -7)

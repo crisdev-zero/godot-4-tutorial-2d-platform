@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b3a0x6goc1rbj"]
+[gd_scene load_steps=81 format=3 uid="uid://b3a0x6goc1rbj"]
 
 [ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_6q04p"]
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_qjtj3"]
@@ -28,7 +28,16 @@
 [ext_resource type="Texture2D" uid="uid://butopovi8mh1v" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="27_qyaou"]
 [ext_resource type="Texture2D" uid="uid://nfxl5x8x1ldt" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="28_x8nc8"]
 [ext_resource type="AudioStream" uid="uid://btbc50y3rybk4" path="res://Sound Effects/Voices/209174__lukesharples__nrr.wav" id="29_1dd2q"]
+[ext_resource type="Texture2D" uid="uid://b0ptill7k4qij" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" id="30_xupje"]
+[ext_resource type="Texture2D" uid="uid://cjhway3fo8arq" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 02.png" id="31_5t1rx"]
 [ext_resource type="AudioStream" uid="uid://utmb8wr1gyod" path="res://Sound Effects/Footsteps/209196__lukesharples__shoes1.wav" id="31_u8la2"]
+[ext_resource type="Texture2D" uid="uid://bocgn0pnpt0xt" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 03.png" id="32_kd40q"]
+[ext_resource type="Texture2D" uid="uid://0xgc0e45r1hn" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 04.png" id="33_mywvq"]
+[ext_resource type="Texture2D" uid="uid://sm8d4gljefcx" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" id="34_esb4j"]
+[ext_resource type="Texture2D" uid="uid://xrvkihdjp6ki" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" id="35_rtb55"]
+[ext_resource type="Texture2D" uid="uid://dgek20g3mf12s" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" id="36_jiu8b"]
+[ext_resource type="Texture2D" uid="uid://d1rbtdmexr18h" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="37_vy7o2"]
+[ext_resource type="AudioStream" uid="uid://bya3c882e0kic" path="res://Sound Effects/Voices/209163__lukesharples__ahhsfn.wav" id="38_6lc7s"]
 
 [sub_resource type="Animation" id="Animation_asfii"]
 resource_name = "fall"
@@ -78,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/path = NodePath("../Voice")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -110,7 +119,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/path = NodePath("../Voice")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -172,7 +181,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AudioStreamPlayer2D")
+tracks/1/path = NodePath("../Voice")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -218,7 +227,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AudioStreamPlayer2D")
+tracks/2/path = NodePath("../Voice")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -231,8 +240,90 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
+[sub_resource type="Animation" id="Animation_i3h03"]
+resource_name = "dead_hit"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("30_xupje"), ExtResource("31_5t1rx"), ExtResource("32_kd40q"), ExtResource("33_mywvq")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("38_6lc7s")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_g78l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_cf7gp")]
+}
+
+[sub_resource type="Animation" id="Animation_h48e1"]
+resource_name = "dead_ground"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("34_esb4j"), ExtResource("35_rtb55"), ExtResource("36_jiu8b"), ExtResource("37_vy7o2")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Voice")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_vm2iu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
+"RESET": SubResource("Animation_g78l8"),
+"dead_ground": SubResource("Animation_h48e1"),
+"dead_hit": SubResource("Animation_i3h03"),
 "fall": SubResource("Animation_asfii"),
 "ground": SubResource("Animation_w7ei2"),
 "hit": SubResource("Animation_0ovjk"),
@@ -313,6 +404,12 @@ states/jump/position = Vector2(360, -35)
 transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_mkbce"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_ixaxq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_tfxwj"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_j484a"), "ground", "Locomotion", SubResource("AnimationNodeStateMachineTransition_2c2y3"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_4vwxt")]
 graph_offset = Vector2(-258, -135)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5q3jp"]
+animation = &"dead_ground"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oobr7"]
+animation = &"dead_hit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iff5f"]
 animation = &"hit"
 
@@ -327,13 +424,34 @@ advance_expression = "_is_hit"
 advance_mode = 2
 advance_expression = "not _is_hit"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sgkqt"]
+advance_mode = 2
+advance_expression = "_is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wd0ax"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4j7iv"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6wl4"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_47huy"]
 states/Movement/node = SubResource("AnimationNodeStateMachine_4wbcq")
-states/Movement/position = Vector2(551, 100)
+states/Movement/position = Vector2(550.555, 99.7778)
+states/dead_ground/node = SubResource("AnimationNodeAnimation_5q3jp")
+states/dead_ground/position = Vector2(799.667, 213.667)
+states/dead_hit/node = SubResource("AnimationNodeAnimation_oobr7")
+states/dead_hit/position = Vector2(567.667, 208.333)
 states/hit/node = SubResource("AnimationNodeAnimation_iff5f")
 states/hit/position = Vector2(550.333, -16.3333)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "hit", SubResource("AnimationNodeStateMachineTransition_utb2f"), "hit", "Movement", SubResource("AnimationNodeStateMachineTransition_rtjc8")]
-graph_offset = Vector2(-183, -79)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "hit", SubResource("AnimationNodeStateMachineTransition_utb2f"), "hit", "Movement", SubResource("AnimationNodeStateMachineTransition_rtjc8"), "Movement", "dead_hit", SubResource("AnimationNodeStateMachineTransition_sgkqt"), "dead_hit", "dead_ground", SubResource("AnimationNodeStateMachineTransition_wd0ax"), "dead_ground", "Movement", SubResource("AnimationNodeStateMachineTransition_4j7iv"), "dead_hit", "Movement", SubResource("AnimationNodeStateMachineTransition_h6wl4")]
+graph_offset = Vector2(-196, 5)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7r17"]
 advance_mode = 2
@@ -383,7 +501,10 @@ anim_player = NodePath("..")
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_qwb76")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 2
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 512

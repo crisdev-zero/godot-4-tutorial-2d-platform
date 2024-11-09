@@ -9,5 +9,5 @@ class_name Data extends Resource
 func _init():
 	coins = 0
 	lives = 3
-	checkpoint = 1
+	checkpoint = 0
 	has_key = false

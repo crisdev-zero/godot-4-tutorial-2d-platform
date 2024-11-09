@@ -32,14 +32,19 @@ var _is_below_surface: bool
 @export_range(1, 100) var _max_health: int = 5
 @export_range(0, 5) var _invincible_duration: float = 0
 @onready var _current_health: int = _max_health
+@export var _is_dead: bool
 # Export _is_hit and call from the animation doesn't work from 4.3 onwards
 var _is_hit: bool
 @onready var _hurt_box: Area2D = $HurtBox
 var _invincible_timer: Timer
 
+var _collision_layer: int = collision_layer
+var _collision_mask: int = collision_mask
+
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
 signal health_changed(percentage: float)
+signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -99,22 +104,34 @@ func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 
 
 func face_left():
+	if _is_dead:
+		return
+
 	_is_facing_left = true
 	_sprite.flip_h = not _sprites_face_left
 	changed_direction.emit(_is_facing_left)
 
 
 func face_right():
+	if _is_dead:
+		return
+
 	_is_facing_left = false
 	_sprite.flip_h = _sprites_face_left
 	changed_direction.emit(_is_facing_left)
 
 
 func run(direction: float):
+	if _is_dead:
+		return
+
 	_direction = direction
 
 
 func jump():
+	if _is_dead:
+		return
+
 	if _is_in_water:
 		if _is_below_surface:
 			velocity.y = _jump_velocity * _drag
@@ -127,6 +144,9 @@ func jump():
 
 
 func stop_jump():
+	if _is_dead:
+		return
+
 	if velocity.y < 0 && not _is_in_water:
 		velocity.y = 0
 
@@ -149,12 +169,16 @@ func dive():
 
 
 func take_damage(amount: int, direction: Vector2):
-	_current_health -= amount
+	_current_health = max(_current_health - amount, 0)
 
 	health_changed.emit(float(_current_health) / _max_health)
 
-	_is_hit = true
 	velocity = direction * Global.ppt * 5
+
+	if _current_health == 0:
+		return _die()
+
+	_is_hit = true
 
 	if _invincible_duration > 0:
 		await become_invincible(_invincible_duration)
@@ -175,6 +199,18 @@ func set_hit(is_hit: bool):
 
 func recover(amount: int):
 	_current_health = min(_current_health + amount, _max_health)
+
+	health_changed.emit(float(_current_health) / _max_health)
+
+
+func revive():
+	_is_dead = false
+	_current_health = _max_health
+	_hurt_box.monitorable = true
+	collision_layer = _collision_layer
+	collision_mask = _collision_mask
+
+	landed.emit(global_position.y)
 
 	health_changed.emit(float(_current_health) / _max_health)
 
@@ -223,5 +259,16 @@ func _spawn_dust(dust: PackedScene):
 	_dust.position = position
 	_dust.flip_h = _sprite.flip_h
 	get_parent().add_child(_dust)
+
+
+func _die():
+	_is_dead = true
+
+	died.emit()
+
+	_hurt_box.set_deferred("monitorable", false)
+	collision_layer = 0
+	collision_mask = 1
+	_direction = 0
 
 #endregion
