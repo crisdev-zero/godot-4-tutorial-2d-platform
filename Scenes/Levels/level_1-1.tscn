@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=38 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://yg1sg5tto5rh" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/4.png" id="9_6h0sm"]
 [ext_resource type="AudioStream" uid="uid://uu1soqaoj1j1" path="res://Sound Effects/Impacts/406087__yin_yang_jake007__water-splash.wav" id="10_gdf3t"]
 [ext_resource type="PackedScene" uid="uid://cbc7cbea1nyhj" path="res://Scenes/Decorations/palm_tree.tscn" id="11_0sihn"]
-[ext_resource type="PackedScene" uid="uid://hsop5hneidl8" path="res://Scenes/Characters/crabby.tscn" id="12_fnbb8"]
-[ext_resource type="PackedScene" uid="uid://dhhotgrsu8ak5" path="res://Scenes/Characters/pink_star.tscn" id="13_0kvrt"]
 [ext_resource type="PackedScene" uid="uid://ssnsh5cyjxob" path="res://Scenes/Characters/fierce_tooth.tscn" id="14_0njq5"]
 [ext_resource type="PackedScene" uid="uid://dqd13nvdf1itt" path="res://Scenes/Decorations/reflexes_1.tscn" id="14_t6ulo"]
 [ext_resource type="PackedScene" uid="uid://bi567horq4akw" path="res://Scenes/Decorations/reflexes_2.tscn" id="15_x5u85"]
@@ -1650,15 +1648,23 @@ position = Vector2(2560, -320)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Crabby" parent="Enemies" instance=ExtResource("12_fnbb8")]
-position = Vector2(1632, 0)
-
-[node name="Pink Star" parent="Enemies" instance=ExtResource("13_0kvrt")]
-position = Vector2(2720, -224)
-
 [node name="Fierce Tooth" parent="Enemies" instance=ExtResource("14_0njq5")]
 position = Vector2(1088, -128)
 _jump_height = 1.5
+
+[node name="Timer" type="Timer" parent="Enemies/Fierce Tooth"]
+wait_time = 2.0
+autostart = true
+
+[node name="Fierce Tooth2" parent="Enemies" instance=ExtResource("14_0njq5")]
+position = Vector2(103, 2)
+_jump_height = 1.5
+_is_facing_left = false
+_sprites_face_left = false
+
+[node name="Timer" type="Timer" parent="Enemies/Fierce Tooth2"]
+wait_time = 2.0
+autostart = true
 
 [node name="Treasure" type="Node2D" parent="."]
 
@@ -1701,3 +1707,5 @@ position = Vector2(1378, -160)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
 [connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]
+[connection signal="timeout" from="Enemies/Fierce Tooth/Timer" to="Enemies/Fierce Tooth" method="_on_timer_timeout"]
+[connection signal="timeout" from="Enemies/Fierce Tooth2/Timer" to="Enemies/Fierce Tooth2" method="_on_timer_timeout"]

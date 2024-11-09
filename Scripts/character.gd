@@ -31,12 +31,18 @@ var _is_below_surface: bool
 @export_category("Combat")
 @export_range(1, 100) var _max_health: int = 5
 @export_range(0, 5) var _invincible_duration: float = 0
+@export_range(0, 5) var _attack_damage: int = 1
 @onready var _current_health: int = _max_health
 @export var _is_dead: bool
-# Export _is_hit and call from the animation doesn't work from 4.3 onwards
-var _is_hit: bool
+# Export _is_hit and update the value directly from the animation doesn't work from 4.3 onwards
+# Thats why we will use a set public function pointing to this one
+@export var _is_hit: bool:
+	set = set_is_hit
 @onready var _hurt_box: Area2D = $HurtBox
 var _invincible_timer: Timer
+@export var _wants_to_attack: bool:
+	set = set_wants_to_attack
+@onready var _hit_box: Area2D = $HitBox
 
 var _collision_layer: int = collision_layer
 var _collision_mask: int = collision_mask
@@ -51,9 +57,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var _direction: float
 
+var _my_test: bool:
+	set(value):
+		print("HELLO")
+		_my_test = value
+
 
 #region Built-in methods
 func _ready():
+	# Connect signals
+	_hit_box.area_entered.connect(_on_hit_box_area_entered)
+
 	_speed *= Global.ppt
 	_acceleration *= Global.ppt
 	_deceleration *= Global.ppt
@@ -67,6 +81,8 @@ func _ready():
 
 	if _invincible_duration > 0:
 		_invincible_timer = $HurtBox/Invincible
+
+	_hit_box.monitoring = false
 
 
 func _physics_process(delta: float):
@@ -109,6 +125,7 @@ func face_left():
 
 	_is_facing_left = true
 	_sprite.flip_h = not _sprites_face_left
+	_hit_box.scale.x = 1 if _sprites_face_left else -1
 	changed_direction.emit(_is_facing_left)
 
 
@@ -118,6 +135,7 @@ func face_right():
 
 	_is_facing_left = false
 	_sprite.flip_h = _sprites_face_left
+	_hit_box.scale.x = -1 if _sprites_face_left else 1
 	changed_direction.emit(_is_facing_left)
 
 
@@ -178,7 +196,7 @@ func take_damage(amount: int, direction: Vector2):
 	if _current_health == 0:
 		return _die()
 
-	_is_hit = true
+	self._is_hit = true
 
 	if _invincible_duration > 0:
 		await become_invincible(_invincible_duration)
@@ -193,8 +211,9 @@ func become_invincible(duration: float):
 	_hurt_box.monitorable = true
 
 
-func set_hit(is_hit: bool):
-	_is_hit = is_hit
+# _is_hit property set
+func set_is_hit(value: bool):
+	_is_hit = value
 
 
 func recover(amount: int):
@@ -213,6 +232,15 @@ func revive():
 	landed.emit(global_position.y)
 
 	health_changed.emit(float(_current_health) / _max_health)
+
+
+func attack():
+	_wants_to_attack = true
+
+
+# _wants_to_attack public set
+func set_wants_to_attack(value: bool):
+	_wants_to_attack = value
 
 
 #endregion
@@ -270,5 +298,13 @@ func _die():
 	collision_layer = 0
 	collision_mask = 1
 	_direction = 0
+
+
+func _on_hit_box_area_entered(area: Area2D):
+	area.get_parent().take_damage(_attack_damage, (area.global_position - global_position).normalized())
+
+
+func _on_timer_timeout() -> void:
+	attack()
 
 #endregion

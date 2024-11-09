@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b3a0x6goc1rbj"]
+[gd_scene load_steps=82 format=3 uid="uid://b3a0x6goc1rbj"]
 
 [ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_6q04p"]
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_qjtj3"]
@@ -142,7 +142,7 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
-"method": &"set_hit"
+"method": &"set_is_hit"
 }]
 }
 
@@ -451,7 +451,7 @@ states/dead_hit/position = Vector2(567.667, 208.333)
 states/hit/node = SubResource("AnimationNodeAnimation_iff5f")
 states/hit/position = Vector2(550.333, -16.3333)
 transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_syb1e"), "Movement", "hit", SubResource("AnimationNodeStateMachineTransition_utb2f"), "hit", "Movement", SubResource("AnimationNodeStateMachineTransition_rtjc8"), "Movement", "dead_hit", SubResource("AnimationNodeStateMachineTransition_sgkqt"), "dead_hit", "dead_ground", SubResource("AnimationNodeStateMachineTransition_wd0ax"), "dead_ground", "Movement", SubResource("AnimationNodeStateMachineTransition_4j7iv"), "dead_hit", "Movement", SubResource("AnimationNodeStateMachineTransition_h6wl4")]
-graph_offset = Vector2(-196, 5)
+graph_offset = Vector2(-63, -145)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7r17"]
 advance_mode = 2
@@ -471,6 +471,10 @@ height = 26.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gtxg5"]
 radius = 8.0
 height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xt2x5"]
+radius = 4.0
+height = 8.0
 
 [node name="Roger" type="CharacterBody2D"]
 collision_layer = 256
@@ -518,3 +522,14 @@ debug_color = Color(3.36915e-07, 0.642353, 0.319181, 0.42)
 
 [node name="Invincible" type="Timer" parent="HurtBox"]
 one_shot = true
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_xt2x5")
+debug_color = Color(0.644577, 0, 0.0461944, 0.42)
