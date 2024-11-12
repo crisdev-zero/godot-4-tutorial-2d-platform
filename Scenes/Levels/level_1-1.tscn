@@ -1657,7 +1657,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="Fierce Tooth2" parent="Enemies" instance=ExtResource("14_0njq5")]
-position = Vector2(103, 2)
+position = Vector2(116, 2)
 _jump_height = 1.5
 _is_facing_left = false
 _sprites_face_left = false

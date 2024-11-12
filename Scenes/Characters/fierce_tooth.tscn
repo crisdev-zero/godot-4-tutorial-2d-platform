@@ -51,6 +51,110 @@
 [ext_resource type="Texture2D" uid="uid://d4dkjd6yk38md" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 02.png" id="49_shkln"]
 [ext_resource type="Texture2D" uid="uid://byd42jescw4rw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 03.png" id="50_c1y6p"]
 
+[sub_resource type="Animation" id="Animation_d48fc"]
+resource_name = "anticipation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("40_53a72"), ExtResource("41_340b6"), ExtResource("42_ly2u7")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_wants_to_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2j3b4"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("43_edf78"), ExtResource("44_ormbc"), ExtResource("45_kpbdl"), ExtResource("46_q3ldj"), ExtResource("47_r7n54")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HitBox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HitBox/AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f6ujh"]
+resource_name = "dead_ground"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("36_v86a1"), ExtResource("37_prb21"), ExtResource("38_6bei2"), ExtResource("39_83a6m")]
+}
+
+[sub_resource type="Animation" id="Animation_fkprk"]
+resource_name = "dead_hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("32_mnp3r"), ExtResource("33_3woha"), ExtResource("34_4elwp"), ExtResource("35_m48f0")]
+}
+
 [sub_resource type="Animation" id="Animation_asfii"]
 resource_name = "fall"
 length = 0.1
@@ -111,6 +215,36 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_hb2tu"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("28_1ydif"), ExtResource("29_7m5io"), ExtResource("30_ygyo3"), ExtResource("31_8b1rd")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_hit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ubroc"]
 resource_name = "idle"
@@ -205,140 +339,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/2/use_blend = true
-
-[sub_resource type="Animation" id="Animation_hb2tu"]
-resource_name = "hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("28_1ydif"), ExtResource("29_7m5io"), ExtResource("30_ygyo3"), ExtResource("31_8b1rd")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"set_hit"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_fkprk"]
-resource_name = "dead_hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("32_mnp3r"), ExtResource("33_3woha"), ExtResource("34_4elwp"), ExtResource("35_m48f0")]
-}
-
-[sub_resource type="Animation" id="Animation_f6ujh"]
-resource_name = "dead_ground"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("36_v86a1"), ExtResource("37_prb21"), ExtResource("38_6bei2"), ExtResource("39_83a6m")]
-}
-
-[sub_resource type="Animation" id="Animation_d48fc"]
-resource_name = "anticipation"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("40_53a72"), ExtResource("41_340b6"), ExtResource("42_ly2u7")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"set_wants_to_attack"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_2j3b4"]
-resource_name = "attack"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("43_edf78"), ExtResource("44_ormbc"), ExtResource("45_kpbdl"), ExtResource("46_q3ldj"), ExtResource("47_r7n54")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../HitBox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../HitBox/AnimatedSprite2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"", 1.0, false],
-"method": &"play"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
