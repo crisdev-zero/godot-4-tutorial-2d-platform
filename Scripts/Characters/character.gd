@@ -35,7 +35,10 @@ var _is_below_surface: bool
 @export var _is_hit: bool:
 	set = set_is_hit
 @export var _is_dead: bool
-@export var _wants_to_attack: bool
+@export var _wants_to_attack: bool:
+	set = set_wants_to_attack
+@export var _is_attacking: bool:
+	set = set_is_attacking
 @onready var _current_health: int = _max_health
 @onready var _hurt_box: Area2D = $HurtBox
 @onready var _hit_box: Area2D = $HitBox
@@ -65,9 +68,16 @@ func _ready():
 	if _invincible_duration != 0:
 		_invincible_time = $HurtBox/Invincible
 	_hit_box.monitoring = false
+	_is_attacking = false
 
 
 #region Public Methods
+func set_is_attacking(value: bool):
+	_is_attacking = value
+
+
+func set_wants_to_attack(value: bool):
+	_wants_to_attack = value
 
 
 func attack():
@@ -109,7 +119,7 @@ func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 
 
 func face_left():
-	if _is_dead:
+	if _is_dead or _is_attacking:
 		return
 	_is_facing_left = true
 	_sprite.flip_h = not _sprites_face_left
@@ -118,7 +128,7 @@ func face_left():
 
 
 func face_right():
-	if _is_dead:
+	if _is_dead or _is_attacking:
 		return
 	_is_facing_left = false
 	_sprite.flip_h = _sprites_face_left
@@ -127,13 +137,14 @@ func face_right():
 
 
 func run(direction: float):
-	if _is_dead:
-		return
+	if _is_dead or _is_attacking:
+		_direction = 0
+
 	_direction = direction
 
 
 func jump():
-	if _is_dead:
+	if _is_dead or _is_attacking:
 		return
 	if _is_in_water:
 		if _is_below_surface:
@@ -147,7 +158,7 @@ func jump():
 
 
 func stop_jump():
-	if _is_dead:
+	if _is_dead or _is_attacking:
 		return
 	if velocity.y < 0 && not _is_in_water:
 		velocity.y = 0
@@ -259,4 +270,7 @@ func _die():
 
 
 func _on_hit_box_area_entered(area: Area2D):
+	if _is_dead or not _is_attacking:
+		return
+
 	area.get_parent().take_damage(_attack_damage, (area.global_position - global_position).normalized())
