@@ -1,6 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://dhhotgrsu8ak5"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_c0eu2"]
+[ext_resource type="Script" path="res://Scripts/Characters/character.gd" id="1_c0eu2"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_gudj4"]
 [ext_resource type="Texture2D" uid="uid://d33c8qnpirfnj" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 01.png" id="3_5np3r"]
 [ext_resource type="Texture2D" uid="uid://bw8ye73fd7y2q" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="3_a5bbu"]

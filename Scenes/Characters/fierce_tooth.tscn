@@ -1,6 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://ssnsh5cyjxob"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_knfs8"]
+[ext_resource type="Script" path="res://Scripts/Characters/character.gd" id="1_knfs8"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_1i3v7"]
 [ext_resource type="Texture2D" uid="uid://bdyfdmddgx1lw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="3_e755t"]
 [ext_resource type="Texture2D" uid="uid://do6wpqtei3nhq" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 08.png" id="3_eajwb"]

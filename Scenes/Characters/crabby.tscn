@@ -1,6 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://hsop5hneidl8"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_oi187"]
+[ext_resource type="Script" path="res://Scripts/Characters/character.gd" id="1_oi187"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_d5qgr"]
 [ext_resource type="Texture2D" uid="uid://b7keixcw7ppvu" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/04-Fall/Fall 01.png" id="4_khy33"]
 [ext_resource type="Texture2D" uid="uid://b1ya38mkjd3tc" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 01.png" id="5_ds7dw"]
