@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=62 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
@@ -6,8 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://oaxs1wlhtcvx" path="res://Music/400664__dominictreis__scene-ending-music.mp3" id="3_evook"]
 [ext_resource type="PackedScene" uid="uid://b3a0x6goc1rbj" path="res://Scenes/Characters/roger.tscn" id="4_gvawx"]
 [ext_resource type="AudioStream" uid="uid://c7skc3hfh3rl5" path="res://Music/488963__dominictreis__sad-or-scary-scene-change-music.mp3" id="4_nachf"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="5_k65n0"]
-[ext_resource type="PackedScene" uid="uid://bsxudgobhaq7s" path="res://Scenes/Levels/level_1-1.tscn" id="6_bf3oj"]
+[ext_resource type="Script" path="res://Scripts/Characters/player.gd" id="5_k65n0"]
 [ext_resource type="Script" path="res://Scripts/UI/counter.gd" id="8_fsu0y"]
 [ext_resource type="Texture2D" uid="uid://cjhjylabhuvmj" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="8_rkwll"]
 [ext_resource type="Texture2D" uid="uid://dukj8qfy3d1yb" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="10_ktpwq"]
@@ -143,8 +142,6 @@ _floor_height_ease_type = 1
 
 [node name="Player" type="Node" parent="Roger"]
 script = ExtResource("5_k65n0")
-
-[node name="Level" parent="." instance=ExtResource("6_bf3oj")]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
