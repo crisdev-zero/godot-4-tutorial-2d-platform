@@ -4,6 +4,7 @@ class_name Hero
 @export var _has_sword: bool
 
 @onready var _attack_input_buffer: Timer = $HitBox/InputBuffer
+@onready var _cooldown: Timer = $HitBox/Cooldown
 
 var _sword: RigidBody2D
 
@@ -35,6 +36,23 @@ func can_equip_sword() -> bool:
 
 
 # Private methods
+func _air_physics(delta: float):
+	if _is_attacking && velocity.y > 0:
+		velocity.y = 0
+	else:
+		super._air_physics(delta)
+
+
+func _on_hit_box_area_entered(area: Area2D):
+	if _is_dead or not _is_attacking:
+		return
+
+	if not is_on_floor() && area.global_position.y > global_position.y:
+		velocity.y = _jump_velocity / 2
+
+	super._on_hit_box_area_entered(area)
+
+
 func _die():
 	if _has_sword:
 		drop_sword()

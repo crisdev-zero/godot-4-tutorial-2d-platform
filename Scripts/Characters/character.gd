@@ -88,6 +88,8 @@ func take_damage(amount: int, direction: Vector2):
 	_current_health = max(_current_health - amount, 0)
 	health_changed.emit(float(_current_health) / _max_health)
 	velocity = direction * Global.ppt * 5
+	if _is_attacking:
+		_attack_interrupted()
 	if _current_health == 0:
 		_die()
 	else:
@@ -274,3 +276,8 @@ func _on_hit_box_area_entered(area: Area2D):
 		return
 
 	area.get_parent().take_damage(_attack_damage, (area.global_position - global_position).normalized())
+
+
+func _attack_interrupted():
+	_is_attacking = false
+	_hit_box.monitoring = false
