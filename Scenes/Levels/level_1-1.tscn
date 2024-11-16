@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=42 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cow74terq62vw" path="res://Scenes/Decorations/back_palm_tree_left.tscn" id="17_pdcgh"]
 [ext_resource type="PackedScene" uid="uid://du136iawfda4o" path="res://Scenes/Decorations/back_palm_tree_right.tscn" id="18_ibmxx"]
 [ext_resource type="PackedScene" uid="uid://uqb2y4i3y4gp" path="res://Scenes/Decorations/back_palm_tree_regular.tscn" id="19_re7cq"]
+[ext_resource type="PackedScene" uid="uid://ostb2albae72" path="res://Scenes/Characters/patrol.tscn" id="22_843if"]
 [ext_resource type="PackedScene" uid="uid://b5o6hkdxcsuip" path="res://Scenes/Treasure/gold_coin.tscn" id="23_whpiu"]
 [ext_resource type="PackedScene" uid="uid://bbgp11x14p3xy" path="res://Scenes/Treasure/silver_coin.tscn" id="24_rvnrt"]
 [ext_resource type="PackedScene" uid="uid://c14nkxtly2bl8" path="res://Scenes/Treasure/golden_skull.tscn" id="25_roqeu"]
@@ -1658,29 +1659,40 @@ position = Vector2(1232, 0)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Crabby" parent="Enemies" instance=ExtResource("12_fnbb8")]
-position = Vector2(256, 0)
+position = Vector2(528, -96)
 _is_facing_left = false
 
 [node name="Timer" type="Timer" parent="Enemies/Crabby"]
 wait_time = 2.0
 autostart = true
 
+[node name="Patrol" parent="Enemies/Crabby" instance=ExtResource("22_843if")]
+position = Vector2(-83, -30)
+
 [node name="Pink Star" parent="Enemies" instance=ExtResource("13_0kvrt")]
-position = Vector2(160, -32)
+position = Vector2(754, 0)
 _is_facing_left = false
 
 [node name="Timer" type="Timer" parent="Enemies/Pink Star"]
 wait_time = 2.0
 autostart = true
 
+[node name="Patrol" parent="Enemies/Pink Star" instance=ExtResource("22_843if")]
+position = Vector2(61, -30)
+_ledge_behavior = 0
+
 [node name="Fierce Tooth" parent="Enemies" instance=ExtResource("14_0njq5")]
-position = Vector2(96, 0)
+position = Vector2(336, 0)
+_speed = 2.0
+_deceleration = 15.0
 _jump_height = 1.5
-_is_facing_left = false
 
 [node name="Timer" type="Timer" parent="Enemies/Fierce Tooth"]
 wait_time = 2.0
 autostart = true
+
+[node name="Patrol" parent="Enemies/Fierce Tooth" instance=ExtResource("22_843if")]
+_ledge_behavior = 0
 
 [node name="Treasure" type="Node2D" parent="."]
 

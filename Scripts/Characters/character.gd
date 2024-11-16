@@ -17,7 +17,8 @@ var _jump_velocity: float
 var _was_on_floor: bool
 
 @export_category("Sprite")
-@export var _is_facing_left: bool
+@export var _is_facing_left: bool:
+	get = is_facing_left
 @export var _sprites_face_left: bool
 @onready var _sprite: Sprite2D = $Sprite2D
 
@@ -72,6 +73,10 @@ func _ready():
 
 
 #region Public Methods
+func is_facing_left() -> bool:
+	return _is_facing_left
+	
+
 func set_is_attacking(value: bool):
 	_is_attacking = value
 

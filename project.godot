@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Autoloads/global.gd"
 File="*res://Scripts/Autoloads/file.gd"
+EnemyUtils="*res://Scripts/Autoloads/enemy_utils.gd"
 
 [display]
 
