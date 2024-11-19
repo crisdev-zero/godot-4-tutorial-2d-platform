@@ -1,0 +1,441 @@
+[gd_scene load_steps=50 format=3 uid="uid://d0l1j5aspyxw0"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_h6dc2"]
+[ext_resource type="Texture2D" uid="uid://dmhlxcblsptq8" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/6.png" id="2_f2qqj"]
+[ext_resource type="Texture2D" uid="uid://b6odoa4a170m0" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/1.png" id="3_q674b"]
+[ext_resource type="Texture2D" uid="uid://cxc2mqr4clrbi" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/2.png" id="4_mmqnc"]
+[ext_resource type="Texture2D" uid="uid://c07gb4ddy33ra" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/3.png" id="5_8l6q2"]
+[ext_resource type="Texture2D" uid="uid://bjsia20q5hc0l" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Hit/4.png" id="6_22ffh"]
+[ext_resource type="Texture2D" uid="uid://4va2p8i26hj8" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Destroyed/1.png" id="7_ew8rb"]
+[ext_resource type="Texture2D" uid="uid://dax80agnawhvl" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Destroyed/2.png" id="8_wlvuj"]
+[ext_resource type="Texture2D" uid="uid://cw6t46mqomdx1" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Destroyed/3.png" id="9_1bloy"]
+[ext_resource type="Texture2D" uid="uid://cysu2ergv8jxq" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Destroyed/4.png" id="10_kqbwn"]
+[ext_resource type="Texture2D" uid="uid://bi8p86rgubvpb" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Destroyed/5.png" id="11_31ggb"]
+[ext_resource type="Texture2D" uid="uid://7mcfb6tppgds" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/1.png" id="13_lwgsd"]
+[ext_resource type="Texture2D" uid="uid://cpiur8lb2g4ln" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/2.png" id="14_jntsm"]
+[ext_resource type="Texture2D" uid="uid://cj7f71ik0vth5" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/3.png" id="15_x7rap"]
+[ext_resource type="Texture2D" uid="uid://dvlcxsatciexf" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/4.png" id="16_q2jmu"]
+[ext_resource type="Texture2D" uid="uid://cxwjgffi83col" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Fire/5.png" id="17_0b77w"]
+[ext_resource type="PackedScene" uid="uid://hdx3pskyvd41" path="res://Scenes/Projectiles/pearl.tscn" id="21_xodwn"]
+[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="22_863uu"]
+[ext_resource type="Texture2D" uid="uid://bfbdv5sloiocq" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Seashell Idle/1.png" id="26_d70bw"]
+[ext_resource type="Texture2D" uid="uid://cdyan2q368lbn" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 01.png" id="47_h0jr0"]
+[ext_resource type="Texture2D" uid="uid://d4dkjd6yk38md" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 02.png" id="48_47hm0"]
+[ext_resource type="Texture2D" uid="uid://byd42jescw4rw" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 03.png" id="49_850mk"]
+
+[sub_resource type="Animation" id="Animation_sffbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5hxi2"]
+resource_name = "destroyed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_ew8rb"), ExtResource("8_wlvuj"), ExtResource("9_1bloy"), ExtResource("10_kqbwn"), ExtResource("11_31ggb")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Debris")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"scatter"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5l0vr"]
+resource_name = "fire"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_lwgsd"), ExtResource("14_jntsm"), ExtResource("15_x7rap"), ExtResource("16_q2jmu"), ExtResource("17_0b77w"), ExtResource("2_f2qqj")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_wants_to_fire"
+}, {
+"args": [],
+"method": &"_spawn_projectile"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1aj3p"]
+resource_name = "hit"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_q674b"), ExtResource("4_mmqnc"), ExtResource("5_8l6q2"), ExtResource("6_22ffh")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_is_hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ubroc"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("26_d70bw")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
+_data = {
+"RESET": SubResource("Animation_sffbv"),
+"destroyed": SubResource("Animation_5hxi2"),
+"fire": SubResource("Animation_5l0vr"),
+"hit": SubResource("Animation_1aj3p"),
+"idle": SubResource("Animation_ubroc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4gfh"]
+animation = &"fire"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ithi"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ar6ee"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3snrc"]
+advance_mode = 2
+advance_expression = "_wants_to_fire"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m833m"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "not _wants_to_fire"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_47huy"]
+states/End/position = Vector2(846, 57.3333)
+states/Start/position = Vector2(221.333, 56.6667)
+states/fire/node = SubResource("AnimationNodeAnimation_c4gfh")
+states/fire/position = Vector2(478.889, -98)
+states/idle/node = SubResource("AnimationNodeAnimation_4ithi")
+states/idle/position = Vector2(480, 57.6667)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ar6ee"), "idle", "fire", SubResource("AnimationNodeStateMachineTransition_3snrc"), "fire", "idle", SubResource("AnimationNodeStateMachineTransition_m833m")]
+graph_offset = Vector2(-182, -188)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_necjx"]
+animation = &"destroyed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2gyp6"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7r17"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ul24"]
+advance_mode = 2
+advance_expression = "_is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fddpu"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "not _is_hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k1px2"]
+advance_mode = 2
+advance_expression = "not _is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_df6mm"]
+advance_mode = 2
+advance_expression = "_is_dead"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1anhm"]
+states/Attack/node = SubResource("AnimationNodeStateMachine_47huy")
+states/Attack/position = Vector2(527, 100)
+states/destroyed/node = SubResource("AnimationNodeAnimation_necjx")
+states/destroyed/position = Vector2(526.333, 238.667)
+states/hit/node = SubResource("AnimationNodeAnimation_2gyp6")
+states/hit/position = Vector2(527, -42)
+transitions = ["Start", "Attack", SubResource("AnimationNodeStateMachineTransition_a7r17"), "Attack", "hit", SubResource("AnimationNodeStateMachineTransition_4ul24"), "hit", "Attack", SubResource("AnimationNodeStateMachineTransition_fddpu"), "destroyed", "Attack", SubResource("AnimationNodeStateMachineTransition_k1px2"), "Attack", "destroyed", SubResource("AnimationNodeStateMachineTransition_df6mm")]
+graph_offset = Vector2(-226, -95)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qwb76"]
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50o3p"]
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2862j"]
+radius = 15.0
+height = 40.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4m6hi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_h0jr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_47hm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_850mk")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8gqj"]
+radius = 20.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6yp4"]
+radius = 96.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqwcv"]
+radius = 5.0
+height = 18.0
+
+[node name="Seashell" type="CharacterBody2D"]
+collision_layer = 65536
+script = ExtResource("1_h6dc2")
+_projectile = ExtResource("21_xodwn")
+_is_facing_left = true
+_sprites_face_left = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("26_d70bw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_1au2v")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_1anhm")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qwb76")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_50o3p")
+debug_color = Color(0, 0.639216, 0.356863, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 262144
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2862j")
+debug_color = Color(0.992157, 0, 0.27451, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HitBox"]
+position = Vector2(-17, -16)
+sprite_frames = SubResource("SpriteFrames_4m6hi")
+frame = 3
+frame_progress = 1.0
+
+[node name="Target" type="Area2D" parent="HitBox"]
+collision_layer = 1048576
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox/Target"]
+position = Vector2(-1, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n8gqj")
+debug_color = Color(0.411765, 0.490196, 0, 0.419608)
+
+[node name="Vision" type="Area2D" parent="."]
+visible = false
+collision_layer = 524288
+collision_mask = 256
+monitorable = false
+
+[node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
+position = Vector2(-62, -18)
+shape = SubResource("CircleShape2D_f6yp4")
+debug_color = Color(0.996078, 1, 1, 0.419608)
+
+[node name="LineOfSight" type="RayCast2D" parent="Vision"]
+position = Vector2(1, -18)
+target_position = Vector2(-63, 0)
+collision_mask = 257
+
+[node name="ProjectileOrigin" type="Node2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Debris" type="Node2D" parent="."]
+script = ExtResource("22_863uu")
+
+[node name="TopLeft" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(-5, -16)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/TopLeft"]
+texture = ExtResource("8_wlvuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/TopLeft"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fqwcv")
+
+[node name="BottomLeft" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(-5, -7)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/BottomLeft"]
+texture = ExtResource("11_31ggb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/BottomLeft"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fqwcv")
+
+[node name="TopRight" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(7, -15)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/TopRight"]
+texture = ExtResource("9_1bloy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/TopRight"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fqwcv")
+
+[node name="BottomRight" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(7, -7)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/BottomRight"]
+texture = ExtResource("10_kqbwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/BottomRight"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fqwcv")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="HitBox/Target" to="." method="_on_target_area_entered"]
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="fire"]

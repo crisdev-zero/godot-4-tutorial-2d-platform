@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://hdx3pskyvd41"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/projectile.gd" id="1_jbtsp"]
+[ext_resource type="Texture2D" uid="uid://bgy4qd4mbupio" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Pearl Idle/1.png" id="1_ngkum"]
+[ext_resource type="Texture2D" uid="uid://6ibyj1fkyrl1" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Pearl Destroyed/2.png" id="2_kwrib"]
+[ext_resource type="Texture2D" uid="uid://boe407h5v1ju4" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Pearl Destroyed/3.png" id="3_u1r8w"]
+[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="3_y442f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3c1th"]
+radius = 4.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahdb3"]
+radius = 1.0
+height = 6.0
+
+[node name="Pearl" type="Area2D"]
+collision_layer = 262144
+collision_mask = 513
+script = ExtResource("1_jbtsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ngkum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3c1th")
+debug_color = Color(0.975452, 0, 0.419295, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Debris" type="Node2D" parent="."]
+script = ExtResource("3_y442f")
+
+[node name="Top" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(0, -2)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Top"]
+texture = ExtResource("2_kwrib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Top"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ahdb3")
+
+[node name="Bottom" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(1, 1)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Bottom"]
+texture = ExtResource("3_u1r8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Bottom"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ahdb3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

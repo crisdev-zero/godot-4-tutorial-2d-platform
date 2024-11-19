@@ -1,4 +1,5 @@
 extends Character
+class_name Enemy
 
 @onready var _line_of_sight: RayCast2D = $Vision/LineOfSight
 @onready var _vision: Area2D = $Vision

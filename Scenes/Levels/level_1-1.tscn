@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bsxudgobhaq7s"]
+[gd_scene load_steps=43 format=3 uid="uid://bsxudgobhaq7s"]
 
 [ext_resource type="Texture2D" uid="uid://cx5ofw1xb0ya1" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_j6s8t"]
 [ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://ostb2albae72" path="res://Scenes/Characters/patrol.tscn" id="22_843if"]
 [ext_resource type="PackedScene" uid="uid://b5o6hkdxcsuip" path="res://Scenes/Treasure/gold_coin.tscn" id="23_whpiu"]
 [ext_resource type="PackedScene" uid="uid://bbgp11x14p3xy" path="res://Scenes/Treasure/silver_coin.tscn" id="24_rvnrt"]
+[ext_resource type="PackedScene" uid="uid://d0l1j5aspyxw0" path="res://Scenes/Characters/seashell.tscn" id="25_e4ito"]
 [ext_resource type="PackedScene" uid="uid://c14nkxtly2bl8" path="res://Scenes/Treasure/golden_skull.tscn" id="25_roqeu"]
 [ext_resource type="PackedScene" uid="uid://0cd7a5pn3q21" path="res://Scenes/Treasure/chest.tscn" id="26_3184q"]
 [ext_resource type="PackedScene" uid="uid://bkx657bilshhb" path="res://Scenes/Treasure/key.tscn" id="27_7ggwo"]
@@ -1682,7 +1683,7 @@ position = Vector2(61, -30)
 _ledge_behavior = 0
 
 [node name="Fierce Tooth" parent="Enemies" instance=ExtResource("14_0njq5")]
-position = Vector2(336, 0)
+position = Vector2(460, -31)
 _speed = 2.0
 _deceleration = 15.0
 _jump_height = 1.5
@@ -1693,6 +1694,12 @@ autostart = true
 
 [node name="Patrol" parent="Enemies/Fierce Tooth" instance=ExtResource("22_843if")]
 _ledge_behavior = 0
+
+[node name="Seashell" parent="Enemies" instance=ExtResource("25_e4ito")]
+position = Vector2(151, -32)
+_speed = 0.0
+_acceleration = 0.0
+_deceleration = 0.0
 
 [node name="Treasure" type="Node2D" parent="."]
 
