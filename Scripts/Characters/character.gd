@@ -33,6 +33,7 @@ var _is_below_surface: bool
 @export_range(1, 100) var _max_health: int = 5
 @export_range(0, 5) var _invincible_duration: float = 0
 @export_range(0, 5) var _attack_damage: int = 1
+@export_range(0, 10) var _stagger: float = 5
 @export var _is_hit: bool:
 	set = set_is_hit
 @export var _is_dead: bool
@@ -75,7 +76,7 @@ func _ready():
 #region Public Methods
 func is_facing_left() -> bool:
 	return _is_facing_left
-	
+
 
 func set_is_attacking(value: bool):
 	_is_attacking = value
@@ -92,7 +93,7 @@ func attack():
 func take_damage(amount: int, direction: Vector2):
 	_current_health = max(_current_health - amount, 0)
 	health_changed.emit(float(_current_health) / _max_health)
-	velocity = direction * Global.ppt * 5
+	velocity = direction * Global.ppt * _stagger
 	if _is_attacking:
 		_attack_interrupted()
 	if _current_health == 0:

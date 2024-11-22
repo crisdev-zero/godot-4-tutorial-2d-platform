@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var _destroyed: Texture2D
+@export var _flip_with_direction: bool
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _timer: Timer = $Timer
@@ -21,6 +22,8 @@ func _process(delta: float) -> void:
 # Public methods
 func fire(direction: Vector2, speed: float, damage: int, duration: float):
 	_direction = direction
+	if _flip_with_direction and _direction.x > 0:
+		scale.x = -1
 	_speed = speed
 	_damage = damage
 

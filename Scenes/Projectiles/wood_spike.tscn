@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq6512o1r5tc"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Enemies/projectile.gd" id="1_go4eo"]
+[ext_resource type="Texture2D" uid="uid://okbi5tvkroys" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="2_itx1g"]
+[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="3_qiwwc"]
+[ext_resource type="Texture2D" uid="uid://yflo35ei77b1" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/2.png" id="4_xixto"]
+[ext_resource type="Texture2D" uid="uid://dxhdb6hnhkbfr" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/3.png" id="5_wcyty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpog2"]
+size = Vector2(9.5, 6)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahdb3"]
+radius = 1.0
+height = 6.0
+
+[node name="WoodSpike" type="Area2D"]
+collision_layer = 262144
+collision_mask = 513
+script = ExtResource("1_go4eo")
+_flip_with_direction = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_itx1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_xpog2")
+debug_color = Color(0.975452, 0, 0.419295, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Debris" type="Node2D" parent="."]
+script = ExtResource("3_qiwwc")
+
+[node name="Top" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(-1, 0)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Top"]
+texture = ExtResource("4_xixto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Top"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ahdb3")
+
+[node name="Bottom" type="RigidBody2D" parent="Debris"]
+visible = false
+position = Vector2(2, 0)
+collision_layer = 8
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Debris/Bottom"]
+texture = ExtResource("5_wcyty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debris/Bottom"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ahdb3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

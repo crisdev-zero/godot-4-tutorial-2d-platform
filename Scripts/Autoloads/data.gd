@@ -9,7 +9,7 @@ class_name Data extends Resource
 
 func _init():
 	world = 1
-	level = 1
+	level = 4
 	coins = 0
 	lives = 3
 	checkpoint = 0
