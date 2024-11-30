@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bya0lnb7t0c47"]
+[gd_scene load_steps=44 format=3 uid="uid://bya0lnb7t0c47"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_5fynq"]
 [ext_resource type="Texture2D" uid="uid://bl06bdrq1hssa" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Idle 2/1.png" id="1_yxaot"]
@@ -18,6 +18,34 @@
 [ext_resource type="Texture2D" uid="uid://cbcu3m7ak2oeg" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Attack 2/4.png" id="12_b0w7t"]
 [ext_resource type="Texture2D" uid="uid://daoa8pb8jhtyq" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Attack 2/5.png" id="13_ufhq1"]
 [ext_resource type="Texture2D" uid="uid://bugtd7jcy40eo" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 2/Attack 2/6.png" id="14_7vcux"]
+
+[sub_resource type="Animation" id="Animation_sffbv"]
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yxaot")]
+}
 
 [sub_resource type="Animation" id="Animation_crs3f"]
 resource_name = "destroyed"
@@ -149,6 +177,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v5qxf"]
 _data = {
+"RESET": SubResource("Animation_sffbv"),
 "destroyed": SubResource("Animation_crs3f"),
 "fire": SubResource("Animation_hk7i3"),
 "hit": SubResource("Animation_smx5d"),
@@ -259,15 +288,11 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_v5qxf")
-}
 tree_root = SubResource("AnimationNodeStateMachine_bvmtl")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -11.75)
 shape = SubResource("RectangleShape2D_bsuuf")
 
