@@ -239,17 +239,19 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("29_pg4cr"), ExtResource("30_421nq"), ExtResource("31_bw5hd"), ExtResource("32_blp2t")]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("..:_is_hit")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [{
+"args": [false],
+"method": &"set_is_hit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ubroc"]
@@ -549,7 +551,7 @@ _drag = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
-texture = ExtResource("41_vmni7")
+texture = ExtResource("4_2m5e7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -558,9 +560,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_1au2v")
-}
 tree_root = SubResource("AnimationNodeStateMachine_1anhm")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
@@ -584,6 +583,7 @@ debug_color = Color(0, 0.639216, 0.356863, 0.419608)
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 262144
 collision_mask = 512
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
