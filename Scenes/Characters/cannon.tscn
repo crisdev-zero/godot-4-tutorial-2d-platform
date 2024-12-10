@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cfp415srkmv3g" path="res://Scenes/Projectiles/cannonball.tscn" id="2_vt6og"]
 [ext_resource type="Texture2D" uid="uid://gmgvh7q750gb" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="3_4cp3n"]
 [ext_resource type="Texture2D" uid="uid://dplb3py37lrhs" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="3_eaqai"]
-[ext_resource type="Texture2D" uid="uid://dxbcmj4pjaurm" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/1.png" id="4_pqvxf"]
 [ext_resource type="Texture2D" uid="uid://77ynghb10005" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="5_2a0t3"]
 [ext_resource type="Texture2D" uid="uid://cmp42h4a1jml4" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="6_uvh1a"]
 [ext_resource type="Texture2D" uid="uid://bxeyq0q1jv7uj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/3.png" id="7_tgjk6"]
@@ -19,7 +18,23 @@
 [ext_resource type="Texture2D" uid="uid://cpub7hyduuqgj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/3.png" id="18_7pgju"]
 [ext_resource type="Texture2D" uid="uid://chvcjltu6028t" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/4.png" id="19_t4fes"]
 
-[sub_resource type="Animation" id="Animation_t6d1r"]
+[sub_resource type="Animation" id="Animation_xhl3o"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_eaqai")]
+}
+
+[sub_resource type="Animation" id="Animation_xx68q"]
 resource_name = "destroyed"
 length = 0.2
 tracks/0/type = "value"
@@ -32,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_pqvxf")]
+"values": [ExtResource("10_hl51n")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,7 +76,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_emgal"]
+[sub_resource type="Animation" id="Animation_51irj"]
 resource_name = "fire"
 length = 0.6
 tracks/0/type = "value"
@@ -76,25 +91,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("5_2a0t3"), ExtResource("6_uvh1a"), ExtResource("7_tgjk6"), ExtResource("8_ibcii"), ExtResource("9_pjc64"), ExtResource("3_4cp3n")]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("..:_wants_to_fire")
+tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -102,8 +105,20 @@ tracks/2/keys = {
 "method": &"_spawn_projectile"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:_wants_to_fire")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_s4xqq"]
+[sub_resource type="Animation" id="Animation_r4vtq"]
 resource_name = "hit"
 length = 0.4
 tracks/0/type = "value"
@@ -133,9 +148,8 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_imdul"]
-resource_name = "idle"
-length = 0.1
+[sub_resource type="Animation" id="Animation_jijwy"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -146,15 +160,40 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_eaqai")]
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:_wants_to_fire")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p51wq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_inoui"]
 _data = {
-"destroyed": SubResource("Animation_t6d1r"),
-"fire": SubResource("Animation_emgal"),
-"hit": SubResource("Animation_s4xqq"),
-"idle": SubResource("Animation_imdul")
+"RESET": SubResource("Animation_jijwy"),
+"destroyed": SubResource("Animation_xx68q"),
+"fire": SubResource("Animation_51irj"),
+"hit": SubResource("Animation_r4vtq"),
+"idle": SubResource("Animation_xhl3o")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qbv3"]
@@ -258,13 +297,11 @@ _density = 1.0
 _drag = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, -13)
-texture = ExtResource("3_eaqai")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_p51wq")
+"": SubResource("AnimationLibrary_inoui")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]

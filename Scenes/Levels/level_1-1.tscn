@@ -1707,12 +1707,12 @@ _ledge_behaviour = 0
 [node name="Seashell" parent="Enemies" instance=ExtResource("25_dt6fq")]
 position = Vector2(1104, -128)
 
-[node name="Seashell2" parent="Enemies" instance=ExtResource("25_dt6fq")]
-position = Vector2(160, -42)
-
 [node name="Cannon" parent="Enemies" instance=ExtResource("26_by1m7")]
 position = Vector2(2720, -224)
 _is_facing_left = false
+
+[node name="Cannon2" parent="Enemies" instance=ExtResource("26_by1m7")]
+position = Vector2(182, -62)
 
 [node name="Treasure" type="Node2D" parent="."]
 
