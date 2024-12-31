@@ -1279,6 +1279,7 @@ animations = [{
 b = Vector2(3456, 0)
 
 [node name="Level" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_u3n8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
