@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ucffp7m3wpq0"]
+[gd_scene load_steps=54 format=3 uid="uid://ucffp7m3wpq0"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_uggmm"]
 [ext_resource type="Script" path="res://Scripts/Environment/camera.gd" id="2_h4drt"]
@@ -28,10 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://caqfbftulc6tv" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="25_wrqxe"]
 [ext_resource type="Texture2D" uid="uid://dg2wbclo2xl41" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="26_qpp4f"]
 [ext_resource type="Texture2D" uid="uid://oew62jv0tn4e" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="27_mk4mw"]
-[ext_resource type="Texture2D" uid="uid://ba5ngc5r6k63x" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Green Button/1.png" id="29_4k2b0"]
-[ext_resource type="Texture2D" uid="uid://d1ejogte22vai" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Yellow Button/1.png" id="30_37pc7"]
-[ext_resource type="Texture2D" uid="uid://bdtc5dftomk2c" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/9.png" id="31_fw5mm"]
-[ext_resource type="Texture2D" uid="uid://r3qxjfxskict" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="32_xkqrq"]
+[ext_resource type="Theme" uid="uid://c78ph4b3esfmg" path="res://wood_and_paper.tres" id="28_k1eim"]
 [ext_resource type="Texture2D" uid="uid://dkit36j3e4fgq" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/3.png" id="33_kcpay"]
 [ext_resource type="Texture2D" uid="uid://bec7hei3pqdqt" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/13.png" id="34_bhpkg"]
 [ext_resource type="Texture2D" uid="uid://pf4cpnck86hx" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Banner/7.png" id="35_5n57j"]
@@ -56,71 +53,6 @@
 [ext_resource type="Texture2D" uid="uid://bls03yjmgkpu2" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/9.png" id="53_xcuay"]
 [ext_resource type="Texture2D" uid="uid://ohchksec22yn" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/16.png" id="54_cmtcy"]
 [ext_resource type="Texture2D" uid="uid://uam2xs8mlup0" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Small Text/Small Text/21.png" id="55_3jcub"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc6g8"]
-texture = ExtResource("29_4k2b0")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc8ie"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gis1"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyu8b"]
-texture = ExtResource("29_4k2b0")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8s5wl"]
-texture = ExtResource("30_37pc7")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 8.0
-modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4d5c4"]
-texture = ExtResource("31_fw5mm")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(12, 12, 104, 104)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qokrj"]
-texture = ExtResource("32_xkqrq")
-texture_margin_left = 16.0
-texture_margin_top = 14.0
-texture_margin_right = 14.0
-texture_margin_bottom = 14.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="Theme" id="Theme_trhg7"]
-Button/styles/disabled = SubResource("StyleBoxTexture_kc6g8")
-Button/styles/focus = SubResource("StyleBoxTexture_dc8ie")
-Button/styles/hover = SubResource("StyleBoxTexture_3gis1")
-Button/styles/normal = SubResource("StyleBoxTexture_dyu8b")
-Button/styles/pressed = SubResource("StyleBoxTexture_8s5wl")
-Panel/styles/panel = SubResource("StyleBoxTexture_4d5c4")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_qokrj")
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -274,7 +206,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-theme = SubResource("Theme_trhg7")
+theme = ExtResource("28_k1eim")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu"]
 layout_mode = 1
@@ -518,6 +450,7 @@ layout_mode = 2
 texture = ExtResource("45_ly4gr")
 
 [node name="PauseMenu" type="Control" parent="UserInterface"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -527,7 +460,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-theme = SubResource("Theme_trhg7")
+theme = ExtResource("28_k1eim")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/PauseMenu"]
 layout_mode = 1
