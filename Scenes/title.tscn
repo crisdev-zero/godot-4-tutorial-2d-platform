@@ -159,7 +159,7 @@ position = Vector2(210, 140)
 position = Vector2(364, 214.333)
 sprite_frames = SubResource("SpriteFrames_b1uak")
 autoplay = "default"
-frame_progress = 0.263557
+frame_progress = 0.682485
 
 [node name="Sail" type="AnimatedSprite2D" parent="Ship"]
 position = Vector2(16.6667, -35.6667)
