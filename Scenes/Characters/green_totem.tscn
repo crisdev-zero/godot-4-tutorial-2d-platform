@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://mdhy6yikhuiy"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_6dbd4"]
+[ext_resource type="Script" uid="uid://b25huo25r5p7l" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_6dbd4"]
 [ext_resource type="Texture2D" uid="uid://bogavcdxgfvr6" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Idle 2/1.png" id="1_jsqit"]
 [ext_resource type="PackedScene" uid="uid://bt1fux2nytupr" path="res://Scenes/Projectiles/wood_spike.tscn" id="2_7kx8a"]
 [ext_resource type="Texture2D" uid="uid://c3kou7wmlw8kj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Hit 2/1.png" id="4_kowq5"]
@@ -14,10 +14,25 @@
 [ext_resource type="Texture2D" uid="uid://cm01nyxniwyvv" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Attack 2/5.png" id="12_l5klc"]
 [ext_resource type="Texture2D" uid="uid://csv2qf22f8gso" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Attack 2/6.png" id="13_fcmdx"]
 [ext_resource type="Texture2D" uid="uid://ddvn8ks5582kr" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Destroyed/2.png" id="14_07wwy"]
-[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="15_ui0a6"]
+[ext_resource type="Script" uid="uid://bn1s6f65ftw7m" path="res://Scripts/Environment/debris.gd" id="15_ui0a6"]
 [ext_resource type="Texture2D" uid="uid://ir6odwonrjl4" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Destroyed/4.png" id="15_xm5yg"]
 [ext_resource type="Texture2D" uid="uid://dy763wjk46v4j" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Destroyed/5.png" id="16_lerwn"]
 [ext_resource type="Texture2D" uid="uid://ctg1jnn4eb2gn" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Totems/Head 3/Destroyed/6.png" id="17_l2sp6"]
+
+[sub_resource type="Animation" id="Animation_17lif"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_raypv"]
 resource_name = "destroyed"
@@ -147,28 +162,13 @@ tracks/0/keys = {
 "values": [ExtResource("1_jsqit")]
 }
 
-[sub_resource type="Animation" id="Animation_17lif"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mfisj"]
 _data = {
-"RESET": SubResource("Animation_17lif"),
-"destroyed": SubResource("Animation_raypv"),
-"fire": SubResource("Animation_ccnjw"),
-"hit": SubResource("Animation_sc8wu"),
-"idle": SubResource("Animation_h8vsf")
+&"RESET": SubResource("Animation_17lif"),
+&"destroyed": SubResource("Animation_raypv"),
+&"fire": SubResource("Animation_ccnjw"),
+&"hit": SubResource("Animation_sc8wu"),
+&"idle": SubResource("Animation_h8vsf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ltwp7"]

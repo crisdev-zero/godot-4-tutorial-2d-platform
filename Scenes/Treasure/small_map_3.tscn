@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bdun06ee6r25e"]
 
-[ext_resource type="Script" path="res://Scripts/Treasure/small_map.gd" id="1_oq0nj"]
+[ext_resource type="Script" uid="uid://dhc45k2adxkwm" path="res://Scripts/Treasure/small_map.gd" id="1_oq0nj"]
 [ext_resource type="Texture2D" uid="uid://cngykggtnlhyh" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/01.png" id="2_dvd02"]
 [ext_resource type="Texture2D" uid="uid://ta14cu8olj50" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/02.png" id="3_d2t8x"]
 [ext_resource type="Texture2D" uid="uid://ckooxktvetchv" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Small Maps/Small Map 3/03.png" id="4_hd23j"]

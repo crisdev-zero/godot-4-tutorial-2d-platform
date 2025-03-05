@@ -1,7 +1,7 @@
 [gd_scene load_steps=187 format=3 uid="uid://b3a0x6goc1rbj"]
 
 [ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_6q04p"]
-[ext_resource type="Script" path="res://Scripts/Characters/hero.gd" id="1_r551r"]
+[ext_resource type="Script" uid="uid://b256im6yajoky" path="res://Scripts/Characters/hero.gd" id="1_r551r"]
 [ext_resource type="Texture2D" uid="uid://tmaeuh3j0xr7" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 02.png" id="2_rxdfr"]
 [ext_resource type="PackedScene" uid="uid://cs1y72y70b50n" path="res://Scenes/Dust/jump_dust.tscn" id="2_top12"]
 [ext_resource type="Texture2D" uid="uid://cy2xm5nri7uf3" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/18-Air Attack 1/Air Attack 1 01.png" id="3_fantc"]
@@ -1185,26 +1185,26 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
-"RESET": SubResource("Animation_lkqiw"),
-"air_attack_1": SubResource("Animation_gjgkm"),
-"air_attack_2": SubResource("Animation_dhb2x"),
-"attack_1": SubResource("Animation_pq8pj"),
-"attack_2": SubResource("Animation_rdpb3"),
-"attack_3": SubResource("Animation_2e0mo"),
-"dead_ground": SubResource("Animation_8t3ur"),
-"dead_hit": SubResource("Animation_lob4j"),
-"fall": SubResource("Animation_asfii"),
-"fall_sword": SubResource("Animation_7c2oh"),
-"ground": SubResource("Animation_w7ei2"),
-"ground_sword": SubResource("Animation_hll1m"),
-"hit": SubResource("Animation_23tam"),
-"hit_sword": SubResource("Animation_83cd3"),
-"idle": SubResource("Animation_ubroc"),
-"idle_sword": SubResource("Animation_2fk6f"),
-"jump": SubResource("Animation_u2lx2"),
-"jump_sword": SubResource("Animation_ocb3f"),
-"run": SubResource("Animation_7lm3y"),
-"run_sword": SubResource("Animation_i167v")
+&"RESET": SubResource("Animation_lkqiw"),
+&"air_attack_1": SubResource("Animation_gjgkm"),
+&"air_attack_2": SubResource("Animation_dhb2x"),
+&"attack_1": SubResource("Animation_pq8pj"),
+&"attack_2": SubResource("Animation_rdpb3"),
+&"attack_3": SubResource("Animation_2e0mo"),
+&"dead_ground": SubResource("Animation_8t3ur"),
+&"dead_hit": SubResource("Animation_lob4j"),
+&"fall": SubResource("Animation_asfii"),
+&"fall_sword": SubResource("Animation_7c2oh"),
+&"ground": SubResource("Animation_w7ei2"),
+&"ground_sword": SubResource("Animation_hll1m"),
+&"hit": SubResource("Animation_23tam"),
+&"hit_sword": SubResource("Animation_83cd3"),
+&"idle": SubResource("Animation_ubroc"),
+&"idle_sword": SubResource("Animation_2fk6f"),
+&"jump": SubResource("Animation_u2lx2"),
+&"jump_sword": SubResource("Animation_ocb3f"),
+&"run": SubResource("Animation_7lm3y"),
+&"run_sword": SubResource("Animation_i167v")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4cwhm"]

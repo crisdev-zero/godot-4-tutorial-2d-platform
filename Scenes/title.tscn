@@ -1,7 +1,7 @@
 [gd_scene load_steps=60 format=3 uid="uid://shi7s2unsj57"]
 
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="1_fk1l3"]
-[ext_resource type="Script" path="res://Scripts/title_manager.gd" id="1_hcpv6"]
+[ext_resource type="Script" uid="uid://yidb5qh8ntg3" path="res://Scripts/title_manager.gd" id="1_hcpv6"]
 [ext_resource type="Texture2D" uid="uid://mph8k6w31y0v" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/10.png" id="2_p3ftu"]
 [ext_resource type="Texture2D" uid="uid://qgt8n2ely8d2" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="2_usq4n"]
 [ext_resource type="Texture2D" uid="uid://ckm6s5v837kmq" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/1.png" id="2_xs651"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8favqpa5ioca"]
 
 [ext_resource type="Texture2D" uid="uid://bvo7i1j0ansrm" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_orogf"]
-[ext_resource type="Script" path="res://Scripts/Environment/hazard.gd" id="1_vrj15"]
+[ext_resource type="Script" uid="uid://b2ck7ke7oxqis" path="res://Scripts/Environment/hazard.gd" id="1_vrj15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybsyj"]
 size = Vector2(32, 8)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=37 format=3 uid="uid://bsxudgobhaq7s"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
+[ext_resource type="Script" uid="uid://3geq0luq5w0o" path="res://Scripts/Environment/level.gd" id="1_u3n8c"]
 [ext_resource type="TileSet" uid="uid://fbwod5lr5j03" path="res://tile_set.tres" id="2_6rxwc"]
 [ext_resource type="AudioStream" uid="uid://026x55uwat6j" path="res://Music/320978__littlerobotsoundfactory__loop_the_seven_seas_00.wav" id="2_fm2h8"]
-[ext_resource type="Script" path="res://Scripts/Environment/water.gd" id="3_sb24s"]
+[ext_resource type="Script" uid="uid://c1kwcsof42ctg" path="res://Scripts/Environment/water.gd" id="3_sb24s"]
 [ext_resource type="PackedScene" uid="uid://dhsfj4exww2f5" path="res://Scenes/Dust/splash.tscn" id="4_hvc0i"]
 [ext_resource type="Texture2D" uid="uid://b4t4yqdih0sib" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="5_6v1g3"]
 [ext_resource type="Texture2D" uid="uid://qgt8n2ely8d2" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Water/Water/Top/1.png" id="6_1miuf"]

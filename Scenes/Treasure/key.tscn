@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bkx657bilshhb"]
 
-[ext_resource type="Script" path="res://Scripts/Treasure/key.gd" id="1_a88do"]
+[ext_resource type="Script" uid="uid://ow2mgfd8johu" path="res://Scripts/Treasure/key.gd" id="1_a88do"]
 [ext_resource type="Texture2D" uid="uid://btpaexl6x7ykk" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_tkhgn"]
 [ext_resource type="Texture2D" uid="uid://dgwitxsgc8q5a" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="3_yutin"]
 [ext_resource type="Texture2D" uid="uid://bf1m6dedoy603" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="4_ik741"]

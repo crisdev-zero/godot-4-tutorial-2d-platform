@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://0cd7a5pn3q21"]
 
 [ext_resource type="Texture2D" uid="uid://clhago2kyt14o" path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="1_lpyc4"]
-[ext_resource type="Script" path="res://Scripts/Treasure/chest.gd" id="1_mvq5b"]
+[ext_resource type="Script" uid="uid://fpn484mc4p5p" path="res://Scripts/Treasure/chest.gd" id="1_mvq5b"]
 [ext_resource type="PackedScene" uid="uid://bbgp11x14p3xy" path="res://Scenes/Treasure/silver_coin.tscn" id="2_kt6n2"]
 [ext_resource type="PackedScene" uid="uid://b5o6hkdxcsuip" path="res://Scenes/Treasure/gold_coin.tscn" id="3_ou85j"]
 [ext_resource type="PackedScene" uid="uid://tekwb1gjaq7h" path="res://Scenes/Treasure/padlock.tscn" id="4_akh62"]
@@ -219,13 +219,13 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hja48"]
 _data = {
-"close": SubResource("Animation_iygft"),
-"closed_idle": SubResource("Animation_ks03a"),
-"lock": SubResource("Animation_esw3y"),
-"locked_idle": SubResource("Animation_lnbjt"),
-"open": SubResource("Animation_u04qy"),
-"open_idle": SubResource("Animation_c285g"),
-"unlock": SubResource("Animation_fslo8")
+&"close": SubResource("Animation_iygft"),
+&"closed_idle": SubResource("Animation_ks03a"),
+&"lock": SubResource("Animation_esw3y"),
+&"locked_idle": SubResource("Animation_lnbjt"),
+&"open": SubResource("Animation_u04qy"),
+&"open_idle": SubResource("Animation_c285g"),
+&"unlock": SubResource("Animation_fslo8")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lc3ui"]

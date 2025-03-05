@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=3 uid="uid://gklr02nhe26d"]
 
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="1_gq3yx"]
-[ext_resource type="Script" path="res://Scripts/level_select_manager.gd" id="1_j1uck"]
+[ext_resource type="Script" uid="uid://crbph8jp6t3gy" path="res://Scripts/level_select_manager.gd" id="1_j1uck"]
 [ext_resource type="TileSet" uid="uid://fbwod5lr5j03" path="res://tile_set.tres" id="2_2b4gt"]
 [ext_resource type="AudioStream" uid="uid://cogfh7owhw3jr" path="res://Music/321018__littlerobotsoundfactory__loop_pirates_ahoy_00.wav" id="2_5olwm"]
 [ext_resource type="Texture2D" uid="uid://cxq4cxkymt7t7" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 01.png" id="3_4nwu0"]

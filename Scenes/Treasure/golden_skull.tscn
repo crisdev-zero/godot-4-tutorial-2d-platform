@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c14nkxtly2bl8"]
 
 [ext_resource type="Texture2D" uid="uid://bm23m3xh263ay" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/01.png" id="1_wj3sr"]
-[ext_resource type="Script" path="res://Scripts/Treasure/skull.gd" id="1_yredt"]
+[ext_resource type="Script" uid="uid://j5rgl5s0m0n" path="res://Scripts/Treasure/skull.gd" id="1_yredt"]
 [ext_resource type="Texture2D" uid="uid://cgf2p6n60lqou" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/02.png" id="2_h14td"]
 [ext_resource type="Texture2D" uid="uid://dgdpv84i82sft" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/03.png" id="3_58aci"]
 [ext_resource type="Texture2D" uid="uid://cw4crtnwe2d5j" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Golden Skull/04.png" id="4_qyckb"]
