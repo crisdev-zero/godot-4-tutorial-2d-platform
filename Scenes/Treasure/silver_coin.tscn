@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bbgp11x14p3xy"]
 
 [ext_resource type="Texture2D" uid="uid://dysq8rst3km62" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/01.png" id="1_nfo0d"]
-[ext_resource type="Script" path="res://Scripts/Treasure/coin.gd" id="1_qtph2"]
+[ext_resource type="Script" uid="uid://b8xui2ehtnomw" path="res://Scripts/Treasure/coin.gd" id="1_qtph2"]
 [ext_resource type="Texture2D" uid="uid://baljkgak7bdce" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/02.png" id="2_sgbli"]
 [ext_resource type="Texture2D" uid="uid://dg8x0tsy7iwlp" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/03.png" id="3_5afu0"]
 [ext_resource type="Texture2D" uid="uid://cfgvjryvyam6x" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Silver Coin/04.png" id="4_pdg0y"]

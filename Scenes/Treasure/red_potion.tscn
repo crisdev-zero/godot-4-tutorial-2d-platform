@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://nvlg3saoqr4g"]
 
-[ext_resource type="Script" path="res://Scripts/Treasure/red_potion.gd" id="1_0ygh0"]
+[ext_resource type="Script" uid="uid://dfn3iv1ddl6et" path="res://Scripts/Treasure/red_potion.gd" id="1_0ygh0"]
 [ext_resource type="Texture2D" uid="uid://bge4grul6xf4o" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="2_q63nn"]
 [ext_resource type="Texture2D" uid="uid://b3wvygeftuies" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="3_nafbm"]
 [ext_resource type="Texture2D" uid="uid://dutlah76j0dr2" path="res://Treasure Hunters/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/03.png" id="4_h1kw0"]

@@ -23,3 +23,6 @@ func reset(game_over: bool):
 		lives = 3
 	checkpoint = 0
 	has_key = false
+
+func set_progress_marker():
+	pass

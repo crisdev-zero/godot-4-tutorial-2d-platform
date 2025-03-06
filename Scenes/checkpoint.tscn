@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ckba5qy6ibk3x"]
 
 [ext_resource type="Texture2D" uid="uid://cusi4ffltpe1x" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="1_1vqkp"]
-[ext_resource type="Script" path="res://Scripts/Environment/checkpoint.gd" id="1_yso2q"]
+[ext_resource type="Script" uid="uid://c33a6s7rdt2qp" path="res://Scripts/Environment/checkpoint.gd" id="1_yso2q"]
 [ext_resource type="Texture2D" uid="uid://bnd3dbtqlcxv4" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="2_7olws"]
 [ext_resource type="Texture2D" uid="uid://ciw4bncwx2qfc" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="3_rxmyd"]
 [ext_resource type="Texture2D" uid="uid://bof70uyub4uyk" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="4_p4wvi"]

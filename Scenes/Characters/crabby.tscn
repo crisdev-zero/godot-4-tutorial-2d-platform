@@ -1,6 +1,6 @@
 [gd_scene load_steps=100 format=3 uid="uid://hsop5hneidl8"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemies/enemy.gd" id="1_eljy2"]
+[ext_resource type="Script" uid="uid://kbn3sxcrkkrf" path="res://Scripts/Characters/Enemies/enemy.gd" id="1_eljy2"]
 [ext_resource type="Texture2D" uid="uid://b7keixcw7ppvu" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/04-Fall/Fall 01.png" id="4_khy33"]
 [ext_resource type="Texture2D" uid="uid://b1ya38mkjd3tc" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 01.png" id="5_ds7dw"]
 [ext_resource type="Texture2D" uid="uid://r8b1krclylmg" path="res://Treasure Hunters/Treasure Hunters/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 02.png" id="6_bx8nw"]
@@ -335,16 +335,16 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1au2v"]
 _data = {
-"anticipation": SubResource("Animation_dfu0f"),
-"attack": SubResource("Animation_utyim"),
-"dead_ground": SubResource("Animation_ab1u7"),
-"dead_hit": SubResource("Animation_quddp"),
-"fall": SubResource("Animation_asfii"),
-"ground": SubResource("Animation_w7ei2"),
-"hit": SubResource("Animation_kjhev"),
-"idle": SubResource("Animation_ubroc"),
-"jump": SubResource("Animation_u2lx2"),
-"run": SubResource("Animation_7lm3y")
+&"anticipation": SubResource("Animation_dfu0f"),
+&"attack": SubResource("Animation_utyim"),
+&"dead_ground": SubResource("Animation_ab1u7"),
+&"dead_hit": SubResource("Animation_quddp"),
+&"fall": SubResource("Animation_asfii"),
+&"ground": SubResource("Animation_w7ei2"),
+&"hit": SubResource("Animation_kjhev"),
+&"idle": SubResource("Animation_ubroc"),
+&"jump": SubResource("Animation_u2lx2"),
+&"run": SubResource("Animation_7lm3y")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r2kpf"]

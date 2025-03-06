@@ -1,6 +1,6 @@
 [gd_scene load_steps=69 format=3 uid="uid://sy3gtvmha2gs"]
 
-[ext_resource type="Script" path="res://Scripts/level_select_manager.gd" id="1_l31f4"]
+[ext_resource type="Script" uid="uid://dpaw5sfe5uut4" path="res://Scripts/level_select_manager.gd" id="1_l31f4"]
 [ext_resource type="PackedScene" uid="uid://dnrldkyhitb3d" path="res://Scenes/background.tscn" id="1_ml54r"]
 [ext_resource type="Texture2D" uid="uid://ddyv23narnwoa" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_06clj"]
 [ext_resource type="Texture2D" uid="uid://crkod66a2s83n" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="3_60djd"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b3jf03xhghfco" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 03.png" id="15_v3gcm"]
 [ext_resource type="Texture2D" uid="uid://ydlevsq5ktqa" path="res://Treasure Hunters/Treasure Hunters/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 04.png" id="16_p2ehj"]
 [ext_resource type="PackedScene" uid="uid://cmfy37mymag2o" path="res://Scenes/fade.tscn" id="17_dy2p3"]
-[ext_resource type="TileSet" uid="uid://b04x2twea8u1w" path="res://tile_set.tres" id="18_ujv6v"]
+[ext_resource type="TileSet" uid="uid://fbwod5lr5j03" path="res://tile_set.tres" id="18_ujv6v"]
 [ext_resource type="Theme" uid="uid://c78ph4b3esfmg" path="res://wood_and_paper.tres" id="19_wngyj"]
 [ext_resource type="Texture2D" uid="uid://dlns6v60ajh51" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/13.png" id="20_g6iy4"]
 [ext_resource type="Texture2D" uid="uid://bdrmf77wlb6pl" path="res://Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Big Text/1.png" id="21_iplno"]

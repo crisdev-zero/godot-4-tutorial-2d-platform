@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://da7xq2lc5noo3"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_t6lr4"]
+[ext_resource type="Script" uid="uid://b25huo25r5p7l" path="res://Scripts/Characters/Enemies/shooter.gd" id="1_t6lr4"]
 [ext_resource type="PackedScene" uid="uid://cfp415srkmv3g" path="res://Scenes/Projectiles/cannonball.tscn" id="2_vt6og"]
 [ext_resource type="Texture2D" uid="uid://gmgvh7q750gb" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="3_4cp3n"]
 [ext_resource type="Texture2D" uid="uid://dplb3py37lrhs" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Idle/1.png" id="3_eaqai"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://18d6hsc4ydlf" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/2.png" id="11_vsgxm"]
 [ext_resource type="Texture2D" uid="uid://cflrvj0hn642d" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/3.png" id="12_ecgtl"]
 [ext_resource type="Texture2D" uid="uid://4touwu80018n" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Hit/4.png" id="13_t5a80"]
-[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="15_nvpq5"]
+[ext_resource type="Script" uid="uid://bn1s6f65ftw7m" path="res://Scripts/Environment/debris.gd" id="15_nvpq5"]
 [ext_resource type="Texture2D" uid="uid://wqjb5laiml8q" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/2.png" id="17_v6b0v"]
 [ext_resource type="Texture2D" uid="uid://cpub7hyduuqgj" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/3.png" id="18_7pgju"]
 [ext_resource type="Texture2D" uid="uid://chvcjltu6028t" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Destroyed/4.png" id="19_t4fes"]
@@ -189,11 +189,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_inoui"]
 _data = {
-"RESET": SubResource("Animation_jijwy"),
-"destroyed": SubResource("Animation_xx68q"),
-"fire": SubResource("Animation_51irj"),
-"hit": SubResource("Animation_r4vtq"),
-"idle": SubResource("Animation_xhl3o")
+&"RESET": SubResource("Animation_jijwy"),
+&"destroyed": SubResource("Animation_xx68q"),
+&"fire": SubResource("Animation_51irj"),
+&"hit": SubResource("Animation_r4vtq"),
+&"idle": SubResource("Animation_xhl3o")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qbv3"]

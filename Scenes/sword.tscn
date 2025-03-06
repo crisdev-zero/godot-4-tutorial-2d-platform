@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://d1780vii33oyu"]
 
-[ext_resource type="Script" path="res://Scripts/sword.gd" id="1_ejqs7"]
+[ext_resource type="Script" uid="uid://4migeerlp3p2" path="res://Scripts/sword.gd" id="1_ejqs7"]
 [ext_resource type="Texture2D" uid="uid://ch2525vq6kxvw" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="1_vhgbh"]
 [ext_resource type="Texture2D" uid="uid://b84e3icjrm0cu" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 02.png" id="2_ly73a"]
 [ext_resource type="Texture2D" uid="uid://bqajue37l6tqk" path="res://Treasure Hunters/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 03.png" id="3_6hs8f"]
@@ -30,7 +30,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_38mne"]
 _data = {
-"idle": SubResource("Animation_a7sy4")
+&"idle": SubResource("Animation_a7sy4")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlwir"]

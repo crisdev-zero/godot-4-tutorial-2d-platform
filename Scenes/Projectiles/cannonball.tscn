@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cfp415srkmv3g"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemies/projectile.gd" id="1_h6rsu"]
+[ext_resource type="Script" uid="uid://bnb6mje4dksm5" path="res://Scripts/Characters/Enemies/projectile.gd" id="1_h6rsu"]
 [ext_resource type="Texture2D" uid="uid://b53ksfng5t6o4" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Seashell/Pearl Destroyed/1.png" id="2_hge1b"]
 [ext_resource type="PackedScene" uid="uid://c4yn25uvfkfwj" path="res://Scenes/Dust/explosion.tscn" id="3_bhc3l"]
 [ext_resource type="Texture2D" uid="uid://dfdblrcua3dq1" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="3_d0s1e"]
-[ext_resource type="Script" path="res://Scripts/Environment/debris.gd" id="4_yk8wk"]
+[ext_resource type="Script" uid="uid://bn1s6f65ftw7m" path="res://Scripts/Environment/debris.gd" id="4_yk8wk"]
 [ext_resource type="Texture2D" uid="uid://cq377kry2om1s" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Destroyed/1.png" id="5_vyrs1"]
 [ext_resource type="Texture2D" uid="uid://ch2an76le42vo" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Destroyed/2.png" id="6_oi7sy"]
 [ext_resource type="Texture2D" uid="uid://boujcqmgr10av" path="res://Treasure Hunters/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Destroyed/3.png" id="7_5r5ya"]
